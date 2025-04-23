@@ -1,23 +1,53 @@
+
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Heart } from 'lucide-react';
 import EmotionalButton from './EmotionalButton';
 
+// Animation CSS: Inject into the global or component styles as required
+const iconAnimationStyle = `
+@keyframes mobileIconEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-90deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1) rotate(8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.mobile-navbar-icon-anim {
+  animation: mobileIconEnter 0.4s cubic-bezier(.55,1,.38,1.11);
+}
+`;
+
+// Inject animation styles on mount (works for demo/small projects, use CSS files for larger)
+if (typeof window !== 'undefined') {
+  const style = document.createElement('style');
+  style.innerHTML = iconAnimationStyle;
+  // Only insert if not already present
+  if (!document.head.querySelector('style[data-navbar-icon-anim]')) {
+    style.setAttribute('data-navbar-icon-anim', '1');
+    document.head.appendChild(style);
+  }
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('/');
+  const [iconKey, setIconKey] = useState(0); // For key prop on icon component (trigger re-mount/animation)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
-    // Set active link based on current path
     setActiveLink(window.location.pathname);
 
     window.addEventListener('scroll', handleScroll);
@@ -25,11 +55,6 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  // Add appear animation delay for mobile menu items
-  const getAnimationDelay = (index: number) => {
-    return { animationDelay: `${index * 0.1}s` };
-  };
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -40,8 +65,19 @@ const Navbar = () => {
     { name: 'FAQs', href: '/faqs' },
   ];
 
+  // Handles icon transitions
+  const handleMenuToggle = () => {
+    setIsOpen(!isOpen);
+    setIconKey(prev => prev + 1); // force icon re-mount for animation
+  };
+
+  // Add appear animation delay for mobile menu items
+  const getAnimationDelay = (index: number) => {
+    return { animationDelay: `${index * 0.1}s` };
+  };
+
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-5'
       }`}
@@ -75,7 +111,7 @@ const Navbar = () => {
           <EmotionalButton
             href="/contact"
             className="theme-bg-secondary text-white py-2 px-6 rounded-full font-medium hover:scale-110 hover:bg-yellow-400 hover:text-green-900 transition-all duration-200 flex items-center hire-me-btn"
-            style={{transition: 'transform 0.25s cubic-bezier(.4,2,.5,1)'}}
+            style={{ transition: 'transform 0.25s cubic-bezier(.4,2,.5,1)' }}
             emotionType="heart"
             numEmotions={3}
           >
@@ -86,13 +122,22 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={handleMenuToggle}
             className="text-black-soft focus:outline-none"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             {isOpen ? (
-              <X className="h-6 w-6" />
+              <X
+                key={'x-' + iconKey}
+                className="h-6 w-6 mobile-navbar-icon-anim"
+                data-testid="mobile-menu-close"
+              />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu
+                key={'menu-' + iconKey}
+                className="h-6 w-6 mobile-navbar-icon-anim"
+                data-testid="mobile-menu-open"
+              />
             )}
           </button>
         </div>
@@ -101,7 +146,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-sm shadow-lg">
-          <div className="px-4 py-5 space-y-4">
+          <div className="px-10 py-5 space-y-4">
             {navLinks.map((link, index) => (
               <Link
                 key={link.name}
@@ -131,3 +176,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
