@@ -1,8 +1,7 @@
-
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, Heart } from 'lucide-react';
-import EmotionalButton from './EmotionalButton';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X, Heart } from "lucide-react";
+import EmotionalButton from "./EmotionalButton";
 
 // ==== Animation CSS ====
 // More pronounced left-to-right slide-in (mobile nav)
@@ -26,10 +25,10 @@ const mobileNavAnimStyle = `
 }
 `;
 
-if (typeof window !== 'undefined') {
-  const styleId = 'mobile-nav-slidein';
+if (typeof window !== "undefined") {
+  const styleId = "mobile-nav-slidein";
   if (!document.getElementById(styleId)) {
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.id = styleId;
     style.innerHTML = mobileNavAnimStyle;
     document.head.appendChild(style);
@@ -37,18 +36,18 @@ if (typeof window !== 'undefined') {
 }
 
 const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Blog', href: '/blogs' },
-  { name: 'FAQs', href: '/faqs' },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Projects", href: "/projects" },
+  { name: "Blog", href: "/blogs" },
+  { name: "FAQs", href: "/faqs" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [iconKey, setIconKey] = useState(0);
-  const [activeLink, setActiveLink] = useState('/');
+  const [activeLink, setActiveLink] = useState("/");
 
   // Update active link on path change (browser)
   useEffect(() => {
@@ -59,7 +58,9 @@ const Navbar = () => {
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   // Handle menu open/close
@@ -76,11 +77,21 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-md">
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center min-h-[64px]">
-        <Link to="/" className="text-xl md:text-2xl font-bold theme-color-primary flex items-center group">
-          <Heart className="mr-2 text-[var(--color-secondary)] fill-[var(--color-secondary)] heart-bounce" size={20} />
-          <span className="text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors">Ariful</span>
-          <span className="group-hover:text-[var(--color-secondary)] transition-colors">Islam</span>
-        </Link>
+        <a
+          href="/"
+          className="text-xl md:text-2xl font-bold theme-color-primary flex items-center group"
+        >
+          <Heart
+            className="mr-2 text-[var(--color-secondary)] fill-[var(--color-secondary)] heart-bounce"
+            size={20}
+          />
+          <span className="text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors">
+            Ariful
+          </span>
+          <span className="group-hover:text-[var(--color-secondary)] transition-colors">
+            Islam
+          </span>
+        </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-10">
@@ -89,13 +100,13 @@ const Navbar = () => {
               key={link.name}
               to={link.href}
               className={`font-medium nav-item transition-colors duration-300 nav-item-animation ${
-                activeLink === link.href ? 'theme-color-secondary' : ''
+                activeLink === link.href ? "theme-color-secondary" : ""
               }`}
               style={{
-                animationName: 'slideInFromRight',
-                animationDuration: '0.5s',
+                animationName: "slideInFromRight",
+                animationDuration: "0.5s",
                 animationDelay: `${index * 0.1}s`,
-                animationFillMode: 'both'
+                animationFillMode: "both",
               }}
             >
               {link.name}
@@ -104,7 +115,7 @@ const Navbar = () => {
           <EmotionalButton
             href="/contact"
             className="theme-bg-secondary text-white py-2 px-6 rounded-full font-medium hover:scale-110 hover:bg-yellow-400 hover:text-green-900 transition-all duration-200 flex items-center hire-me-btn"
-            style={{ transition: 'transform 0.25s cubic-bezier(.4,2,.5,1)' }}
+            style={{ transition: "transform 0.25s cubic-bezier(.4,2,.5,1)" }}
             emotionType="heart"
             numEmotions={3}
           >
@@ -117,17 +128,17 @@ const Navbar = () => {
           <button
             onClick={handleMenuToggle}
             className="text-black-soft focus:outline-none"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? (
               <X
-                key={'x-' + iconKey}
+                key={"x-" + iconKey}
                 className="h-6 w-6"
                 data-testid="mobile-menu-close"
               />
             ) : (
               <Menu
-                key={'menu-' + iconKey}
+                key={"menu-" + iconKey}
                 className="h-6 w-6"
                 data-testid="mobile-menu-open"
               />
@@ -146,7 +157,11 @@ const Navbar = () => {
                 to={link.href}
                 className={`
                   block font-medium rounded-xl shadow nav-mobile-card mobile-nav-slidein hover:scale-105 transition
-                  ${activeLink === link.href ? 'bg-yellow-50 theme-color-secondary border border-yellow-300' : 'bg-white/95'}
+                  ${
+                    activeLink === link.href
+                      ? "bg-yellow-50 theme-color-secondary border border-yellow-300"
+                      : "bg-white/95"
+                  }
                 `}
                 style={getAnimDelay(idx)}
                 onClick={() => setIsOpen(false)}
