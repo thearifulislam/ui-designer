@@ -37,31 +37,31 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 mt-6">
               <a
-                href="#"
+                href="https://www.facebook.com/arifulislamofficialprofile/"
                 className="bg-white/10 p-2 rounded-full hover:bg-yellow hover:text-black-soft transition-all duration-300"
               >
                 <FaFacebookF className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/_md._ariful_islam/"
                 className="bg-white/10 p-2 rounded-full hover:bg-yellow hover:text-black-soft transition-all duration-300"
               >
                 <FaInstagram className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/arifulcreatorstudio/"
                 className="bg-white/10 p-2 rounded-full hover:bg-yellow hover:text-black-soft transition-all duration-300"
               >
                 <FaLinkedinIn className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://behance.net/arifulcreatorstudio"
                 className="bg-white/10 p-2 rounded-full hover:bg-yellow hover:text-black-soft transition-all duration-300"
               >
                 <FaBehance className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://dribbble.com/arifulcreatorstudio"
                 className="bg-white/10 p-2 rounded-full hover:bg-yellow hover:text-black-soft transition-all duration-300"
               >
                 <FaDribbble className="h-5 w-5" />
