@@ -1,33 +1,32 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Calendar, ArrowLeft, ArrowRight, User, Eye, Tag } from 'lucide-react';
+import { Calendar, ArrowLeft, ArrowRight, User, Eye, Tag } from "lucide-react";
 
 // logo design
-import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg"
-import momentum1 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/2.jpg"
-import momentum2 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/3.jpg"
-import momentum3 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/4.jpg"
-import momentum4 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/5.jpg"
-import momentum5 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/6.jpg"
-import momentum6 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/7.jpg"
-import momentum7 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/8.jpg"
-import momentum8 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/9.jpg"
-import momentum9 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/10.jpg"
-import momentum10 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/11.jpg"
-import momentum11 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/12.jpg"
-import momentum12 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/13.jpg"
-import momentum13 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/14.jpg"
-import momentum14 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/15.jpg"
-import momentum15 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/16.jpg"
-import momentum16 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/17.jpg"
-import momentum17 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/18.jpg"
-import momentum18 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/19.jpg"
-import momentum19 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/20.jpg"
-import momentum20 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/21.jpg"
-import momentum21 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/22.jpg"
+import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
+import momentum1 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/2.jpg";
+import momentum2 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/3.jpg";
+import momentum3 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/4.jpg";
+import momentum4 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/5.jpg";
+import momentum5 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/6.jpg";
+import momentum6 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/7.jpg";
+import momentum7 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/8.jpg";
+import momentum8 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/9.jpg";
+import momentum9 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/10.jpg";
+import momentum10 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/11.jpg";
+import momentum11 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/12.jpg";
+import momentum12 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/13.jpg";
+import momentum13 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/14.jpg";
+import momentum14 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/15.jpg";
+import momentum15 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/16.jpg";
+import momentum16 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/17.jpg";
+import momentum17 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/18.jpg";
+import momentum18 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/19.jpg";
+import momentum19 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/20.jpg";
+import momentum20 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/21.jpg";
+import momentum21 from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/22.jpg";
 
 const ProjectDetails = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -130,32 +129,36 @@ const ProjectDetails = () => {
   };
 
   // Get current project data
-  const project = projectId ? projectsData[projectId as keyof typeof projectsData] : undefined;
+  const project = projectId
+    ? projectsData[projectId as keyof typeof projectsData]
+    : undefined;
 
   // Related projects data
   const getRelatedProjects = () => {
     if (!project?.relatedProjects) return [];
 
-    return project.relatedProjects.map(id => {
+    return project.relatedProjects.map((id) => {
       const relatedProject = projectsData[id as keyof typeof projectsData];
       return {
         id,
         title: relatedProject?.title || "Project",
         image: relatedProject?.coverImage || "",
-        tags: relatedProject?.tags || []
+        tags: relatedProject?.tags || [],
       };
     });
   };
 
   if (!project) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-[#F8F8F8">
         <Navbar />
         <div className="container mx-auto px-4 md:px-8 pt-40 pb-20 text-center">
           <h1 className="text-3xl font-bold mb-4">Project not found</h1>
-          <p className="mb-8">The project you're looking for doesn't exist or has been moved.</p>
-          <Link 
-            to="/projects" 
+          <p className="mb-8">
+            The project you're looking for doesn't exist or has been moved.
+          </p>
+          <Link
+            to="/projects"
             className="inline-flex items-center theme-bg-primary text-white px-6 py-3 rounded-full font-medium"
           >
             <ArrowLeft className="ml-2 h-5 w-5" />
@@ -185,7 +188,7 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#f9f9f9]">
+    <div className="min-h-screen bg-[#F8FBF8]]">
       <Navbar />
 
       {/* Project Header */}
@@ -210,14 +213,13 @@ const ProjectDetails = () => {
               <span>{project.date}</span>
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {typeof project.title === "string" && project.title.includes("<br")
-              ? (
-                <span
-                  dangerouslySetInnerHTML={{ __html: project.title }}
-                />
-              )
-              : project.title}
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">
+            {typeof project.title === "string" &&
+            project.title.includes("<br") ? (
+              <span dangerouslySetInnerHTML={{ __html: project.title }} />
+            ) : (
+              project.title
+            )}
           </h1>
           <div className="flex flex-wrap gap-2 mb-8">
             {project.tags.map((tag, index) => (
@@ -245,9 +247,11 @@ const ProjectDetails = () => {
           <div className="rounded-3xl overflow-hidden shadow-lg">
             <img
               src={project.coverImage}
-              alt={typeof project.title === "string"
-                ? project.title.replace(/<br\s*\/?>/gi, " ")
-                : project.title}
+              alt={
+                typeof project.title === "string"
+                  ? project.title.replace(/<br\s*\/?>/gi, " ")
+                  : project.title
+              }
               className="w-full h-[700px] object-cover"
             />
           </div>
@@ -305,25 +309,27 @@ const ProjectDetails = () => {
 
       {/* Gallery */}
       <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 md:px-8">
-    <h2 className="text-3xl font-bold mb-10 text-center">
-      Project Gallery
-    </h2>
-    <div className="grid grid-row-1 md:grid-row-2 gap-8">
-      {project.galleryImages.map((image, index) => (
-        <div key={index} className="rounded-xl overflow-hidden shadow-md">
-          <img
-            src={image}
-            alt={`${typeof project.title === "string"
-              ? project.title.replace(/<br\s*\/?>/gi, " ")
-              : project.title} - Image ${index + 1}`}
-            className="w-full h-fit object-cover"
-            loading="lazy"
-          />
+        <div className="container mx-auto px-4 md:px-8">
+          <h2 className="text-3xl font-bold mb-10 text-center">
+            Project Gallery
+          </h2>
+          <div className="grid grid-row-1 md:grid-row-2 gap-8">
+            {project.galleryImages.map((image, index) => (
+              <div key={index} className="rounded-xl overflow-hidden">
+                <img
+                  src={image}
+                  alt={`${
+                    typeof project.title === "string"
+                      ? project.title.replace(/<br\s*\/?>/gi, " ")
+                      : project.title
+                  } - Image ${index + 1}`}
+                  className="w-full h-fit object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
       </section>
 
       {/* Results */}
@@ -354,9 +360,11 @@ const ProjectDetails = () => {
                     <div className="h-64 overflow-hidden relative">
                       <img
                         src={relatedProject.image}
-                        alt={typeof relatedProject.title === "string"
-                          ? relatedProject.title.replace(/<br\s*\/?>/gi, " ")
-                          : relatedProject.title}
+                        alt={
+                          typeof relatedProject.title === "string"
+                            ? relatedProject.title.replace(/<br\s*\/?>/gi, " ")
+                            : relatedProject.title
+                        }
                         className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -378,13 +386,16 @@ const ProjectDetails = () => {
                         ))}
                       </div>
                       <h3 className="text-xl font-bold text-black-soft group-hover:text-[var(--color-secondary)] transition-colors">
-                        {typeof relatedProject.title === "string" && relatedProject.title.includes("<br")
-                          ? (
-                            <span
-                              dangerouslySetInnerHTML={{ __html: relatedProject.title }}
-                            />
-                          )
-                          : relatedProject.title}
+                        {typeof relatedProject.title === "string" &&
+                        relatedProject.title.includes("<br") ? (
+                          <span
+                            dangerouslySetInnerHTML={{
+                              __html: relatedProject.title,
+                            }}
+                          />
+                        ) : (
+                          relatedProject.title
+                        )}
                       </h3>
                     </div>
                   </div>

@@ -5,6 +5,9 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { Search, Eye } from "lucide-react";
 
+// logo design
+import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
+
 // Util: For animation resets when filters change
 const getFilterKey = (
   searchQuery: string,
@@ -31,7 +34,7 @@ const categories = [
   { id: "background-removal", name: "Background Removal" },
 ];
 
-// Subcategories for subfilter
+// Subcategories for subfilter (used as tag filters)
 const subcategories = {
   logo: [
     "All",
@@ -78,7 +81,6 @@ const subcategories = {
     "Vertical Banner",
     "Horizontal Banner",
   ],
-
   "web-banner": [
     "All",
     "Website Hero",
@@ -216,7 +218,7 @@ function AnimatedCard({ item, idx }: { item: any; idx: number }) {
           to={`/projects/${item.id}`}
           className="view-button theme-bg-secondary hover:theme-bg-primary text-white px-4 py-2 rounded-full font-medium flex items-center justify-center w-full mt-4"
         >
-          <Eye className="mr-2 h-4 w-4" />
+          <Eye className="mr-2 h-5 w-5" />
           View Project
         </Link>
       </div>
@@ -273,13 +275,12 @@ const Projects = () => {
   // Example portfolio items (replace with your real data)
   const portfolioItems = [
     {
-      id: "fintech-app",
-      title: "Finance Dashboard",
-      category: "dashboard",
-      subcategory: "Finance",
-      tags: ["Dashboard", "Fintech"],
-      image:
-        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=2400",
+      id: "momentum-clothing-brand-for-men",
+      title: "Momentum Menswear – Modern & Stylish Clothing for Men",
+      category: "logo",
+      subcategory: "Abstract",
+      tags: ["Logo", "Abstract"],
+      image: momentum
     },
     {
       id: "mobile-app",
@@ -382,24 +383,34 @@ const Projects = () => {
     },
   ];
 
+  // Filtering logic: filter by category, then by subfilter (tag), then by search
   const filteredProjects = portfolioItems.filter((item) => {
+    // Search filter
     const matchesSearch =
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.tags.some((tag) =>
         tag.toLowerCase().includes(searchQuery.toLowerCase())
       );
+
+    // Category filter
     const matchesCategory =
       activeFilter === "all" || item.category === activeFilter;
+
     if (!matchesCategory || !matchesSearch) return false;
 
+    // Subfilter logic: for categories with subfilters, match tag (except "All")
     if (
-      !showSubFilter ||
-      activeSubFilter.toLowerCase() === "all"
-    )
-      return true;
-    return (
-      item.subcategory?.toLowerCase() === activeSubFilter?.toLowerCase()
-    );
+      showSubFilter &&
+      activeSubFilter &&
+      activeSubFilter.toLowerCase() !== "all"
+    ) {
+      // For logo and other categories, subfilter matches tag (case-insensitive)
+      return item.tags.some(
+        (tag) => tag.toLowerCase() === activeSubFilter.toLowerCase()
+      );
+    }
+
+    return true;
   });
 
   useEffect(() => {
