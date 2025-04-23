@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Download } from "lucide-react";
 import EmotionalButton from "./EmotionalButton";
+import aboutpic from "../assets/profile/aboutsection.png"
 
 const FloatingHeart = ({
   size,
@@ -176,7 +177,7 @@ const AboutSection = () => {
                 </div>
 
                 <img
-                  src="https://images.unsplash.com/photo-1551150441-3f3828204ef0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                  src= {aboutpic}
                   alt="Ariful Islam - About Me"
                   className="w-full object-cover rounded-3xl relative z-10"
                 />
