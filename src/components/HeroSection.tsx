@@ -74,25 +74,26 @@ const HeroSection = () => {
             I&apos;m a graphic designer with a passion for creating visually
           </p>
           <div className="flex flex-wrap items-center gap-3 mb-5">
-            <EmotionalButton
-              href="#portfolio"
-              className="theme-bg-secondary hover:bg-[#f9be5a] text-white px-7 py-3 rounded-full font-semibold flex items-center shadow transition-all duration-300 text-base"
-              emotionType="heart"
-              numEmotions={5}
-            >
-              View my portfolio
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </EmotionalButton>
-            <EmotionalButton
-              href="#contact"
-              className="bg-transparent border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-7 py-3 rounded-full font-semibold flex items-center hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300 text-base"
-              emotionType="heart"
-              numEmotions={3}
-            >
-              Hire Me
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </EmotionalButton>
-          </div>
+  <EmotionalButton
+    href="/projects"
+    className="theme-bg-secondary hover:bg-[#f9be5a] text-white px-7 py-3 rounded-full font-semibold flex items-center shadow transition-all duration-300 text-base"
+    emotionType="heart"
+    numEmotions={5}
+  >
+    View my portfolio
+    <ArrowRight className="ml-2 h-5 w-5" />
+  </EmotionalButton>
+
+  <EmotionalButton
+    href="/contact"
+    className="bg-transparent border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-7 py-3 rounded-full font-semibold flex items-center hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300 text-base"
+    emotionType="heart"
+    numEmotions={3}
+  >
+    Hire Me
+    <ArrowRight className="ml-2 h-5 w-5" />
+  </EmotionalButton>
+</div>
           <div className="flex gap-5 flex-wrap text-[#222] opacity-85 font-semibold">
             <span className="flex items-center gap-1 text-sm">
               <span className="inline-block w-2 h-2 rounded-full bg-[var(--color-secondary)] mr-2"></span>{" "}
