@@ -5,38 +5,33 @@ import { Menu, X, Heart } from 'lucide-react';
 import EmotionalButton from './EmotionalButton';
 
 // ==== Animation CSS ====
-// Card slide-up & bounce
-const cardAnimStyles = `
-@keyframes mobileCardEnter {
+// More pronounced left-to-right slide-in (mobile nav)
+const mobileNavAnimStyle = `
+@keyframes slideInLeftMobile {
   0% {
     opacity: 0;
-    transform: translateY(30px) scale(0.95) rotate(-5deg);
+    transform: translateX(-120px) scale(0.95);
   }
-  50% {
-    opacity: 0.6;
-    transform: translateY(-8px) scale(1.02) rotate(1.5deg);
-  }
-  85% {
-    opacity: 1;
-    transform: translateY(3px) scale(1.01) rotate(0.5deg);
+  70% {
+    opacity: 0.9;
+    transform: translateX(8px) scale(1.03);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
+    transform: translateX(0) scale(1);
   }
 }
-
-.mobile-nav-card-anim {
-  animation: mobileCardEnter 0.5s cubic-bezier(.6,1.3,.3,1.05) both;
+.mobile-nav-slidein {
+  animation: slideInLeftMobile 0.55s cubic-bezier(.6,1.3,.4,1.05) both;
 }
 `;
 
 if (typeof window !== 'undefined') {
-  const styleId = 'mobile-nav-card-anim';
+  const styleId = 'mobile-nav-slidein';
   if (!document.getElementById(styleId)) {
     const style = document.createElement('style');
     style.id = styleId;
-    style.innerHTML = cardAnimStyles;
+    style.innerHTML = mobileNavAnimStyle;
     document.head.appendChild(style);
   }
 }
@@ -73,9 +68,9 @@ const Navbar = () => {
     setIconKey((prev) => prev + 1);
   };
 
-  // Staggered animation delay
+  // Staggered animation delay for each nav item
   const getAnimDelay = (idx: number) => ({
-    animationDelay: `${idx * 0.12 + 0.1}s`,
+    animationDelay: `${idx * 0.1 + 0.08}s`,
   });
 
   return (
@@ -89,11 +84,19 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-10">
-          {navLinks.map(link => (
+          {navLinks.map((link, index) => (
             <Link
               key={link.name}
               to={link.href}
-              className={`font-medium nav-item transition-colors duration-300 ${activeLink === link.href ? 'theme-color-secondary' : ''}`}
+              className={`font-medium nav-item transition-colors duration-300 nav-item-animation ${
+                activeLink === link.href ? 'theme-color-secondary' : ''
+              }`}
+              style={{
+                animationName: 'slideInFromRight',
+                animationDuration: '0.5s',
+                animationDelay: `${index * 0.1}s`,
+                animationFillMode: 'both'
+              }}
             >
               {link.name}
             </Link>
@@ -101,6 +104,7 @@ const Navbar = () => {
           <EmotionalButton
             href="/contact"
             className="theme-bg-secondary text-white py-2 px-6 rounded-full font-medium hover:scale-110 hover:bg-yellow-400 hover:text-green-900 transition-all duration-200 flex items-center hire-me-btn"
+            style={{ transition: 'transform 0.25s cubic-bezier(.4,2,.5,1)' }}
             emotionType="heart"
             numEmotions={3}
           >
@@ -132,7 +136,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Nav Animated Cards */}
+      {/* Mobile Nav Slide-in Left (More visible & smooth) */}
       {isOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-sm shadow-lg transition-all duration-200">
           <div className="px-4 py-6 space-y-5 flex flex-col">
@@ -140,9 +144,10 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`block font-medium rounded-xl shadow nav-mobile-card mobile-nav-card-anim hover:scale-105 transition
-                            ${activeLink === link.href ? 'bg-yellow-50 theme-color-secondary border border-yellow-300' : 'bg-white/95'}
-                            `}
+                className={`
+                  block font-medium rounded-xl shadow nav-mobile-card mobile-nav-slidein hover:scale-105 transition
+                  ${activeLink === link.href ? 'bg-yellow-50 theme-color-secondary border border-yellow-300' : 'bg-white/95'}
+                `}
                 style={getAnimDelay(idx)}
                 onClick={() => setIsOpen(false)}
               >
@@ -154,7 +159,7 @@ const Navbar = () => {
             <div style={getAnimDelay(navLinks.length)}>
               <EmotionalButton
                 href="/contact"
-                className="block w-full theme-bg-secondary text-white py-2 px-6 rounded-xl font-medium text-center hover:theme-bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center hire-me-btn shadow mobile-nav-card-anim"
+                className="block w-full theme-bg-secondary text-white py-2 px-6 rounded-xl font-medium text-center hover:theme-bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center hire-me-btn shadow mobile-nav-slidein"
                 emotionType="heart"
                 numEmotions={2}
                 onClick={() => setIsOpen(false)}

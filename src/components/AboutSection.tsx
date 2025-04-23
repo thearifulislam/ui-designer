@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Download } from "lucide-react";
 import EmotionalButton from "./EmotionalButton";
-import aboutpic from "../assets/profile/aboutsection.png"
+import aboutpic from "../assets/profile/aboutsection.png";
+import cv from "../assets/resume/Ariful islam.pdf";
 
 const FloatingHeart = ({
   size,
@@ -133,7 +134,7 @@ const AboutSection = () => {
                   50% { transform: translateY(-20px) rotate(10deg); }
                   100% { transform: translateY(0) rotate(0deg); }
                 }
-                
+
                 @keyframes orbit {
                   from { transform: rotate(0deg) translateX(70px) rotate(0deg); }
                   to { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
@@ -177,7 +178,7 @@ const AboutSection = () => {
                 </div>
 
                 <img
-                  src= {aboutpic}
+                  src={aboutpic}
                   alt="Ariful Islam - About Me"
                   className="w-full object-cover rounded-3xl relative z-10"
                 />
@@ -193,11 +194,18 @@ const AboutSection = () => {
             </h2>
 
             <p className="text-black-soft/80">
-            Hi, I'm Ariful — a passionate Graphic Designer with 4+ years of experience in brand identity design. I specialize in building powerful visual identities that not only capture attention but also align perfectly with a brand's purpose and values.
+              Hi, I'm Ariful — a passionate Graphic Designer with 4+ years of
+              experience in brand identity design. I specialize in building
+              powerful visual identities that not only capture attention but
+              also align perfectly with a brand's purpose and values.
             </p>
 
             <p className="text-black-soft/80">
-            My mission is to help brands grow and thrive in the digital space by designing visuals that speak their language and resonate with their audience. Over the years, I’ve honed my skills in blending creativity with strategy to deliver impactful design solutions that drive real business results.
+              My mission is to help brands grow and thrive in the digital space
+              by designing visuals that speak their language and resonate with
+              their audience. Over the years, I’ve honed my skills in blending
+              creativity with strategy to deliver impactful design solutions
+              that drive real business results.
             </p>
 
             {/* Stats with animated counters */}
@@ -213,28 +221,29 @@ const AboutSection = () => {
             </div>
 
             {/* Download CV Button */}
-            <EmotionalButton
-              href="#"
+            <a
+              href={cv}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center theme-bg-primary text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300"
-              emotionType="heart"
-              numEmotions={3}
+              download
             >
               Download CV
               <Download className="ml-2 h-5 w-5" />
-            </EmotionalButton>
+            </a>
 
             <div className="flex items-end justify-end mt-6">
-  <div
-    className="text-3xl md:text-4xl theme-color-primary"
-    style={{
-      fontFamily: `'Dancing Script', 'Pacifico', 'Great Vibes', 'Allura', cursive, sans-serif`,
-      fontWeight: 600,
-      letterSpacing: '2px',
-    }}
-  >
-    — Ariful Islam
-  </div>
-</div>
+              <div
+                className="text-3xl md:text-4xl theme-color-primary"
+                style={{
+                  fontFamily: `'Dancing Script', 'Pacifico', 'Great Vibes', 'Allura', cursive, sans-serif`,
+                  fontWeight: 600,
+                  letterSpacing: "2px",
+                }}
+              >
+                — Ariful Islam
+              </div>
+            </div>
           </div>
         </div>
       </div>
