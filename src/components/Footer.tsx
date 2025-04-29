@@ -92,7 +92,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="services/logo-design"
+                  href="/services/logo-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Logo Design
@@ -100,7 +100,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/business-card-design"
+                  href="/services/business-card-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Business Card Design
@@ -108,7 +108,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/letterhead-design"
+                  href="/services/letterhead-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Letterhead Design
@@ -116,7 +116,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/brand-guidelines-design"
+                  href="/services/brand-guidelines-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Brand Guidelines Design
@@ -124,7 +124,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/social-media-post-design"
+                  href="/services/social-media-post-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Social Media Post Design
@@ -132,7 +132,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/banner-design"
+                  href="/services/banner-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Banner Design
@@ -140,7 +140,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/web-banner-design"
+                  href="/services/web-banner-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Web Banner Design
@@ -148,7 +148,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/email-signature-design"
+                  href="/services/email-signature-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Email Signature Design
@@ -156,7 +156,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/flyer-design"
+                  href="/services/flyer-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Brochures, Posters, and Flyers Design
@@ -164,7 +164,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/billboards-design"
+                  href="/services/billboards-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Billboards Design
@@ -172,7 +172,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/stationery-design"
+                  href="/services/stationery-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Stationery Design
@@ -180,7 +180,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/image-editing"
+                  href="/services/image-editing"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Image Editing
@@ -188,7 +188,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/resume-design"
+                  href="/services/resume-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Resume Designs
@@ -196,7 +196,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="services/background-removal"
+                  href="/services/background-removal"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
                   Background Removal

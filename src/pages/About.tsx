@@ -12,6 +12,8 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+import me from "../assets/profile/aboutsection.png"
+
 function useCountUp(to: number, duration = 1200, start = 0) {
   // Custom hook for animated counting up
   const [count, setCount] = useState(start);
@@ -302,7 +304,7 @@ const About = () => {
               {/* The profile image */}
               <div className="bg-white rounded-3xl overflow-hidden shadow-lg relative z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1551150441-3f3828204ef0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                  src={me}
                   alt="Ariful Islam - About Me"
                   className="w-full h-auto object-cover rounded-3xl"
                 />

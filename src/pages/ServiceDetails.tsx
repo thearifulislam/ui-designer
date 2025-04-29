@@ -1,298 +1,729 @@
-
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ArrowRight, Check, Clock, Layout, Smartphone, Globe, Brush, Palette, PenTool, Type, PackageOpen, ImagePlus } from 'lucide-react';
+
+import {
+  ArrowRight,
+  ArrowLeft,
+  Check,
+  Clock,
+  Globe,
+  Smartphone,
+  Users,
+  Star,
+  Briefcase,
+  Rocket,
+  Figma,
+  Sparkle,
+  BookOpen,
+  Eye,
+} from "lucide-react";
+
+// logo design portfolio
+import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
+import blooddonation from "../assets/portfolios/logo-design/combination-mark/health-care-logo/1/1.jpg";
+import uniflora from "../assets/portfolios/logo-design/lettermark-logo/letter-u/1/1.jpg";
+
+// for business card
+import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
+import modernbusinesscard from "../assets/portfolios/business-card/minimalist/2/1.jpg";
+
+// for letterhead
+import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
+import modernminimalist from "../assets/portfolios/letterhead/modern&minimalist-corporate/1/modern and minimalist corporate letterhead.jpg";
+
+// for banner
+import professionalpromotionalbanner from "../assets/portfolios/banner/promotional/1/1.jpg";
+
+// for social media cover
+import socialmediacoverdesign from "../assets/portfolios/social-cover/facebook-cover/1/1.jpg";
+
+// for background remove
+import imageclippingpath from "../assets/portfolios/background-remove/clipping-path/1/10.jpg";
+
+// for brand guidelines
+import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
+import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
+
+// Import the portfolio styles for the animated button
+import "../styles/portfolio.css";
 
 const ServiceDetails = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
-  
-  // Scroll to top on component mount
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [serviceId]);
-  
+
   const serviceData = {
     "logo-design": {
-      icon: <Smartphone className="h-16 w-16 theme-color-secondary" />,
-      title: "App Design",
-      description: "Creating intuitive interfaces with thoughtful user experiences that solve real problems and delight users.",
+      icon: (
+        <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+      ),
+      coverText: "Logo Design",
+      title: "Logo Design Excellence",
+      tagline: "Distinctive. Memorable. Timeless brand marks.",
+      description:
+        "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
       process: [
-        { title: "Research & Discovery", description: "Understanding your users, business goals, and technical requirements." },
-        { title: "Wireframing", description: "Creating the structural blueprint of your app to plan user flows and functionality." },
-        { title: "UI Design", description: "Designing beautiful, intuitive interfaces that align with your brand." },
-        { title: "Prototyping", description: "Building interactive prototypes to test and validate design decisions." },
-        { title: "Design Handoff", description: "Providing developers with all necessary assets and specifications." }
+        {
+          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+          title: "Discovery",
+          desc: "Understand your brand, audience, and vision.",
+        },
+        {
+          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+          title: "Research & Concept",
+          desc: "Market analysis and brainstorming unique ideas.",
+        },
+        {
+          icon: <Figma className="h-7 w-7 text-pink-500" />,
+          title: "Design & Refinement",
+          desc: "Crafting and iterating on logo concepts.",
+        },
+        {
+          icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+          title: "Presentation",
+          desc: "Showcase options and gather your feedback.",
+        },
+        {
+          icon: <Briefcase className="h-7 w-7 text-green-500" />,
+          title: "Delivery",
+          desc: "Final files in all formats, ready for use.",
+        },
       ],
       features: [
-        "User-centered design approach",
-        "Custom UI component libraries",
-        "Responsive layouts for all screen sizes",
-        "Accessibility compliance",
-        "Design system creation",
-        "Interactive prototypes",
-        "User flow mapping",
-        "Usability testing"
+        {
+          icon: <Star className="h-6 w-6 text-yellow-400" />,
+          label: "Original Concepts",
+        },
+        {
+          icon: <Users className="h-6 w-6 text-blue-500" />,
+          label: "Collaborative Process",
+        },
+        {
+          icon: <Figma className="h-6 w-6 text-pink-500" />,
+          label: "Vector Source Files",
+        },
+        {
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
+          label: "Fast Turnaround",
+        },
+        {
+          icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+          label: "Brand Guidelines",
+        },
+        {
+          icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+          label: "Usage Documentation",
+        },
       ],
-      subServices: ["Native Apps", "Web Apps", "Design Systems"],
+      subServices: [
+        "Wordmark Logos",
+        "Brandmarks & Symbols",
+        "Monogram Logos",
+        "Emblem Logos",
+        "Mascot Logos",
+        "Minimal Logos",
+      ],
       deliverables: [
-        "Complete UI design files",
-        "Interactive prototypes",
-        "Design system documentation",
-        "Asset library",
-        "Developer handoff specifications"
+        "Primary & Secondary Logo",
+        "Black/White & Color Variations",
+        "SVG, PNG, PDF, EPS Files",
+        "Brand Guidelines Sheet",
+        "Favicon & Social Media Kit",
+        "Mockups for Real-World Use",
       ],
-      portfolio: [
+      timeframe: "1-2 weeks",
+      portfolios: [
         {
-          id: "health-app",
-          title: "Health Tracker App",
-          image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2400"
+          id: "momentum-clothing-brand-for-men",
+          title: "Momentum Menswear – Modern & Stylish Clothing for Men",
+          tags: ["Logo", "Abstract"],
+          image: momentum,
         },
         {
-          id: "mobile-app",
-          title: "Mobile App Design",
-          image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=2400"
+          id: "blood-donation-logo-design",
+          title: "Blood Donation Logo Design",
+          tags: ["Logo", "Blood Donation"],
+          image: blooddonation,
         },
         {
-          id: "food-delivery",
-          title: "Food Delivery App",
-          image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&q=80&w=2400"
-        }
+          id: "uniflora-logo-design",
+          title: "Uniflora Logo Design",
+          tags: ["Logo", "Health Care"],
+          image: uniflora,
+        },
+        {
+          id: "ranova-brand-guidelines",
+          title: "Ranova Brand Guidelines",
+          tags: ["Brand Guidelines"],
+          image: ranova,
+        },
+        {
+          id: "boldpath-brand-guidelines",
+          title: "The Guidelines for Bold Path",
+          tags: ["Brand Guidelines"],
+          image: boldpath,
+        },
       ],
-      timeframe: "4-8 weeks",
-      heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2400"
     },
-    "website-design": {
-      icon: <Globe className="h-16 w-16 theme-color-secondary" />,
-      title: "Website Design",
-      description: "Building clean, responsive websites that work beautifully across all devices while reflecting your brand identity and business goals.",
+
+    "image-editing": {
+      icon: (
+        <Briefcase className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+      ),
+      coverText: "Business Card Design",
+      title: "Professional Business Card Design",
+      tagline: "Make a lasting impression with every handshake.",
+      description:
+        "Elevate your brand with custom business card designs that reflect your professionalism and style. I create unique, memorable, and print-ready cards tailored to your business identity.",
       process: [
-        { title: "Strategy & Planning", description: "Defining goals, audience, and content strategy for your website." },
-        { title: "Information Architecture", description: "Organizing content and creating sitemaps for optimal user experience." },
-        { title: "Wireframing", description: "Creating structural layouts to plan content placement and user flows." },
-        { title: "Visual Design", description: "Designing beautiful interfaces aligned with your brand identity." },
-        { title: "Responsive Design", description: "Ensuring your website works across all devices and screen sizes." }
+        {
+          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+          title: "Brief & Brand Study",
+          desc: "Understand your business, brand, and card requirements.",
+        },
+        {
+          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+          title: "Concept & Layout",
+          desc: "Sketch and plan card layouts and visual hierarchy.",
+        },
+        {
+          icon: <Figma className="h-7 w-7 text-pink-500" />,
+          title: "Design & Review",
+          desc: "Create digital designs and refine based on your feedback.",
+        },
+        {
+          icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+          title: "Finalization",
+          desc: "Polish the design and prepare for print.",
+        },
+        {
+          icon: <Briefcase className="h-7 w-7 text-green-500" />,
+          title: "Delivery",
+          desc: "Provide print-ready files and digital previews.",
+        },
       ],
       features: [
-        "Custom design tailored to your brand",
-        "Responsive layouts for all devices",
-        "SEO-optimized structure",
-        "Performance-focused design",
-        "User journey mapping",
-        "Call-to-action optimization",
-        "Accessibility compliance",
-        "Cross-browser compatibility"
+        {
+          icon: <Star className="h-6 w-6 text-yellow-400" />,
+          label: "Custom Layouts",
+        },
+        {
+          icon: <Users className="h-6 w-6 text-blue-500" />,
+          label: "Double-sided Design",
+        },
+        {
+          icon: <Figma className="h-6 w-6 text-pink-500" />,
+          label: "Editable Source Files",
+        },
+        {
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
+          label: "Print-Ready Exports",
+        },
+        {
+          icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+          label: "Unique Brand Touch",
+        },
+        {
+          icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+          label: "Multiple Concepts",
+        },
       ],
-      subServices: ["Landing Pages", "E-commerce", "Corporate Websites", "Portfolios"],
+      subServices: [
+        "Minimalist Business Cards",
+        "Corporate Business Cards",
+        "Personal/Creative Cards",
+        "Double-sided Cards",
+        "QR Code Integration",
+        "Spot UV & Special Finish Cards",
+      ],
       deliverables: [
-        "Website design mockups",
-        "Interactive prototype",
-        "Style guide",
-        "Image assets",
-        "Developer specifications"
+        "Print-ready PDF (CMYK)",
+        "High-res PNG/JPG",
+        "Editable Source File (AI/PSD)",
+        "Mockup Previews",
+        "Bleed & Trim Marks",
+        "QR Code (if needed)",
       ],
-      portfolio: [
+      timeframe: "2-4 days",
+      portfolios: [
         {
-          id: "ecommerce",
-          title: "E-commerce Website",
-          image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=2400"
+          id: "image-background-remove-clipping-path",
+          title: "Image Clipping Path",
+          tags: ["Background Remove", "Clipping Path"],
+          image: imageclippingpath,
         },
-        {
-          id: "travel-website",
-          title: "Travel Agency Website",
-          image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=2400"
-        },
-        {
-          id: "portfolio-site",
-          title: "Artist Portfolio",
-          image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&q=80&w=2400"
-        }
       ],
-      timeframe: "3-6 weeks",
-      heroImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=2400"
     },
-    // Add more services with their details here
+
+    "business-card-design": {
+      icon: (
+        <Briefcase className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+      ),
+      coverText: "Business Card Design",
+      title: "Professional Business Card Design",
+      tagline: "Make a lasting impression with every handshake.",
+      description:
+        "Elevate your brand with custom business card designs that reflect your professionalism and style. I create unique, memorable, and print-ready cards tailored to your business identity.",
+      process: [
+        {
+          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+          title: "Brief & Brand Study",
+          desc: "Understand your business, brand, and card requirements.",
+        },
+        {
+          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+          title: "Concept & Layout",
+          desc: "Sketch and plan card layouts and visual hierarchy.",
+        },
+        {
+          icon: <Figma className="h-7 w-7 text-pink-500" />,
+          title: "Design & Review",
+          desc: "Create digital designs and refine based on your feedback.",
+        },
+        {
+          icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+          title: "Finalization",
+          desc: "Polish the design and prepare for print.",
+        },
+        {
+          icon: <Briefcase className="h-7 w-7 text-green-500" />,
+          title: "Delivery",
+          desc: "Provide print-ready files and digital previews.",
+        },
+      ],
+      features: [
+        {
+          icon: <Star className="h-6 w-6 text-yellow-400" />,
+          label: "Custom Layouts",
+        },
+        {
+          icon: <Users className="h-6 w-6 text-blue-500" />,
+          label: "Double-sided Design",
+        },
+        {
+          icon: <Figma className="h-6 w-6 text-pink-500" />,
+          label: "Editable Source Files",
+        },
+        {
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
+          label: "Print-Ready Exports",
+        },
+        {
+          icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+          label: "Unique Brand Touch",
+        },
+        {
+          icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+          label: "Multiple Concepts",
+        },
+      ],
+      subServices: [
+        "Minimalist Business Cards",
+        "Corporate Business Cards",
+        "Personal/Creative Cards",
+        "Double-sided Cards",
+        "QR Code Integration",
+        "Spot UV & Special Finish Cards",
+      ],
+      deliverables: [
+        "Print-ready PDF (CMYK)",
+        "High-res PNG/JPG",
+        "Editable Source File (AI/PSD)",
+        "Mockup Previews",
+        "Bleed & Trim Marks",
+        "QR Code (if needed)",
+      ],
+      timeframe: "2-4 days",
+      portfolios: [
+        {
+          id: "modern-minimalist-camera-business-card",
+          title: "Modern Minimalist Camera Business Card",
+          tags: ["Minimalist", "Photography"],
+          image: modernminimalistcamerabusinesscard,
+        },
+        {
+          id: "modern-business-card",
+          title: "Modern Business Card",
+          tags: ["Corporate", "Modern"],
+          image: modernbusinesscard,
+        },
+      ],
+    },
+
+    "letterhead-design": {
+      icon: (
+        <Briefcase className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+      ),
+      coverText: "Business Card Design",
+      title: "Professional Business Card Design",
+      tagline: "Make a lasting impression with every handshake.",
+      description:
+        "Elevate your brand with custom business card designs that reflect your professionalism and style. I create unique, memorable, and print-ready cards tailored to your business identity.",
+      process: [
+        {
+          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+          title: "Brief & Brand Study",
+          desc: "Understand your business, brand, and card requirements.",
+        },
+        {
+          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+          title: "Concept & Layout",
+          desc: "Sketch and plan card layouts and visual hierarchy.",
+        },
+        {
+          icon: <Figma className="h-7 w-7 text-pink-500" />,
+          title: "Design & Review",
+          desc: "Create digital designs and refine based on your feedback.",
+        },
+        {
+          icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+          title: "Finalization",
+          desc: "Polish the design and prepare for print.",
+        },
+        {
+          icon: <Briefcase className="h-7 w-7 text-green-500" />,
+          title: "Delivery",
+          desc: "Provide print-ready files and digital previews.",
+        },
+      ],
+      features: [
+        {
+          icon: <Star className="h-6 w-6 text-yellow-400" />,
+          label: "Custom Layouts",
+        },
+        {
+          icon: <Users className="h-6 w-6 text-blue-500" />,
+          label: "Double-sided Design",
+        },
+        {
+          icon: <Figma className="h-6 w-6 text-pink-500" />,
+          label: "Editable Source Files",
+        },
+        {
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
+          label: "Print-Ready Exports",
+        },
+        {
+          icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+          label: "Unique Brand Touch",
+        },
+        {
+          icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+          label: "Multiple Concepts",
+        },
+      ],
+      subServices: [
+        "Minimalist Business Cards",
+        "Corporate Business Cards",
+        "Personal/Creative Cards",
+        "Double-sided Cards",
+        "QR Code Integration",
+        "Spot UV & Special Finish Cards",
+      ],
+      deliverables: [
+        "Print-ready PDF (CMYK)",
+        "High-res PNG/JPG",
+        "Editable Source File (AI/PSD)",
+        "Mockup Previews",
+        "Bleed & Trim Marks",
+        "QR Code (if needed)",
+      ],
+      timeframe: "2-4 days",
+      portfolios: [
+        {
+          id: "elegant-gold-accented-corporate-letterhead",
+          title: "Elegant Gold-Accented Corporate Letterhead",
+          tags: ["Letterhead", "Minimalist"],
+          image: elegantgoldaccentedcorporateletterhead,
+        },
+        {
+          id: "modern-minimalist-letterhead-design",
+          title: "Modern Minimalist Letterhead Design",
+          tags: ["Letterhead"],
+          image: modernminimalist,
+        },
+      ],
+    },
+
+    "brand-guidelines-design": {
+      icon: (
+        <Globe className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+      ),
+      coverText: "Next-Gen Web Design",
+      title: "Website Design Impact",
+      tagline: "Fast. Functional. Future-proof.",
+      description:
+        "Memorable websites made for people, performance and results. From landing pages to portals, I bring ideas to life — pixel by pixel.",
+      process: [
+        {
+          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+          title: "Strategy",
+          desc: "Understand goals, audience, & success metrics.",
+        },
+        {
+          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+          title: "Structure",
+          desc: "Map content & intuitive navigation.",
+        },
+        {
+          icon: <Globe className="h-7 w-7 text-blue-400" />,
+          title: "UI Design",
+          desc: "Modern layouts & color story.",
+        },
+        {
+          icon: <Sparkle className="h-7 w-7 text-green-500" />,
+          title: "Prototype",
+          desc: "Clickable demos for feedback.",
+        },
+        {
+          icon: <Briefcase className="h-7 w-7 text-orange-500" />,
+          title: "Launch",
+          desc: "Optimized files & guides for devs.",
+        },
+      ],
+      features: [
+        {
+          icon: <Star className="h-6 w-6 text-yellow-400" />,
+          label: "Performance Optimized",
+        },
+        {
+          icon: <Users className="h-6 w-6 text-indigo-500" />,
+          label: "Collaborative Process",
+        },
+        {
+          icon: <Figma className="h-6 w-6 text-pink-500" />,
+          label: "Source Files Included",
+        },
+        {
+          icon: <Rocket className="h-6 w-6 text-green-400" />,
+          label: "SEO Ready",
+        },
+        {
+          icon: <Sparkle className="h-6 w-6 text-lime-500" />,
+          label: "Distinctive Visuals",
+        },
+        {
+          icon: <BookOpen className="h-6 w-6 text-sky-500" />,
+          label: "Friendly Docs",
+        },
+      ],
+      subServices: ["E-commerce", "Brand Landing Pages", "Explorer Blogs"],
+      deliverables: [
+        "Mobile-First UI Kit",
+        "Live Styleguide",
+        "SEO Audit Report",
+        "Component Gallery",
+        "Feedback Prototype",
+        "Source Files",
+      ],
+      timeframe: "2.5-5 weeks",
+      portfolios: [
+        {
+          id: "boldpath-brand-guidelines",
+          title: "The Guidelines for Bold Path",
+          tags: ["Brand Guidelines"],
+          image: boldpath,
+        },
+        {
+          id: "ranova-brand-guidelines",
+          title: "Ranova Brand Guidelines",
+          tags: ["Brand Guidelines"],
+          image: ranova,
+        },
+      ],
+    },
   };
-  
-  // Get the current service data or use a default if not found
-  const service = serviceId ? serviceData[serviceId as keyof typeof serviceData] : undefined;
-  
+
+  const service = serviceId
+    ? serviceData[serviceId as keyof typeof serviceData]
+    : undefined;
+
   if (!service) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-[#f7f8fa] flex flex-col">
         <Navbar />
-        <div className="container mx-auto px-4 md:px-8 pt-40 pb-20 text-center">
-          <h1 className="text-3xl font-bold mb-4">Service not found</h1>
-          <p className="mb-8">The service you're looking for doesn't exist or has been moved.</p>
-          <Link 
-            to="/services" 
-            className="inline-flex items-center theme-bg-primary text-white px-6 py-3 rounded-full font-medium"
-          >
-            Back to Services
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
+        <main className="flex-grow flex items-center justify-center">
+          <div className="py-24 px-8 text-center bg-white/60 rounded-xl border shadow max-w-md mx-auto">
+            <h1 className="text-3xl font-extrabold text-red-500 mb-2">
+              Service Not Found
+            </h1>
+            <p className="mb-8 text-gray-600">
+              The service you requested doesn't exist or was moved.
+            </p>
+            <Link
+              to="/services"
+              className="inline-flex items-center bg-[var(--color-primary)] text-white px-6 py-3 rounded-full font-semibold hover:bg-[var(--color-secondary)] transition"
+            >
+              Back to Services
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
+        </main>
         <Footer />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f9f9f9]">
+    <div className="min-h-screen bg-[#fafaff] flex flex-col">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <div className="inline-block theme-bg-primary/10 p-6 rounded-2xl mb-6">
-            {service.icon}
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{service.title}</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {service.description}
-          </p>
-        </div>
-      </section>
-      
-      {/* Service Image */}
-      <section className="py-12">
+
+      {/* Main content in same container as PortfolioSection */}
+      <section className="py-14 bg-muted">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="rounded-3xl overflow-hidden shadow-lg">
-            <img 
-              src={service.heroImage} 
-              alt={service.title} 
-              className="w-full h-[400px] object-cover"
-            />
-          </div>
-        </div>
-      </section>
-      
-      {/* Process & Features */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Process */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8">My Process</h2>
-              <div className="space-y-8">
-                {service.process.map((step, index) => (
-                  <div key={index} className="flex">
-                    <div className="mr-6">
-                      <div className="theme-bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
-                        {index + 1}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground">{step.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Features */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8">Features & Benefits</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {service.features.map((feature, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className="theme-bg-secondary/20 p-2 rounded-full mr-3">
-                      <Check className="h-5 w-5 theme-color-secondary" />
-                    </div>
-                    <p className="text-muted-foreground">{feature}</p>
-                  </div>
-                ))}
-              </div>
-              
-              {/* Timeframe */}
-              <div className="mt-10 bg-[#f9f9f9] p-6 rounded-xl flex items-center">
-                <Clock className="h-6 w-6 theme-color-secondary mr-4" />
-                <div>
-                  <h4 className="font-medium">Typical Timeframe</h4>
-                  <p className="text-muted-foreground">{service.timeframe}</p>
-                </div>
-              </div>
-              
-              {/* Sub-Services */}
-              <div className="mt-10">
-                <h3 className="text-xl font-semibold mb-4">Specialized Services</h3>
-                <div className="flex flex-wrap gap-3">
-                  {service.subServices.map((subService, index) => (
-                    <span 
-                      key={index} 
-                      className="px-4 py-2 bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] rounded-full text-sm font-medium"
-                    >
-                      {subService}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Deliverables */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-8 text-center">What You'll Receive</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {service.deliverables.map((deliverable, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-sm text-center">
-                <div className="theme-bg-secondary/20 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="theme-color-secondary font-bold">{index + 1}</span>
-                </div>
-                <h3 className="font-medium">{deliverable}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Portfolio Showcase */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-8 text-center">Related Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {service.portfolio.map((item, index) => (
-              <Link to={`/projects/${item.id}`} key={index} className="group">
-                <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
-                  <div className="h-64 overflow-hidden">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-semibold group-hover:theme-color-secondary transition-colors">{item.title}</h3>
-                  </div>
-                </div>
+          {/* Info Card */}
+          <div className="bg-white shadow-lg rounded-2xl mb-12 px-6 py-12 mx-auto">
+            {/* Minimal Green Back to Portfolio Button INSIDE CARD, before coverText */}
+            <div className="mb-4">
+              <Link
+                to="/services"
+                className="inline-flex items-center font-semibold text-green-600 hover:text-green-700 transition-colors duration-200"
+              >
+                <ArrowLeft className="mr-2 h-5 w-5" />
+                Back to Portfolio
               </Link>
-            ))}
+            </div>
+            <div className="flex items-center gap-4 mb-6">
+              <div>{service.icon}</div>
+              <div>
+                <div className="text-sm font-bold theme-color-secondary uppercase tracking-widest">
+                  {service.coverText}
+                </div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold theme-color-primary mb-1">
+                  {service.title}
+                </h1>
+                <div className="font-semibold text-gray-700">
+                  {service.tagline}
+                </div>
+              </div>
+            </div>
+            <p className="text-gray-700 mb-6">{service.description}</p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {service.subServices.map((sub, idx) => (
+                <span
+                  key={idx}
+                  className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-[5px] text-xs font-medium"
+                >
+                  {sub}
+                </span>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 mb-4 text-sm">
+              <Clock className="w-4 h-4 text-yellow-600" />
+              <span className="text-yellow-700 font-medium">Timeline:</span>
+              <span className="font-medium">{service.timeframe}</span>
+            </div>
+            {/* Features */}
+            <div className="mb-7">
+              <h3 className="text-sm font-semibold text-gray-700 mb-1">
+                Key Features
+              </h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-2">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-2 text-gray-800">
+                    <span className="flex-shrink-0">{feature.icon}</span>
+                    <span>{feature.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Process */}
+            <div className="mb-7">
+              <h3 className="text-sm font-semibold text-gray-700 mb-1">
+                Process
+              </h3>
+              <ol className="space-y-2 text-sm">
+                {service.process.map((step, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-2 text-gray-700"
+                  >
+                    <span className="mt-[3px]">{step.icon}</span>
+                    <span>
+                      <span className="font-medium">{step.title}:</span>{" "}
+                      <span>{step.desc}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            {/* Deliverables */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-700 mb-1">
+                Deliverables
+              </h3>
+              <ul className="flex flex-wrap gap-2">
+                {service.deliverables.map((d, i) => (
+                  <li
+                    key={i}
+                    className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-medium"
+                  >
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+
+          {/* Portfolio Grid */}
+          {service.portfolios && (
+            <section className="pt-0 pb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center theme-color-primary">
+                Related Projects
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {service.portfolios.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group animate-fade-in"
+                  >
+                    {/* Image is now a link to the project details page by id */}
+                    <Link to={`/projects/${item.id}`}>
+                      <div className="h-80 overflow-hidden relative">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"></div>
+                      </div>
+                    </Link>
+                    <div className="p-6">
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {item.tags.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-[5px] font-medium mr-2 mb-2"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <Link to={`/projects/${item.id}`}>
+                        <h3 className="text-xl font-bold text-black-soft group-hover:text-[var(--color-primary)] transition-colors">
+                          {item.title}
+                        </h3>
+                      </Link>
+                      <Link
+                        to={`/projects/${item.id}`}
+                        className="view-portfolio-animate px-4 py-2 rounded-full font-medium flex items-center justify-center w-full mx-auto mt-4"
+                      >
+                        <Eye className="mr-2 h-4 w-4" />
+                        <span>View Portfolio</span>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </section>
-      
-      {/* CTA */}
-      <section className="py-16 bg-[var(--color-primary)] text-white">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="max-w-2xl mx-auto mb-8 text-white/80">
-            Let's collaborate to create an amazing {service.title.toLowerCase()} that achieves your business goals and delights your users.
-          </p>
-          <Link 
-            to="/contact" 
-            className="inline-flex items-center bg-white text-[var(--color-primary)] px-6 py-3 rounded-full font-medium hover:bg-[var(--color-secondary)] hover:text-white transition-all duration-300"
-          >
-            Start a Project
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </section>
-      
+
       <Footer />
     </div>
   );

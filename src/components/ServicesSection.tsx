@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    id: "app-design",
+    id: "brand-identity-design",
     iconBg: "bg-blue-100 text-blue-700",
     icon: "🖥️️",
     title: "Brand Identity Design",
@@ -16,17 +16,17 @@ const services = [
     subServices: ["Landing Pages", "E-commerce", "Portfolios"],
   },
   {
-    id: "website-design",
+    id: "marketing-advertising-design",
     iconBg: "bg-yellow-100 text-yellow-700",
     icon: "💻",
     title: "Marketing & Advertising Design",
     description:
-      "Designing impactful marketing materials that effectively communicate your message and drive engagement.",
-    features: ["Responsive Design", "SEO Optimization", "UX", "Performance"],
+      "Creating visually appealing and user-friendly websites that drive traffic and conversions.",
+    features: ["Responsive"],
     subServices: ["Landing Pages", "E-commerce", "Portfolios"],
   },
   {
-    id: "dashboard",
+    id: "packging-design",
     iconBg: "bg-green-100 text-green-700",
     icon: "📊",
     title: "Packaging Design",
@@ -40,7 +40,7 @@ const services = [
     ],
   },
   {
-    id: "wireframe",
+    id: "logo-design",
     iconBg: "bg-pink-100 text-pink-700",
     icon: "🎨",
     title: "Logo Design",
@@ -55,7 +55,7 @@ const services = [
     ],
   },
   {
-    id: "branding",
+    id: "brand-guidelines-design",
     iconBg: "bg-orange-100 text-orange-700",
     icon: "💼",
     title: "Brand Guidelines Design",
@@ -75,7 +75,7 @@ const services = [
     ],
   },
   {
-    id: "typography",
+    id: "image-editing",
     iconBg: "bg-purple-100 text-purple-700",
     icon: "📄",
     title: "Image Editing",

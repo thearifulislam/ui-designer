@@ -1,10 +1,37 @@
 import { Link } from "react-router-dom";
-import EmotionalButton from './EmotionalButton';
+import EmotionalButton from "./EmotionalButton";
 import { ArrowRight, Eye } from "lucide-react";
 
 // logo design portfolio
 
-import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg"
+import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
+import blooddonation from "../assets/portfolios/logo-design/combination-mark/health-care-logo/1/1.jpg";
+import uniflora from "../assets/portfolios/logo-design/lettermark-logo/letter-u/1/1.jpg";
+
+// for business card
+
+import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
+import modernbusinesscard from "../assets/portfolios/business-card/minimalist/2/1.jpg";
+
+// for letterhead
+
+import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
+import modernminimalist from "../assets/portfolios/letterhead/modern&minimalist-corporate/1/modern and minimalist corporate letterhead.jpg";
+
+// for banner
+
+import professionalpromotionalbanner from "../assets/portfolios/banner/promotional/1/1.jpg";
+
+// for social media cover
+import socialmediacoverdesign from "../assets/portfolios/social-cover/facebook-cover/1/1.jpg";
+
+// for background remove
+
+import imageclippingpath from "../assets/portfolios/background-remove/clipping-path/1/10.jpg";
+
+// for brand guidelines
+import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
+import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
 
 const PortfolioSection = () => {
   const portfolioItems = [
@@ -16,92 +43,81 @@ const PortfolioSection = () => {
       image: momentum,
     },
     {
-      id: "mobile-app",
-      title: "Mobile App Design",
-      category: "App Design",
-      tags: ["Mobile", "UI/UX"],
-      image:
-        "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=2400",
+      id: "modern-minimalist-camera-business-card",
+      title: "Modern Minimalist Camera Science Business Card",
+      category: "Business Card Design",
+      tags: ["Business Card"],
+      image: modernminimalistcamerabusinesscard,
     },
     {
-      id: "ecommerce",
-      title: "E-commerce Website",
-      category: "Web Design",
-      tags: ["Web", "E-commerce"],
-      image:
-        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=2400",
+      id: "elegant-gold-accented-corporate-letterhead",
+      title: "Elegant Gold-Accented Corporate Letterhead",
+      category: "Letterhead Design",
+      tags: ["Letterhead"],
+      image: elegantgoldaccentedcorporateletterhead,
     },
     {
-      id: "branding-project",
-      title: "Branding Project",
-      category: "Branding",
-      tags: ["Identity", "Logo"],
-      image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=2400",
+      id: "professional-promotional-banner",
+      title: "Promotional Banner",
+      category: "Banner",
+      tags: ["banner"],
+      image: professionalpromotionalbanner,
     },
     {
-      id: "health-app",
-      title: "Health Tracker App",
-      category: "App Design",
-      tags: ["Healthcare", "Mobile"],
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2400",
+      id: "creative-facebook-cover-design",
+      title: "The Future of Luxury Living – Tailored for You",
+      category: "Facebook Cover",
+      tags: ["Social Media Cover"],
+      image: socialmediacoverdesign,
     },
     {
-      id: "travel-website",
-      title: "Travel Agency Website",
-      category: "Web Design",
-      tags: ["Travel", "Web"],
-      image:
-        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=2400",
+      id: "image-background-remove-clipping-path",
+      title: "Image Clipping Path",
+      category: "Background Remove",
+      tags: ["Background Remove", "Clipping Path"],
+      image: imageclippingpath,
     },
     {
-      id: "saas-wireframe",
-      title: "SaaS Platform Wireframe",
-      category: "Wireframe",
-      tags: ["SaaS", "Wireframe"],
-      image:
-        "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=2400",
+      id: "boldpath-brand-guidelines",
+      title: "The Guidelines for Bold Path",
+      category: "Brand Guidelines",
+      tags: ["Brand Guidelines"],
+      image: boldpath,
     },
     {
-      id: "analytics-dashboard",
-      title: "Analytics Dashboard",
-      category: "Dashboard",
-      tags: ["Business", "Analytics"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2400",
+      id: "blood-donation-logo-design",
+      title: "Blood Donation Logo Design",
+      category: "Logo Design",
+      tags: ["Logo", "Blood Donation"],
+      image: blooddonation,
     },
     {
-      id: "education-app",
-      title: "Education Platform",
-      category: "App Design",
-      tags: ["Education", "Mobile"],
-      image:
-        "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=2400",
+      id: "modern-business-card-design",
+      title: "Modern Business Card Design",
+      category: "Business Card",
+      tags: ["Business Card"],
+      image: modernbusinesscard,
     },
     {
-      id: "portfolio-site",
-      title: "Artist Portfolio",
-      category: "Web Design",
-      tags: ["Portfolio", "Creative"],
-      image:
-        "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&q=80&w=2400",
+      id: "modern-minimalist-letterhead-design",
+      title: "Modern Minimalist Letterhead Design",
+      category: "Letterhead",
+      tags: ["Letterhead"],
+      image: modernminimalist,
     },
     {
-      id: "crm-design",
-      title: "CRM System Design",
-      category: "Dashboard",
-      tags: ["Enterprise", "CRM"],
-      image:
-        "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=2400",
+      id: "uniflora-logo-design",
+      title: "Uniflora Logo Design",
+      category: "Logo Design",
+      tags: ["Logo", "Uniflora"],
+      image: uniflora,
     },
     {
-      id: "food-delivery",
-      title: "Food Delivery App",
-      category: "App Design",
-      tags: ["Food", "Mobile"],
-      image:
-        "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&q=80&w=2400",
+      id: "ranova-brand-guidelines",
+      title: "Ranova Brand Guidelines",
+      category: "Brand Guidelines",
+      tags: ["Brand Guidelines"],
+      image: ranova,
     },
   ];
 
@@ -123,7 +139,8 @@ const PortfolioSection = () => {
           </EmotionalButton>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioItems.slice(0, 6).map((item) => (
+          {/* Only .map, NO .slice! */}
+          {portfolioItems.map((item) => (
             <div
               key={item.id}
               className="portfolio-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group animate-fade-in"
