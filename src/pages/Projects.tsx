@@ -1,39 +1,30 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { Search, Eye } from "lucide-react";
 
-// logo design portfolio
-
+// Asset imports (unchanged, use as in your project)
 import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
 import blooddonation from "../assets/portfolios/logo-design/combination-mark/health-care-logo/1/1.jpg";
 import uniflora from "../assets/portfolios/logo-design/lettermark-logo/letter-u/1/1.jpg";
-
-// for business card
-
+import winnest from "../assets/portfolios/logo-design/wordmark/real-estate/1/1.jpg";
+import meloplay from "../assets/portfolios/logo-design/lettermark-logo/letter-mp/1/1.jpg";
 import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
 import modernbusinesscard from "../assets/portfolios/business-card/minimalist/2/1.jpg";
-
-// for letterhead
-
+import visitingcard from "../assets/portfolios/business-card/professional/1/1.jpg";
+import minimalistcard from "../assets/portfolios/business-card/minimalist/3/mnvb-24.jpg";
+import professionalcard from "../assets/portfolios/business-card/professional/2/1.jpg";
+import customcard from "../assets/portfolios/business-card/custom/1/1.jpg";
 import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
 import modernminimalist from "../assets/portfolios/letterhead/modern&minimalist-corporate/1/modern and minimalist corporate letterhead.jpg";
-
-// for banner
-
 import professionalpromotionalbanner from "../assets/portfolios/banner/promotional/1/1.jpg";
-
-// for social media cover
 import socialmediacoverdesign from "../assets/portfolios/social-cover/facebook-cover/1/1.jpg";
-
-// for background remove
-
 import imageclippingpath from "../assets/portfolios/background-remove/clipping-path/1/10.jpg";
-
-// for brand guidelines
 import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
 import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
+import nexus from "../assets/portfolios/logo-design/brand-guidelines/letter-n/1/1.jpg";
 
 // Util: For animation resets when filters change
 const getFilterKey = (
@@ -42,7 +33,7 @@ const getFilterKey = (
   activeSubFilter: string
 ) => `${searchQuery}|${activeFilter}|${activeSubFilter}`;
 
-// Categories for main filter buttons
+// Categories for main filter buttons (unchanged)
 const categories = [
   { id: "all", name: "All Projects" },
   { id: "logo", name: "Logo" },
@@ -58,10 +49,9 @@ const categories = [
   { id: "stationery", name: "Stationery" },
   { id: "image-editing", name: "Image Editing" },
   { id: "resume", name: "Resume" },
-  { id: "background-removal", name: "Background Removal" },
 ];
 
-// Subcategories for subfilter (used as tag filters)
+// Subcategories (unchanged, used for filtering)
 const subcategories = {
   logo: [
     "All",
@@ -69,30 +59,19 @@ const subcategories = {
     "Wordmark",
     "Abstract",
     "Combination Mark",
-    "Emblem",
-    "Mascot Logo",
-    "3D Logo",
   ],
   "business-card": [
     "All",
     "Minimal",
     "Corporate",
     "Creative",
-    "Vertical Layout",
-    "Double-sided",
-    "Die-cut",
     "Modern",
   ],
   letterhead: [
     "All",
-    "Classic",
     "Modern",
     "Minimalist",
-    "Monochrome",
-    "With Logo",
-    "With Watermark",
   ],
-  "brand-guidelines": ["All", "Logo Usage", "Stationery Mockups"],
   "social-media-post": [
     "All",
     "Instagram Post",
@@ -102,18 +81,10 @@ const subcategories = {
   ],
   banner: [
     "All",
-    "Roll-up Banner",
-    "Event Banner",
-    "Product Banner",
-    "Sale/Offer Banner",
-    "Vertical Banner",
-    "Horizontal Banner",
+    "Promotional Banner",
   ],
   "web-banner": [
     "All",
-    "Website Hero",
-    "Google Display Ad",
-    "Blog Banner",
     "Youtube Thumbnail",
     "Email Banner",
   ],
@@ -121,9 +92,6 @@ const subcategories = {
     "All",
     "Personal",
     "Corporate",
-    "With Social Icons",
-    "With Profile Picture",
-    "Dark Mode Compatible",
   ],
   flyer: [
     "All",
@@ -145,11 +113,11 @@ const subcategories = {
   stationery: ["All", "Letterhead", "Envelope", "Business Card", "ID Card"],
   "image-editing": [
     "All",
+    "Background Remove",
     "Retouching",
     "Color Correction",
     "Photo Manipulation",
     "Old Photo Restoration",
-    "Background Enhancement",
   ],
   resume: [
     "All",
@@ -199,6 +167,7 @@ function useInView<T extends HTMLElement = HTMLElement>(
 }
 
 // --- Portfolio Card with scroll-dependent animation ---
+// Only show tags, don't show subcategory chips
 function AnimatedCard({ item, idx }: { item: any; idx: number }) {
   const [ref, inView] = useInView<HTMLDivElement>();
 
@@ -226,22 +195,23 @@ function AnimatedCard({ item, idx }: { item: any; idx: number }) {
         </div>
       </Link>
       <div className="p-6">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {item.tags.map((tag: string, idx2: number) => (
-            <span
-              key={idx2}
-              className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium mr-2 mb-2"
-            >
-              {tag}
-            </span>
-          ))}
+        <div className="flex flex-wrap gap-2 mb-2">
+          {item.tags &&
+            item.tags.map((tag: string, idx2: number) => (
+              <span
+                key={idx2}
+                className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium mr-2 mb-2"
+              >
+                {tag}
+              </span>
+            ))}
         </div>
         <Link to={`/projects/${item.id}`}>
           <h3 className="text-xl font-bold text-black-soft group-hover:text-[var(--color-secondary)] transition-colors mb-2">
             {item.title}
           </h3>
         </Link>
-        <span className="text-gray-600 mt-2 text-sm">{item.subcategory}</span>
+        {/* No subcategory chips */}
         <Link
           to={`/projects/${item.id}`}
           className="view-button theme-bg-secondary hover:theme-bg-primary text-white px-4 py-2 rounded-full font-medium flex items-center justify-center w-full mt-4"
@@ -254,6 +224,7 @@ function AnimatedCard({ item, idx }: { item: any; idx: number }) {
   );
 }
 
+// ---- Main Projects Page ----
 const Projects = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
@@ -300,130 +271,195 @@ const Projects = () => {
     setActiveSubFilter(subcategory);
   };
 
-  // Example portfolio items (replace with your real data)
+  // ==== Example portfolio items (multi-categories / subcategories) ====
   const portfolioItems = [
     {
       id: "momentum-clothing-brand-for-men",
       title: "Momentum Menswear – Modern & Stylish Clothing for Men",
-      category: "logo",
-      subcategory: "Abstract",
-      tags: ["Logo", "Abstract"],
+      categories: ["logo"],
+      subcategories: ["Abstract", "Combination Mark"],
+      tags: ["Logo", "Abstract", "Combination Mark"],
       image: momentum,
     },
     {
       id: "modern-minimalist-camera-business-card",
       title: "Modern Minimalist Camera Science Business Card",
-      category: "business-card",
-      subcategory: "Modern",
-      tags: ["Business card", "Modern"],
+      categories: ["business-card", "stationery"],
+      subcategories: ["Modern", "Minimal"],
+      tags: ["Business Card", "Modern", "Minimal"],
       image: modernminimalistcamerabusinesscard,
     },
     {
       id: "elegant-gold-accented-corporate-letterhead",
       title: "Elegant Gold-Accented Corporate Letterhead",
-      category: "letterhead",
-      subcategory: "Minimalist",
+      categories: ["letterhead", "stationery"],
+      subcategories: ["Minimalist", "Corporate"],
       tags: ["Letterhead", "Minimalist"],
       image: elegantgoldaccentedcorporateletterhead,
     },
     {
       id: "professional-promotional-banner",
       title: "Promotional Banner",
-      category: "banner",
-      subcategory: "Professional",
-      tags: ["Banner", "Professional"],
+      categories: ["banner"],
+      subcategories: ["Promotional"],
+      tags: ["Banner", "Promotional"],
       image: professionalpromotionalbanner,
     },
     {
       id: "creative-facebook-cover-design",
       title: "The Future of Luxury Living – Tailored for You",
-      category: "Facebook Cover",
-      subcategory: "Corporate",
+      categories: ["social-media-post"],
+      subcategories: ["Promotional"],
       tags: ["Social Media Cover"],
       image: socialmediacoverdesign,
     },
     {
       id: "image-background-remove-clipping-path",
       title: "Image Clipping Path",
-      category: "Background Remove",
-      subcategory: "Background",
+      categories: ["image-editing"],
+      subcategories: ["Background Remove"],
       tags: ["Background Remove", "Clipping Path"],
       image: imageclippingpath,
     },
     {
       id: "boldpath-brand-guidelines",
       title: "The Guidelines for Bold Path",
-      category: "Brand Guidelines",
-      subcategory: "Brand",
+      categories: ["brand-guidelines"],
+      subcategories: [],
       tags: ["Brand Guidelines"],
       image: boldpath,
     },
     {
       id: "blood-donation-logo-design",
       title: "Blood Donation Logo Design",
-      category: "Logo Design",
-      subcategory: "Health Care",
+      categories: ["logo"],
+      subcategories: ["Combination Mark"],
       tags: ["Logo", "Blood Donation"],
       image: blooddonation,
     },
     {
       id: "modern-business-card-design",
       title: "Modern Business Card Design",
-      category: "Business Card",
-      subcategory: "Cross Platform",
-      tags: ["Business Card"],
+      categories: ["business-card", "stationery"],
+      subcategories: ["Cross Platform", "Creative"],
+      tags: ["Business Card",],
       image: modernbusinesscard,
     },
     {
       id: "modern-minimalist-letterhead-design",
       title: "Modern Minimalist Letterhead Design",
-      category: "Letterhead",
-      subcategory: "Portfolio",
+      categories: ["letterhead", "stationery"],
+      subcategories: ["Portfolio", "Minimalist"],
       tags: ["Letterhead"],
       image: modernminimalist,
     },
     {
       id: "uniflora-logo-design",
       title: "Uniflora Logo Design",
-      category: "Logo Design",
-      subcategory: "Health Care",
+      categories: ["logo"],
+      subcategories: ["Health Care"],
       tags: ["Logo", "Health Care"],
       image: uniflora,
     },
     {
       id: "ranova-brand-guidelines",
       title: "Ranova Brand Guidelines",
-      category: "Brand Guidelines",
-      subcategory: "Brand",
+      categories: ["brand-guidelines"],
+      subcategories: [],
       tags: ["Brand Guidelines"],
       image: ranova,
     },
+    {
+      id: "professional-business-card-design",
+      title: "Professional Business Card Design",
+      categories: ["business-card"],
+      subcategories: ["Professional", "Corporate"],
+      tags: ["Business Card", "Professional"],
+      image: visitingcard,
+    },
+    {
+      id: "winnest-logo-design",
+      title: "WinNest Real Estate Logo Design",
+      categories: ["logo"],
+      subcategories: ["Wordmark", "Real Estate"],
+      tags: ["Logo Design", "Wordmark"],
+      image: winnest,
+    },
+    {
+      id: "minimalist-card-design",
+      title: "Minimalist Card Design",
+      categories: ["business-card"],
+      subcategories: ["Minimalist"],
+      tags: ["Business Card", "Minimalist"],
+      image: minimalistcard,
+    },
+    {
+      id: "professional-card-design",
+      title: "Professional Card Design",
+      categories: ["business-card"],
+      subcategories: ["Professional"],
+      tags: ["Business Card", "Professional"],
+      image: professionalcard,
+    },
+    {
+      id: "nexus-brand-guidelines",
+      title: "Nexus Brand Guidelines",
+      categories: ["brand-guidelines"],
+      subcategories: ["Logo Design"],
+      tags: ["Brand Guidelines", "Logo Design"],
+      image: nexus,
+    },
+    {
+      id: "custom-card-design",
+      title: "Custom Card Design",
+      categories: ["business-card", "stationery"],
+      subcategories: ["Custom"],
+      tags: ["Business Card", "Custom"],
+      image: customcard,
+    },
+    {
+      id: "meloplay-logo-design",
+      title: "Meloplay Logo Design",
+      categories: ["logo"],
+      subcategories: ["Lettermark"],
+      tags: ["Logo", "Lettermark"],
+      image: meloplay,
+    },
   ];
 
-  // Filtering logic: filter by category, then by subfilter (tag), then by search
+  // ==== Filtering Logic ====
   const filteredProjects = portfolioItems.filter((item) => {
     // Search filter
     const matchesSearch =
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.tags.some((tag) =>
-        tag.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      (item.tags &&
+        item.tags.some((tag) =>
+          tag.toLowerCase().includes(searchQuery.toLowerCase())
+        ));
 
-    // Category filter
+    // Category filter (multi-category)
     const matchesCategory =
-      activeFilter === "all" || item.category === activeFilter;
+      activeFilter === "all" ||
+      (Array.isArray(item.categories) &&
+        item.categories.includes(activeFilter));
 
     if (!matchesCategory || !matchesSearch) return false;
 
-    // Subfilter logic: for categories with subfilters, match tag (except "All")
+    // Subfilter (multi-subcategory support)
     if (
       showSubFilter &&
       activeSubFilter &&
       activeSubFilter.toLowerCase() !== "all"
     ) {
-      // For logo and other categories, subfilter matches tag (case-insensitive)
-      return item.tags.some(
-        (tag) => tag.toLowerCase() === activeSubFilter.toLowerCase()
+      const subcats = item.subcategories || [];
+      const tags = item.tags || [];
+      return (
+        subcats.some(
+          (sub) => sub.toLowerCase() === activeSubFilter.toLowerCase()
+        ) ||
+        tags.some(
+          (tag) => tag.toLowerCase() === activeSubFilter.toLowerCase()
+        )
       );
     }
 

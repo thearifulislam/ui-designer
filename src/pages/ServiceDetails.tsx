@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
 import {
   ArrowRight,
   ArrowLeft,
@@ -19,15 +18,19 @@ import {
   BookOpen,
   Eye,
 } from "lucide-react";
-
 // logo design portfolio
 import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
 import blooddonation from "../assets/portfolios/logo-design/combination-mark/health-care-logo/1/1.jpg";
 import uniflora from "../assets/portfolios/logo-design/lettermark-logo/letter-u/1/1.jpg";
+import meloplay from "../assets/portfolios/logo-design/lettermark-logo/letter-mp/1/1.jpg";
+
 
 // for business card
 import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
 import modernbusinesscard from "../assets/portfolios/business-card/minimalist/2/1.jpg";
+import minimalistcard from "../assets/portfolios/business-card/minimalist/3/mnvb-24.jpg";
+import professionalcard from "../assets/portfolios/business-card/professional/2/1.jpg";
+import customcard from "../assets/portfolios/business-card/custom/1/1.jpg"
 
 // for letterhead
 import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
@@ -45,9 +48,626 @@ import imageclippingpath from "../assets/portfolios/background-remove/clipping-p
 // for brand guidelines
 import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
 import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
+import nexus from "../assets/portfolios/logo-design/brand-guidelines/letter-n/1/1.jpg";
+
 
 // Import the portfolio styles for the animated button
 import "../styles/portfolio.css";
+
+const serviceData = {
+  "logo-design": {
+    icon: (
+      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+    ),
+    coverText: "Logo Design",
+    title: "Logo Design Excellence",
+    tagline: "Distinctive. Memorable. Timeless brand marks.",
+    description:
+      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
+    process: [
+      {
+        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+        title: "Discovery",
+        desc: "Understand your brand, audience, and vision.",
+      },
+      {
+        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+        title: "Research & Concept",
+        desc: "Market analysis and brainstorming unique ideas.",
+      },
+      {
+        icon: <Figma className="h-7 w-7 text-pink-500" />,
+        title: "Design & Refinement",
+        desc: "Crafting and iterating on logo concepts.",
+      },
+      {
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+        title: "Presentation",
+        desc: "Showcase options and gather your feedback.",
+      },
+      {
+        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+        title: "Delivery",
+        desc: "Final files in all formats, ready for use.",
+      },
+    ],
+    features: [
+      {
+        icon: <Star className="h-6 w-6 text-yellow-400" />,
+        label: "Original Concepts",
+      },
+      {
+        icon: <Users className="h-6 w-6 text-blue-500" />,
+        label: "Collaborative Process",
+      },
+      {
+        icon: <Figma className="h-6 w-6 text-pink-500" />,
+        label: "Vector Source Files",
+      },
+      {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+        label: "Fast Turnaround",
+      },
+      {
+        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+        label: "Brand Guidelines",
+      },
+      {
+        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+        label: "Usage Documentation",
+      },
+    ],
+    subServices: [
+      "Wordmark Logos",
+      "Brandmarks & Symbols",
+      "Monogram Logos",
+      "Emblem Logos",
+      "Mascot Logos",
+      "Minimal Logos",
+    ],
+    deliverables: [
+      "Primary & Secondary Logo",
+      "Black/White & Color Variations",
+      "SVG, PNG, PDF, EPS Files",
+      "Brand Guidelines Sheet",
+      "Favicon & Social Media Kit",
+      "Mockups for Real-World Use",
+    ],
+    timeframe: "1-2 weeks",
+    portfolios: [
+      {
+        id: "momentum-clothing-brand-for-men",
+        title: "Momentum Menswear – Modern & Stylish Clothing for Men",
+        tags: ["Logo", "Abstract"],
+        image: momentum,
+      },
+      {
+        id: "blood-donation-logo-design",
+        title: "Blood Donation Logo Design",
+        tags: ["Logo", "Blood Donation"],
+        image: blooddonation,
+      },
+      {
+        id: "uniflora-logo-design",
+        title: "Uniflora Logo Design",
+        tags: ["Logo", "Health Care"],
+        image: uniflora,
+      },
+      {
+        id: "ranova-brand-guidelines",
+        title: "Ranova Brand Guidelines",
+        tags: ["Brand Guidelines"],
+        image: ranova,
+      },
+      {
+        id: "boldpath-brand-guidelines",
+        title: "The Guidelines for Bold Path",
+        tags: ["Brand Guidelines"],
+        image: boldpath,
+      },
+      {
+        id: "nexus-brand-guidelines",
+        title: "Nexus Brand Guidelines",
+        tags: ["Brand Guidelines"],
+        image: nexus,
+      },
+      {
+        id: "meloplay-logo-design",
+        title: "Meloplay Logo Design",
+        tags: ["Logo Design"],
+        image: meloplay,
+      },
+    ],
+  },
+  // ...other services (not shown for brevity)
+
+  "business-card-design": {
+    icon: (
+      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+    ),
+    coverText: "Logo Design",
+    title: "Logo Design Excellence",
+    tagline: "Distinctive. Memorable. Timeless brand marks.",
+    description:
+      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
+    process: [
+      {
+        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+        title: "Discovery",
+        desc: "Understand your brand, audience, and vision.",
+      },
+      {
+        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+        title: "Research & Concept",
+        desc: "Market analysis and brainstorming unique ideas.",
+      },
+      {
+        icon: <Figma className="h-7 w-7 text-pink-500" />,
+        title: "Design & Refinement",
+        desc: "Crafting and iterating on logo concepts.",
+      },
+      {
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+        title: "Presentation",
+        desc: "Showcase options and gather your feedback.",
+      },
+      {
+        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+        title: "Delivery",
+        desc: "Final files in all formats, ready for use.",
+      },
+    ],
+    features: [
+      {
+        icon: <Star className="h-6 w-6 text-yellow-400" />,
+        label: "Original Concepts",
+      },
+      {
+        icon: <Users className="h-6 w-6 text-blue-500" />,
+        label: "Collaborative Process",
+      },
+      {
+        icon: <Figma className="h-6 w-6 text-pink-500" />,
+        label: "Vector Source Files",
+      },
+      {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+        label: "Fast Turnaround",
+      },
+      {
+        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+        label: "Brand Guidelines",
+      },
+      {
+        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+        label: "Usage Documentation",
+      },
+    ],
+    subServices: [
+      "Wordmark Logos",
+      "Brandmarks & Symbols",
+      "Monogram Logos",
+      "Emblem Logos",
+      "Mascot Logos",
+      "Minimal Logos",
+    ],
+    deliverables: [
+      "Primary & Secondary Logo",
+      "Black/White & Color Variations",
+      "SVG, PNG, PDF, EPS Files",
+      "Brand Guidelines Sheet",
+      "Favicon & Social Media Kit",
+      "Mockups for Real-World Use",
+    ],
+    timeframe: "1-2 weeks",
+    portfolios: [
+      {
+        id: "modern-minimalist-camera-business-card",
+        title: "Modern Minimalist Camera Science Business Card",
+        tags: ["Business card", "Modern"],
+        image: modernminimalistcamerabusinesscard,
+      },
+      {
+        id: "modern-business-card-design",
+        title: "Modern Business Card Design",
+        tags: ["Business Card"],
+        image: modernbusinesscard,
+      },
+      {
+        id: "minimalist-card-design",
+        title: "Minimalist Card Design",
+        tags: ["Business Card"],
+        image: minimalistcard,
+      },
+      {
+        id: "professional-card-design",
+        title: "Professional Card Design",
+        tags: ["Business Card"],
+        image: professionalcard,
+      },
+      {
+        id: "custom-card-design",
+        title: "Custom Card Design",
+        tags: ["Business Card"],
+        image: customcard,
+      },
+    ],
+  },
+
+  "letterhead-design": {
+    icon: (
+      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+    ),
+    coverText: "Logo Design",
+    title: "Logo Design Excellence",
+    tagline: "Distinctive. Memorable. Timeless brand marks.",
+    description:
+      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
+    process: [
+      {
+        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+        title: "Discovery",
+        desc: "Understand your brand, audience, and vision.",
+      },
+      {
+        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+        title: "Research & Concept",
+        desc: "Market analysis and brainstorming unique ideas.",
+      },
+      {
+        icon: <Figma className="h-7 w-7 text-pink-500" />,
+        title: "Design & Refinement",
+        desc: "Crafting and iterating on logo concepts.",
+      },
+      {
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+        title: "Presentation",
+        desc: "Showcase options and gather your feedback.",
+      },
+      {
+        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+        title: "Delivery",
+        desc: "Final files in all formats, ready for use.",
+      },
+    ],
+    features: [
+      {
+        icon: <Star className="h-6 w-6 text-yellow-400" />,
+        label: "Original Concepts",
+      },
+      {
+        icon: <Users className="h-6 w-6 text-blue-500" />,
+        label: "Collaborative Process",
+      },
+      {
+        icon: <Figma className="h-6 w-6 text-pink-500" />,
+        label: "Vector Source Files",
+      },
+      {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+        label: "Fast Turnaround",
+      },
+      {
+        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+        label: "Brand Guidelines",
+      },
+      {
+        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+        label: "Usage Documentation",
+      },
+    ],
+    subServices: [
+      "Wordmark Logos",
+      "Brandmarks & Symbols",
+      "Monogram Logos",
+      "Emblem Logos",
+      "Mascot Logos",
+      "Minimal Logos",
+    ],
+    deliverables: [
+      "Primary & Secondary Logo",
+      "Black/White & Color Variations",
+      "SVG, PNG, PDF, EPS Files",
+      "Brand Guidelines Sheet",
+      "Favicon & Social Media Kit",
+      "Mockups for Real-World Use",
+    ],
+    timeframe: "1-2 weeks",
+    portfolios: [
+      {
+        id: "modern-minimalist-letterhead-design",
+        title: "Modern Minimalist Letterhead Design",
+        tags: ["Letterhead"],
+        image: modernminimalist,
+      },
+      {
+        id: "elegant-gold-accented-corporate-letterhead",
+        title: "Elegant Gold-Accented Corporate Letterhead",
+        tags: ["Letterhead", "Minimalist"],
+        image: elegantgoldaccentedcorporateletterhead,
+      },
+    ],
+  },
+
+  "brand-guidelines-design": {
+    icon: (
+      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+    ),
+    coverText: "Logo Design",
+    title: "Logo Design Excellence",
+    tagline: "Distinctive. Memorable. Timeless brand marks.",
+    description:
+      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
+    process: [
+      {
+        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+        title: "Discovery",
+        desc: "Understand your brand, audience, and vision.",
+      },
+      {
+        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+        title: "Research & Concept",
+        desc: "Market analysis and brainstorming unique ideas.",
+      },
+      {
+        icon: <Figma className="h-7 w-7 text-pink-500" />,
+        title: "Design & Refinement",
+        desc: "Crafting and iterating on logo concepts.",
+      },
+      {
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+        title: "Presentation",
+        desc: "Showcase options and gather your feedback.",
+      },
+      {
+        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+        title: "Delivery",
+        desc: "Final files in all formats, ready for use.",
+      },
+    ],
+    features: [
+      {
+        icon: <Star className="h-6 w-6 text-yellow-400" />,
+        label: "Original Concepts",
+      },
+      {
+        icon: <Users className="h-6 w-6 text-blue-500" />,
+        label: "Collaborative Process",
+      },
+      {
+        icon: <Figma className="h-6 w-6 text-pink-500" />,
+        label: "Vector Source Files",
+      },
+      {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+        label: "Fast Turnaround",
+      },
+      {
+        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+        label: "Brand Guidelines",
+      },
+      {
+        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+        label: "Usage Documentation",
+      },
+    ],
+    subServices: [
+      "Wordmark Logos",
+      "Brandmarks & Symbols",
+      "Monogram Logos",
+      "Emblem Logos",
+      "Mascot Logos",
+      "Minimal Logos",
+    ],
+    deliverables: [
+      "Primary & Secondary Logo",
+      "Black/White & Color Variations",
+      "SVG, PNG, PDF, EPS Files",
+      "Brand Guidelines Sheet",
+      "Favicon & Social Media Kit",
+      "Mockups for Real-World Use",
+    ],
+    timeframe: "1-2 weeks",
+    portfolios: [
+      {
+        id: "boldpath-brand-guidelines",
+        title: "The Guidelines for Bold Path",
+        tags: ["Brand Guidelines"],
+        image: boldpath,
+      },
+      {
+        id: "ranova-brand-guidelines",
+        title: "Ranova Brand Guidelines",
+        tags: ["Brand Guidelines"],
+        image: ranova,
+      },
+      {
+        id: "nexus-brand-guidelines",
+        title: "Nexus Brand Guidelines",
+        tags: ["Brand Guidelines"],
+        image: nexus,
+      },
+    ],
+  },
+
+  "image-editing": {
+    icon: (
+      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+    ),
+    coverText: "Logo Design",
+    title: "Logo Design Excellence",
+    tagline: "Distinctive. Memorable. Timeless brand marks.",
+    description:
+      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
+    process: [
+      {
+        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+        title: "Discovery",
+        desc: "Understand your brand, audience, and vision.",
+      },
+      {
+        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+        title: "Research & Concept",
+        desc: "Market analysis and brainstorming unique ideas.",
+      },
+      {
+        icon: <Figma className="h-7 w-7 text-pink-500" />,
+        title: "Design & Refinement",
+        desc: "Crafting and iterating on logo concepts.",
+      },
+      {
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+        title: "Presentation",
+        desc: "Showcase options and gather your feedback.",
+      },
+      {
+        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+        title: "Delivery",
+        desc: "Final files in all formats, ready for use.",
+      },
+    ],
+    features: [
+      {
+        icon: <Star className="h-6 w-6 text-yellow-400" />,
+        label: "Original Concepts",
+      },
+      {
+        icon: <Users className="h-6 w-6 text-blue-500" />,
+        label: "Collaborative Process",
+      },
+      {
+        icon: <Figma className="h-6 w-6 text-pink-500" />,
+        label: "Vector Source Files",
+      },
+      {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+        label: "Fast Turnaround",
+      },
+      {
+        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+        label: "Brand Guidelines",
+      },
+      {
+        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+        label: "Usage Documentation",
+      },
+    ],
+    subServices: [
+      "Wordmark Logos",
+      "Brandmarks & Symbols",
+      "Monogram Logos",
+      "Emblem Logos",
+      "Mascot Logos",
+      "Minimal Logos",
+    ],
+    deliverables: [
+      "Primary & Secondary Logo",
+      "Black/White & Color Variations",
+      "SVG, PNG, PDF, EPS Files",
+      "Brand Guidelines Sheet",
+      "Favicon & Social Media Kit",
+      "Mockups for Real-World Use",
+    ],
+    timeframe: "1-2 weeks",
+    portfolios: [
+      {
+        id: "image-background-remove-clipping-path",
+        title: "Image Clipping Path",
+        tags: ["Background Remove", "Clipping Path"],
+        image: imageclippingpath,
+      },
+    ],
+  },
+
+  "background-removal": {
+    icon: (
+      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+    ),
+    coverText: "Logo Design",
+    title: "Logo Design Excellence",
+    tagline: "Distinctive. Memorable. Timeless brand marks.",
+    description:
+      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
+    process: [
+      {
+        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+        title: "Discovery",
+        desc: "Understand your brand, audience, and vision.",
+      },
+      {
+        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+        title: "Research & Concept",
+        desc: "Market analysis and brainstorming unique ideas.",
+      },
+      {
+        icon: <Figma className="h-7 w-7 text-pink-500" />,
+        title: "Design & Refinement",
+        desc: "Crafting and iterating on logo concepts.",
+      },
+      {
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+        title: "Presentation",
+        desc: "Showcase options and gather your feedback.",
+      },
+      {
+        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+        title: "Delivery",
+        desc: "Final files in all formats, ready for use.",
+      },
+    ],
+    features: [
+      {
+        icon: <Star className="h-6 w-6 text-yellow-400" />,
+        label: "Original Concepts",
+      },
+      {
+        icon: <Users className="h-6 w-6 text-blue-500" />,
+        label: "Collaborative Process",
+      },
+      {
+        icon: <Figma className="h-6 w-6 text-pink-500" />,
+        label: "Vector Source Files",
+      },
+      {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+        label: "Fast Turnaround",
+      },
+      {
+        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+        label: "Brand Guidelines",
+      },
+      {
+        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+        label: "Usage Documentation",
+      },
+    ],
+    subServices: [
+      "Wordmark Logos",
+      "Brandmarks & Symbols",
+      "Monogram Logos",
+      "Emblem Logos",
+      "Mascot Logos",
+      "Minimal Logos",
+    ],
+    deliverables: [
+      "Primary & Secondary Logo",
+      "Black/White & Color Variations",
+      "SVG, PNG, PDF, EPS Files",
+      "Brand Guidelines Sheet",
+      "Favicon & Social Media Kit",
+      "Mockups for Real-World Use",
+    ],
+    timeframe: "1-2 weeks",
+    portfolios: [
+      {
+        id: "image-background-remove-clipping-path",
+        title: "Image Clipping Path",
+        tags: ["Background Remove", "Clipping Path"],
+        image: imageclippingpath,
+      },
+    ],
+  },
+};
 
 const ServiceDetails = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
@@ -56,527 +676,159 @@ const ServiceDetails = () => {
     window.scrollTo(0, 0);
   }, [serviceId]);
 
-  const serviceData = {
-    "logo-design": {
-      icon: (
-        <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
-      ),
-      coverText: "Logo Design",
-      title: "Logo Design Excellence",
-      tagline: "Distinctive. Memorable. Timeless brand marks.",
-      description:
-        "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
-      process: [
-        {
-          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
-          title: "Discovery",
-          desc: "Understand your brand, audience, and vision.",
-        },
-        {
-          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
-          title: "Research & Concept",
-          desc: "Market analysis and brainstorming unique ideas.",
-        },
-        {
-          icon: <Figma className="h-7 w-7 text-pink-500" />,
-          title: "Design & Refinement",
-          desc: "Crafting and iterating on logo concepts.",
-        },
-        {
-          icon: <Sparkle className="h-7 w-7 text-blue-400" />,
-          title: "Presentation",
-          desc: "Showcase options and gather your feedback.",
-        },
-        {
-          icon: <Briefcase className="h-7 w-7 text-green-500" />,
-          title: "Delivery",
-          desc: "Final files in all formats, ready for use.",
-        },
-      ],
-      features: [
-        {
-          icon: <Star className="h-6 w-6 text-yellow-400" />,
-          label: "Original Concepts",
-        },
-        {
-          icon: <Users className="h-6 w-6 text-blue-500" />,
-          label: "Collaborative Process",
-        },
-        {
-          icon: <Figma className="h-6 w-6 text-pink-500" />,
-          label: "Vector Source Files",
-        },
-        {
-          icon: <Rocket className="h-6 w-6 text-green-500" />,
-          label: "Fast Turnaround",
-        },
-        {
-          icon: <Sparkle className="h-6 w-6 text-purple-500" />,
-          label: "Brand Guidelines",
-        },
-        {
-          icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
-          label: "Usage Documentation",
-        },
-      ],
-      subServices: [
-        "Wordmark Logos",
-        "Brandmarks & Symbols",
-        "Monogram Logos",
-        "Emblem Logos",
-        "Mascot Logos",
-        "Minimal Logos",
-      ],
-      deliverables: [
-        "Primary & Secondary Logo",
-        "Black/White & Color Variations",
-        "SVG, PNG, PDF, EPS Files",
-        "Brand Guidelines Sheet",
-        "Favicon & Social Media Kit",
-        "Mockups for Real-World Use",
-      ],
-      timeframe: "1-2 weeks",
-      portfolios: [
-        {
-          id: "momentum-clothing-brand-for-men",
-          title: "Momentum Menswear – Modern & Stylish Clothing for Men",
-          tags: ["Logo", "Abstract"],
-          image: momentum,
-        },
-        {
-          id: "blood-donation-logo-design",
-          title: "Blood Donation Logo Design",
-          tags: ["Logo", "Blood Donation"],
-          image: blooddonation,
-        },
-        {
-          id: "uniflora-logo-design",
-          title: "Uniflora Logo Design",
-          tags: ["Logo", "Health Care"],
-          image: uniflora,
-        },
-        {
-          id: "ranova-brand-guidelines",
-          title: "Ranova Brand Guidelines",
-          tags: ["Brand Guidelines"],
-          image: ranova,
-        },
-        {
-          id: "boldpath-brand-guidelines",
-          title: "The Guidelines for Bold Path",
-          tags: ["Brand Guidelines"],
-          image: boldpath,
-        },
-      ],
-    },
-
-    "image-editing": {
-      icon: (
-        <Briefcase className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
-      ),
-      coverText: "Business Card Design",
-      title: "Professional Business Card Design",
-      tagline: "Make a lasting impression with every handshake.",
-      description:
-        "Elevate your brand with custom business card designs that reflect your professionalism and style. I create unique, memorable, and print-ready cards tailored to your business identity.",
-      process: [
-        {
-          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
-          title: "Brief & Brand Study",
-          desc: "Understand your business, brand, and card requirements.",
-        },
-        {
-          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
-          title: "Concept & Layout",
-          desc: "Sketch and plan card layouts and visual hierarchy.",
-        },
-        {
-          icon: <Figma className="h-7 w-7 text-pink-500" />,
-          title: "Design & Review",
-          desc: "Create digital designs and refine based on your feedback.",
-        },
-        {
-          icon: <Sparkle className="h-7 w-7 text-blue-400" />,
-          title: "Finalization",
-          desc: "Polish the design and prepare for print.",
-        },
-        {
-          icon: <Briefcase className="h-7 w-7 text-green-500" />,
-          title: "Delivery",
-          desc: "Provide print-ready files and digital previews.",
-        },
-      ],
-      features: [
-        {
-          icon: <Star className="h-6 w-6 text-yellow-400" />,
-          label: "Custom Layouts",
-        },
-        {
-          icon: <Users className="h-6 w-6 text-blue-500" />,
-          label: "Double-sided Design",
-        },
-        {
-          icon: <Figma className="h-6 w-6 text-pink-500" />,
-          label: "Editable Source Files",
-        },
-        {
-          icon: <Rocket className="h-6 w-6 text-green-500" />,
-          label: "Print-Ready Exports",
-        },
-        {
-          icon: <Sparkle className="h-6 w-6 text-purple-500" />,
-          label: "Unique Brand Touch",
-        },
-        {
-          icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
-          label: "Multiple Concepts",
-        },
-      ],
-      subServices: [
-        "Minimalist Business Cards",
-        "Corporate Business Cards",
-        "Personal/Creative Cards",
-        "Double-sided Cards",
-        "QR Code Integration",
-        "Spot UV & Special Finish Cards",
-      ],
-      deliverables: [
-        "Print-ready PDF (CMYK)",
-        "High-res PNG/JPG",
-        "Editable Source File (AI/PSD)",
-        "Mockup Previews",
-        "Bleed & Trim Marks",
-        "QR Code (if needed)",
-      ],
-      timeframe: "2-4 days",
-      portfolios: [
-        {
-          id: "image-background-remove-clipping-path",
-          title: "Image Clipping Path",
-          tags: ["Background Remove", "Clipping Path"],
-          image: imageclippingpath,
-        },
-      ],
-    },
-
-    "business-card-design": {
-      icon: (
-        <Briefcase className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
-      ),
-      coverText: "Business Card Design",
-      title: "Professional Business Card Design",
-      tagline: "Make a lasting impression with every handshake.",
-      description:
-        "Elevate your brand with custom business card designs that reflect your professionalism and style. I create unique, memorable, and print-ready cards tailored to your business identity.",
-      process: [
-        {
-          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
-          title: "Brief & Brand Study",
-          desc: "Understand your business, brand, and card requirements.",
-        },
-        {
-          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
-          title: "Concept & Layout",
-          desc: "Sketch and plan card layouts and visual hierarchy.",
-        },
-        {
-          icon: <Figma className="h-7 w-7 text-pink-500" />,
-          title: "Design & Review",
-          desc: "Create digital designs and refine based on your feedback.",
-        },
-        {
-          icon: <Sparkle className="h-7 w-7 text-blue-400" />,
-          title: "Finalization",
-          desc: "Polish the design and prepare for print.",
-        },
-        {
-          icon: <Briefcase className="h-7 w-7 text-green-500" />,
-          title: "Delivery",
-          desc: "Provide print-ready files and digital previews.",
-        },
-      ],
-      features: [
-        {
-          icon: <Star className="h-6 w-6 text-yellow-400" />,
-          label: "Custom Layouts",
-        },
-        {
-          icon: <Users className="h-6 w-6 text-blue-500" />,
-          label: "Double-sided Design",
-        },
-        {
-          icon: <Figma className="h-6 w-6 text-pink-500" />,
-          label: "Editable Source Files",
-        },
-        {
-          icon: <Rocket className="h-6 w-6 text-green-500" />,
-          label: "Print-Ready Exports",
-        },
-        {
-          icon: <Sparkle className="h-6 w-6 text-purple-500" />,
-          label: "Unique Brand Touch",
-        },
-        {
-          icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
-          label: "Multiple Concepts",
-        },
-      ],
-      subServices: [
-        "Minimalist Business Cards",
-        "Corporate Business Cards",
-        "Personal/Creative Cards",
-        "Double-sided Cards",
-        "QR Code Integration",
-        "Spot UV & Special Finish Cards",
-      ],
-      deliverables: [
-        "Print-ready PDF (CMYK)",
-        "High-res PNG/JPG",
-        "Editable Source File (AI/PSD)",
-        "Mockup Previews",
-        "Bleed & Trim Marks",
-        "QR Code (if needed)",
-      ],
-      timeframe: "2-4 days",
-      portfolios: [
-        {
-          id: "modern-minimalist-camera-business-card",
-          title: "Modern Minimalist Camera Business Card",
-          tags: ["Minimalist", "Photography"],
-          image: modernminimalistcamerabusinesscard,
-        },
-        {
-          id: "modern-business-card",
-          title: "Modern Business Card",
-          tags: ["Corporate", "Modern"],
-          image: modernbusinesscard,
-        },
-      ],
-    },
-
-    "letterhead-design": {
-      icon: (
-        <Briefcase className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
-      ),
-      coverText: "Business Card Design",
-      title: "Professional Business Card Design",
-      tagline: "Make a lasting impression with every handshake.",
-      description:
-        "Elevate your brand with custom business card designs that reflect your professionalism and style. I create unique, memorable, and print-ready cards tailored to your business identity.",
-      process: [
-        {
-          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
-          title: "Brief & Brand Study",
-          desc: "Understand your business, brand, and card requirements.",
-        },
-        {
-          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
-          title: "Concept & Layout",
-          desc: "Sketch and plan card layouts and visual hierarchy.",
-        },
-        {
-          icon: <Figma className="h-7 w-7 text-pink-500" />,
-          title: "Design & Review",
-          desc: "Create digital designs and refine based on your feedback.",
-        },
-        {
-          icon: <Sparkle className="h-7 w-7 text-blue-400" />,
-          title: "Finalization",
-          desc: "Polish the design and prepare for print.",
-        },
-        {
-          icon: <Briefcase className="h-7 w-7 text-green-500" />,
-          title: "Delivery",
-          desc: "Provide print-ready files and digital previews.",
-        },
-      ],
-      features: [
-        {
-          icon: <Star className="h-6 w-6 text-yellow-400" />,
-          label: "Custom Layouts",
-        },
-        {
-          icon: <Users className="h-6 w-6 text-blue-500" />,
-          label: "Double-sided Design",
-        },
-        {
-          icon: <Figma className="h-6 w-6 text-pink-500" />,
-          label: "Editable Source Files",
-        },
-        {
-          icon: <Rocket className="h-6 w-6 text-green-500" />,
-          label: "Print-Ready Exports",
-        },
-        {
-          icon: <Sparkle className="h-6 w-6 text-purple-500" />,
-          label: "Unique Brand Touch",
-        },
-        {
-          icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
-          label: "Multiple Concepts",
-        },
-      ],
-      subServices: [
-        "Minimalist Business Cards",
-        "Corporate Business Cards",
-        "Personal/Creative Cards",
-        "Double-sided Cards",
-        "QR Code Integration",
-        "Spot UV & Special Finish Cards",
-      ],
-      deliverables: [
-        "Print-ready PDF (CMYK)",
-        "High-res PNG/JPG",
-        "Editable Source File (AI/PSD)",
-        "Mockup Previews",
-        "Bleed & Trim Marks",
-        "QR Code (if needed)",
-      ],
-      timeframe: "2-4 days",
-      portfolios: [
-        {
-          id: "elegant-gold-accented-corporate-letterhead",
-          title: "Elegant Gold-Accented Corporate Letterhead",
-          tags: ["Letterhead", "Minimalist"],
-          image: elegantgoldaccentedcorporateletterhead,
-        },
-        {
-          id: "modern-minimalist-letterhead-design",
-          title: "Modern Minimalist Letterhead Design",
-          tags: ["Letterhead"],
-          image: modernminimalist,
-        },
-      ],
-    },
-
-    "brand-guidelines-design": {
-      icon: (
-        <Globe className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
-      ),
-      coverText: "Next-Gen Web Design",
-      title: "Website Design Impact",
-      tagline: "Fast. Functional. Future-proof.",
-      description:
-        "Memorable websites made for people, performance and results. From landing pages to portals, I bring ideas to life — pixel by pixel.",
-      process: [
-        {
-          icon: <Rocket className="h-7 w-7 text-yellow-500" />,
-          title: "Strategy",
-          desc: "Understand goals, audience, & success metrics.",
-        },
-        {
-          icon: <BookOpen className="h-7 w-7 text-purple-500" />,
-          title: "Structure",
-          desc: "Map content & intuitive navigation.",
-        },
-        {
-          icon: <Globe className="h-7 w-7 text-blue-400" />,
-          title: "UI Design",
-          desc: "Modern layouts & color story.",
-        },
-        {
-          icon: <Sparkle className="h-7 w-7 text-green-500" />,
-          title: "Prototype",
-          desc: "Clickable demos for feedback.",
-        },
-        {
-          icon: <Briefcase className="h-7 w-7 text-orange-500" />,
-          title: "Launch",
-          desc: "Optimized files & guides for devs.",
-        },
-      ],
-      features: [
-        {
-          icon: <Star className="h-6 w-6 text-yellow-400" />,
-          label: "Performance Optimized",
-        },
-        {
-          icon: <Users className="h-6 w-6 text-indigo-500" />,
-          label: "Collaborative Process",
-        },
-        {
-          icon: <Figma className="h-6 w-6 text-pink-500" />,
-          label: "Source Files Included",
-        },
-        {
-          icon: <Rocket className="h-6 w-6 text-green-400" />,
-          label: "SEO Ready",
-        },
-        {
-          icon: <Sparkle className="h-6 w-6 text-lime-500" />,
-          label: "Distinctive Visuals",
-        },
-        {
-          icon: <BookOpen className="h-6 w-6 text-sky-500" />,
-          label: "Friendly Docs",
-        },
-      ],
-      subServices: ["E-commerce", "Brand Landing Pages", "Explorer Blogs"],
-      deliverables: [
-        "Mobile-First UI Kit",
-        "Live Styleguide",
-        "SEO Audit Report",
-        "Component Gallery",
-        "Feedback Prototype",
-        "Source Files",
-      ],
-      timeframe: "2.5-5 weeks",
-      portfolios: [
-        {
-          id: "boldpath-brand-guidelines",
-          title: "The Guidelines for Bold Path",
-          tags: ["Brand Guidelines"],
-          image: boldpath,
-        },
-        {
-          id: "ranova-brand-guidelines",
-          title: "Ranova Brand Guidelines",
-          tags: ["Brand Guidelines"],
-          image: ranova,
-        },
-      ],
-    },
-  };
-
   const service = serviceId
     ? serviceData[serviceId as keyof typeof serviceData]
     : undefined;
 
   if (!service) {
+    // Not Found Section with extra top spacing for all screens
+    const primary = "var(--color-primary, #6c47ff)";
+    const primarySoft = "#ede9fe"; // Soft/lighter version for hover
+    const secondary = "var(--color-secondary, #ffe03a)";
+
     return (
-      <div className="min-h-screen bg-[#f7f8fa] flex flex-col">
+      <div className="min-h-screen bg-gradient-to-br from-white via-indigo-50 to-fuchsia-100 flex flex-col">
         <Navbar />
-        <main className="flex-grow flex items-center justify-center">
-          <div className="py-24 px-8 text-center bg-white/60 rounded-xl border shadow max-w-md mx-auto">
-            <h1 className="text-3xl font-extrabold text-red-500 mb-2">
+        <main className="flex-grow flex flex-col items-center justify-start px-2 sm:px-4 text-center">
+          {/* Extra space above (much more for large and mobile) */}
+          <div className="h-20 sm:h-32 lg:h-44" />
+          <div
+            className="flex flex-col items-center w-full max-w-lg rounded-3xl shadow-2xl p-5 sm:p-8 md:p-10 border transition-all duration-200 mx-2 sm:mx-4"
+            style={{
+              background: "rgba(255,255,255,0.96)",
+              borderColor: primary,
+            }}
+          >
+            {/* Illustration */}
+            <div className="mb-6">
+              <svg width="90" height="90" viewBox="0 0 120 120" fill="none">
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="58"
+                  fill="#f3f4f6"
+                  stroke={primary}
+                  strokeWidth="4"
+                />
+                <text
+                  x="50%"
+                  y="54%"
+                  textAnchor="middle"
+                  fill={primary}
+                  fontSize="38"
+                  fontWeight="bold"
+                  dy=".3em"
+                  style={{ fontFamily: "inherit" }}
+                >
+                  404
+                </text>
+                <ellipse cx="60" cy="90" rx="24" ry="7" fill={secondary} />
+              </svg>
+            </div>
+            <h1
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2"
+              style={{ color: primary }}
+            >
               Service Not Found
             </h1>
-            <p className="mb-8 text-gray-600">
+            <p className="mb-8 text-gray-600 text-base sm:text-lg">
               The service you requested doesn't exist or was moved.
+              <br />
+              Please check the URL or explore other services.
             </p>
-            <Link
-              to="/services"
-              className="inline-flex items-center bg-[var(--color-primary)] text-white px-6 py-3 rounded-full font-semibold hover:bg-[var(--color-secondary)] transition"
+            <div className="flex flex-col sm:flex-row gap-3 w-full justify-center mb-2">
+              <Link to="/services" className="w-full sm:w-auto">
+                <button
+                  className="w-full sm:w-auto text-white px-6 py-2 rounded-full font-semibold shadow transition-all duration-200"
+                  style={{
+                    background: primary,
+                    border: `2px solid ${primary}`,
+                  }}
+                  onMouseOver={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.background =
+                      primarySoft;
+                    (e.currentTarget as HTMLButtonElement).style.color =
+                      "#3b2f7f";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor =
+                      primarySoft;
+                  }}
+                  onMouseOut={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.background =
+                      primary;
+                    (e.currentTarget as HTMLButtonElement).style.color = "#fff";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor =
+                      primary;
+                  }}
+                >
+                  Back to Services
+                </button>
+              </Link>
+              <Link to="/" className="w-full sm:w-auto">
+                <button
+                  className="w-full sm:w-auto bg-white px-6 py-2 rounded-full font-semibold shadow border-2 transition-all duration-200"
+                  style={{
+                    color: primary,
+                    borderColor: primary,
+                  }}
+                  onMouseOver={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.background =
+                      primarySoft;
+                    (e.currentTarget as HTMLButtonElement).style.color =
+                      "#3b2f7f";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor =
+                      primarySoft;
+                  }}
+                  onMouseOut={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.background =
+                      "white";
+                    (e.currentTarget as HTMLButtonElement).style.color =
+                      primary;
+                    (e.currentTarget as HTMLButtonElement).style.borderColor =
+                      primary;
+                  }}
+                >
+                  Go to Homepage
+                </button>
+              </Link>
+            </div>
+            <div
+              className="mt-6 text-sm"
+              style={{ color: primary, opacity: 0.6 }}
             >
-              Back to Services
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+              If you think this is a server error, please{" "}
+              <a
+                href="mailto:acs.arifulislam@gmail.com"
+                className="underline transition-colors duration-200"
+                style={{ color: secondary }}
+                onMouseOver={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = primary;
+                }}
+                onMouseOut={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    secondary;
+                }}
+              >
+                contact support
+              </a>
+              .
+            </div>
           </div>
+          {/* Extra space below */}
+          <div className="h-12 sm:h-20 lg:h-32" />
         </main>
         <Footer />
       </div>
     );
   }
 
+  // Main Service Details Page (unchanged)
   return (
     <div className="min-h-screen bg-[#fafaff] flex flex-col">
       <Navbar />
-
-      {/* Main content in same container as PortfolioSection */}
-      <section className="py-14 bg-muted">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="py-8 sm:py-14 bg-muted">
+        <div className="container mx-auto px-2 sm:px-4 md:px-8">
           {/* Info Card */}
-          <div className="bg-white shadow-lg rounded-2xl mb-12 px-6 py-12 mx-auto">
+          <div className="bg-white shadow-lg rounded-2xl mb-8 sm:mb-12 px-3 sm:px-6 py-8 sm:py-12 mx-auto">
             {/* Minimal Green Back to Portfolio Button INSIDE CARD, before coverText */}
             <div className="mb-4">
               <Link
@@ -584,10 +836,10 @@ const ServiceDetails = () => {
                 className="inline-flex items-center font-semibold text-green-600 hover:text-green-700 transition-colors duration-200"
               >
                 <ArrowLeft className="mr-2 h-5 w-5" />
-                Back to Portfolio
+                Back to Services
               </Link>
             </div>
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
               <div>{service.icon}</div>
               <div>
                 <div className="text-sm font-bold theme-color-secondary uppercase tracking-widest">
@@ -643,16 +895,14 @@ const ServiceDetails = () => {
                     className="flex items-start gap-2 text-gray-700"
                   >
                     <span className="mt-[3px]">{step.icon}</span>
-                    <span>
-                      <span className="font-medium">{step.title}:</span>{" "}
-                      <span>{step.desc}</span>
-                    </span>
+                    <span className="font-medium">{step.title}:</span>{" "}
+                    <span>{step.desc}</span>
                   </li>
                 ))}
               </ol>
             </div>
             {/* Deliverables */}
-            <div>
+            <div className="mb-7">
               <h3 className="text-sm font-semibold text-gray-700 mb-1">
                 Deliverables
               </h3>
@@ -668,14 +918,13 @@ const ServiceDetails = () => {
               </ul>
             </div>
           </div>
-
           {/* Portfolio Grid */}
           {service.portfolios && (
-            <section className="pt-0 pb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center theme-color-primary">
+            <section className="pt-0 pb-6 sm:pb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8 sm:mb-10 text-center theme-color-primary">
                 Related Projects
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {service.portfolios.map((item) => (
                   <div
                     key={item.id}
@@ -683,7 +932,7 @@ const ServiceDetails = () => {
                   >
                     {/* Image is now a link to the project details page by id */}
                     <Link to={`/projects/${item.id}`}>
-                      <div className="h-80 overflow-hidden relative">
+                      <div className="h-56 sm:h-80 overflow-hidden relative">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -691,31 +940,27 @@ const ServiceDetails = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"></div>
                       </div>
-                    </Link>
-                    <div className="p-6">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {item.tags.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-[5px] font-medium mr-2 mb-2"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <Link to={`/projects/${item.id}`}>
-                        <h3 className="text-xl font-bold text-black-soft group-hover:text-[var(--color-primary)] transition-colors">
+                      <div className="p-4 sm:p-6">
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {item.tags &&
+                            item.tags.map((tag, idx) => (
+                              <span
+                                key={idx}
+                                className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-[5px] font-medium mr-2 mb-2"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                        </div>
+                        <h3 className="text-lg sm:text-xl font-bold text-black-soft group-hover:text-[var(--color-primary)] transition-colors">
                           {item.title}
                         </h3>
-                      </Link>
-                      <Link
-                        to={`/projects/${item.id}`}
-                        className="view-portfolio-animate px-4 py-2 rounded-full font-medium flex items-center justify-center w-full mx-auto mt-4"
-                      >
-                        <Eye className="mr-2 h-4 w-4" />
-                        <span>View Portfolio</span>
-                      </Link>
-                    </div>
+                        <div className="view-portfolio-animate px-4 py-2 rounded-full font-medium flex items-center justify-center w-full mx-auto mt-4 bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] hover:text-black transition-all duration-200 cursor-pointer">
+                          <Eye className="mr-2 h-4 w-4" />
+                          <span>View Portfolio</span>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -723,7 +968,6 @@ const ServiceDetails = () => {
           )}
         </div>
       </section>
-
       <Footer />
     </div>
   );

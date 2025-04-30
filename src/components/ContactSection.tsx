@@ -17,8 +17,6 @@ import {
   FaDribbble,
 } from "react-icons/fa";
 
-
-
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -158,53 +156,52 @@ const ContactSection = () => {
               <div className="mt-10">
                 <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
                 <div className="flex space-x-4">
-  <a
-    href="https://facebook.com/arifulislamofficialprofile"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
-    aria-label="Facebook"
-  >
-    <FaFacebookF className="h-5 w-5" />
-  </a>
-  <a
-    href="https://www.instagram.com/_md._ariful_islam/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
-    aria-label="Instagram"
-  >
-    <FaInstagram className="h-5 w-5" />
-  </a>
-  <a
-    href="https://linkedin.com/in/arifulcreatorstudio"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
-    aria-label="LinkedIn"
-  >
-    <FaLinkedinIn className="h-5 w-5" />
-  </a>
-  <a
-    href="https://behance.net/arifulcreatorstudio"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
-    aria-label="Behance"
-  >
-    <FaBehance className="h-5 w-5" />
-  </a>
-  <a
-    href="https://dribbble.com/arifulcreatorstudio"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
-    aria-label="Dribbble"
-  >
-    <FaDribbble className="h-5 w-5" />
-  </a>
-</div>
-
+                  <a
+                    href="https://facebook.com/arifulislamofficialprofile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    aria-label="Facebook"
+                  >
+                    <FaFacebookF className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/_md._ariful_islam/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    aria-label="Instagram"
+                  >
+                    <FaInstagram className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/arifulcreatorstudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedinIn className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://behance.net/arifulcreatorstudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    aria-label="Behance"
+                  >
+                    <FaBehance className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://dribbble.com/arifulcreatorstudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    aria-label="Dribbble"
+                  >
+                    <FaDribbble className="h-5 w-5" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -327,11 +324,31 @@ const ContactSection = () => {
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green/50"
                   >
                     <option value="">Select a service</option>
-                    <option value="UI/UX Design">UI/UX Design</option>
-                    <option value="Application Design">
-                      Application Design
+                    <option value="Logo Design">Logo Design</option>
+                    <option value="Business Card Design">
+                      Business Card Design
                     </option>
-                    <option value="Website Design">Website Design</option>
+                    <option value="Letterhead Design">Letterhead Design</option>
+                    <option value="Brand Guidelines Design">
+                      Brand Guidelines Design
+                    </option>
+                    <option value="Social Media Post Design">
+                      Social Media Post Design
+                    </option>
+                    <option value="Poster Design">Poster Design</option>
+                    <option value="Banner Design">Banner Design</option>
+                    <option value="Web Banner Design">Web Banner Design</option>
+                    <option value="Email-Signature Design">
+                      Email-Signature Design
+                    </option>
+                    <option value="Flyer Design">Flyer Design</option>
+                    <option value="Billboard Design">Billboard Design</option>
+                    <option value="Stationery Design">Stationery Design</option>
+                    <option value="Image Editing">Image Editing</option>
+                    <option value="Resume Design">Resume Design</option>
+                    <option value="Background Removal">
+                      Background Removal
+                    </option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
