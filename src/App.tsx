@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,7 +20,13 @@ import UserGreeting from "./components/UserGreeting";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import IntroLogo from "./components/IntroLogo";
-import ScrollToTop from "./components/ScrollToTop"; // Correct import
+import ScrollToTop from "./components/ScrollToTop";
+
+// ==== Dashboard Imports ====
+import DashboardHome from "./pages/DashboardHome";
+import DashboardUsers from "./pages/DashboardUsers";
+import DashboardProjects from "./pages/DashboardProjects";
+// ===========================
 
 const queryClient = new QueryClient();
 
@@ -31,7 +38,7 @@ const App = () => (
       <BrowserRouter>
         <IntroLogo />
         <UserGreeting />
-        <ScrollToTop /> {/* This makes sure every route-scroll works globally */}
+        <ScrollToTop />
         <ThemeSwitcher />
         <WhatsAppButton />
 
@@ -47,7 +54,11 @@ const App = () => (
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faqs" element={<Faqs />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* ===== Dashboard Routes ===== */}
+          <Route path="/dashboard" element={<DashboardHome />} />
+          <Route path="/dashboard/users" element={<DashboardUsers />} />
+          <Route path="/dashboard/projects" element={<DashboardProjects />} />
+          {/* =========================== */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

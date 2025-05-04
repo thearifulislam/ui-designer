@@ -23,18 +23,29 @@ import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion
 import blooddonation from "../assets/portfolios/logo-design/combination-mark/health-care-logo/1/1.jpg";
 import uniflora from "../assets/portfolios/logo-design/lettermark-logo/letter-u/1/1.jpg";
 import meloplay from "../assets/portfolios/logo-design/lettermark-logo/letter-mp/1/1.jpg";
-
+import player from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/1.jpg";
+import arborsphere from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/1.jpg";
+import wind from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/1.jpg";
+import zxon from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/1.jpg";
+import zepeq from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/1.jpg";
+import ecogrow from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/1.jpg";
+import playerlogo from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/1.jpg";
+import cycle from "../assets/portfolios/logo-design/lettermark-logo/cycle/1.png";
 
 // for business card
 import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
 import modernbusinesscard from "../assets/portfolios/business-card/minimalist/2/1.jpg";
 import minimalistcard from "../assets/portfolios/business-card/minimalist/3/mnvb-24.jpg";
 import professionalcard from "../assets/portfolios/business-card/professional/2/1.jpg";
-import customcard from "../assets/portfolios/business-card/custom/1/1.jpg"
+import customcard from "../assets/portfolios/business-card/custom/1/1.jpg";
+import moderncard from "../assets/portfolios/business-card/modern/1/1.jpg";
 
 // for letterhead
 import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
 import modernminimalist from "../assets/portfolios/letterhead/modern&minimalist-corporate/1/modern and minimalist corporate letterhead.jpg";
+import corporate from "../assets/portfolios/letterhead/minimalist-corporate/1/3.jpg";
+
+import modern from "../assets/portfolios/letterhead/modern&corporate/1/modern and corporate letterhead design.jpg";
 
 // for banner
 import professionalpromotionalbanner from "../assets/portfolios/banner/promotional/1/1.jpg";
@@ -49,7 +60,6 @@ import imageclippingpath from "../assets/portfolios/background-remove/clipping-p
 import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
 import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
 import nexus from "../assets/portfolios/logo-design/brand-guidelines/letter-n/1/1.jpg";
-
 
 // Import the portfolio styles for the animated button
 import "../styles/portfolio.css";
@@ -177,6 +187,48 @@ const serviceData = {
         tags: ["Logo Design"],
         image: meloplay,
       },
+      {
+        id: "player-logo-design",
+        title: "Player Logo Design",
+        tags: ["Logo", "Abstract"],
+        image: player,
+      },
+      {
+        id: "arborsphere-logo-design",
+        title: "ArborSphere Logo Design",
+        tags: ["Logo", "Abstrack"],
+        image: arborsphere,
+      },
+      {
+        id: "zxon-logo-design",
+        title: "Zxon Logo Design",
+        tags: ["Logo", "Abstrack"],
+        image: zxon,
+      },
+      {
+        id: "zepeq-logo-design",
+        title: "Zepeq Logo Design",
+        tags: ["Logo", "Abstrack"],
+        image: zepeq,
+      },
+      {
+        id: "ecogrow-logo-design",
+        title: "Ecogrow Logo Design",
+        tags: ["Logo Deisgn", "Lettermark"],
+        image: ecogrow,
+      },
+      {
+        id: "the-player-logo-design",
+        title: "Player Logo Design",
+        tags: ["Logo", "Abstrack"],
+        image: playerlogo,
+      },
+      {
+        id: "cycle-logo-design",
+        title: "Cyc;e Logo Design",
+        tags: ["Logo", "Lettermark"],
+        image: cycle,
+      },
     ],
   },
   // ...other services (not shown for brevity)
@@ -185,8 +237,8 @@ const serviceData = {
     icon: (
       <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
     ),
-    coverText: "Logo Design",
-    title: "Logo Design Excellence",
+    coverText: "Business Card Design Services",
+    title: "Business Card Design",
     tagline: "Distinctive. Memorable. Timeless brand marks.",
     description:
       "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
@@ -251,14 +303,7 @@ const serviceData = {
       "Mascot Logos",
       "Minimal Logos",
     ],
-    deliverables: [
-      "Primary & Secondary Logo",
-      "Black/White & Color Variations",
-      "SVG, PNG, PDF, EPS Files",
-      "Brand Guidelines Sheet",
-      "Favicon & Social Media Kit",
-      "Mockups for Real-World Use",
-    ],
+    deliverables: ["Modern", "Creative", "Professional"],
     timeframe: "1-2 weeks",
     portfolios: [
       {
@@ -290,6 +335,18 @@ const serviceData = {
         title: "Custom Card Design",
         tags: ["Business Card"],
         image: customcard,
+      },
+      {
+        id: "modern-card-design",
+        title: "Modern Type Business Card Design",
+        tags: ["Business Card", "Modern"],
+        image: moderncard,
+      },
+      {
+        id: "wind-logo-design",
+        title: "Wind Logo Design",
+        tags: ["Logo Deisgn", "Lettermark"],
+        image: wind,
       },
     ],
   },
@@ -385,6 +442,18 @@ const serviceData = {
         title: "Elegant Gold-Accented Corporate Letterhead",
         tags: ["Letterhead", "Minimalist"],
         image: elegantgoldaccentedcorporateletterhead,
+      },
+      {
+        id: "corporate-letterhead-design",
+        title: "Corporate Design",
+        tags: ["Letterhead Deisgn", "Corporate"],
+        image: corporate,
+      },
+      {
+        id: "modern-letterhead-design",
+        title: "modern Design",
+        tags: ["Letterhead Deisgn", "Modern"],
+        image: modern,
       },
     ],
   },

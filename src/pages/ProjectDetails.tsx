@@ -92,6 +92,126 @@ import meloplay10 from "../assets/portfolios/logo-design/lettermark-logo/letter-
 import meloplay11 from "../assets/portfolios/logo-design/lettermark-logo/letter-mp/1/12.jpg";
 import melopaly12 from "../assets/portfolios/logo-design/lettermark-logo/letter-mp/1/13.jpg";
 
+import player from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/1.jpg";
+import player1 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/2.jpg";
+import player2 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/3.jpg";
+import player3 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/4.jpg";
+import player4 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/5.jpg";
+import player5 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/6.jpg";
+import player6 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/7.jpg";
+import player7 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/8.jpg";
+import player8 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/9.jpg";
+import player9 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/10.jpg";
+import player10 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/11.jpg";
+import player11 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/12.jpg";
+import player12 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/13.jpg";
+import player13 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/14.jpg";
+import player14 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/15.jpg";
+import player15 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/16.jpg";
+import player16 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/17.jpg";
+
+import arborsphere from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/1.jpg";
+import arborsphere1 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/2.jpg";
+import arborsphere2 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/3.jpg";
+import arborsphere3 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/4.jpg";
+import arborsphere4 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/5.jpg";
+import arborsphere5 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/6.jpg";
+import arborsphere6 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/7.jpg";
+import arborsphere7 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/8.jpg";
+import arborsphere8 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/9.jpg";
+import arborsphere9 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/10.jpg";
+import arborsphere10 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/11.jpg";
+import arborsphere11 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/2.jpg";
+import arborsphere12 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/13.jpg";
+import arborsphere13 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/14.jpg";
+import arborsphere14 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/15.jpg";
+import arborsphere15 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/16.jpg";
+import arborsphere16 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/17.jpg";
+import arborsphere17 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/18.jpg";
+import arborsphere18 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/19.jpg";
+import arborsphere19 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/20.jpg";
+import arborsphere20 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/21.jpg";
+import arborsphere21 from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/22.jpg";
+
+import wind from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/1.jpg";
+import wind1 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/2.jpg";
+import wind2 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/3.jpg";
+import wind3 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/4.jpg";
+import wind4 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/5.jpg";
+import wind5 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/6.jpg";
+import wind6 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/7.jpg";
+import wind7 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/8.jpg";
+import wind8 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/9.jpg";
+import wind9 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/10.jpg";
+import wind10 from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/11.jpg";
+
+import zxon from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/1.jpg";
+import zxon1 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/2.jpg";
+import zxon2 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/3.jpg";
+import zxon3 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/4.jpg";
+import zxon4 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/5.jpg";
+import zxon5 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/6.jpg";
+import zxon6 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/7.jpg";
+import zxon7 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/8.jpg";
+import zxon8 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/9.jpg";
+import zxon9 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/10.jpg";
+import zxon10 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/11.jpg";
+import zxon11 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/12.jpg";
+import zxon12 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/13.jpg";
+import zxon13 from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/14.jpg";
+
+import zepeq from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/1.jpg";
+import zepeq1 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/2.jpg";
+import zepeq2 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/3.jpg";
+import zepeq3 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/4.jpg";
+import zepeq4 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/5.jpg";
+import zepeq5 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/6.jpg";
+import zepeq6 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/7.jpg";
+import zepeq7 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/8.jpg";
+import zepeq8 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/9.jpg";
+import zepeq9 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/10.jpg";
+import zepeq10 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/11.jpg";
+import zepeq11 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/12.jpg";
+import zepeq12 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/13.jpg";
+import zepeq13 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/14.jpg";
+import zepeq14 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/15.jpg";
+import zepeq15 from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/16.jpg";
+
+import ecogrow from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/1.jpg";
+import ecogrow1 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/2.jpg";
+import ecogrow2 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/3.jpg";
+import ecogrow3 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/4.jpg";
+import ecogrow4 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/5.jpg";
+import ecogrow5 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/6.jpg";
+import ecogrow6 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/7.jpg";
+import ecogrow7 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/8.jpg";
+import ecogrow8 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/9.jpg";
+import ecogrow9 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/10.jpg";
+import ecogrow10 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/11.jpg";
+import ecogrow11 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/12.jpg";
+import ecogrow12 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/13.jpg";
+import ecogrow13 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/14.jpg";
+import ecogrow14 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/15.jpg";
+import ecogrow15 from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/16.jpg";
+
+import playerlogo from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/1.jpg";
+import playerlogo1 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/2.jpg";
+import playerlogo2 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/3.jpg";
+import playerlogo3 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/4.jpg";
+import playerlogo4 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/5.jpg";
+import playerlogo5 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/6.jpg";
+import playerlogo6 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/7.jpg";
+import playerlogo7 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/8.jpg";
+import playerlogo8 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/9.jpg";
+import playerlogo9 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/10.jpg";
+import playerlogo10 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/11.jpg";
+import playerlogo11 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/12.jpg";
+import playerlogo12 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/13.jpg";
+import playerlogo13 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/14.jpg";
+import playerlogo14 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/15.jpg";
+import playerlogo15 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/16.jpg";
+import playerlogo16 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/17.jpg";
+
 // for business card
 
 import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
@@ -119,10 +239,25 @@ import customcard4 from "../assets/portfolios/business-card/custom/1/5.jpg";
 import customcard5 from "../assets/portfolios/business-card/custom/1/6.jpg";
 import customcard6 from "../assets/portfolios/business-card/custom/1/7.jpg";
 
+import moderncard from "../assets/portfolios/business-card/modern/1/1.jpg";
+import moderncard1 from "../assets/portfolios/business-card/modern/1/2.jpg";
+import moderncard2 from "../assets/portfolios/business-card/modern/1/3.jpg";
+import moderncard3 from "../assets/portfolios/business-card/modern/1/4.jpg";
+import moderncard4 from "../assets/portfolios/business-card/modern/1/5.jpg";
+import moderncard5 from "../assets/portfolios/business-card/modern/1/6.jpg";
+
 // for letterhead
 
 import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
 import modernminimalist from "../assets/portfolios/letterhead/modern&minimalist-corporate/1/modern and minimalist corporate letterhead.jpg";
+
+import corporate from "../assets/portfolios/letterhead/minimalist-corporate/1/1.jpg";
+import corporate1 from "../assets/portfolios/letterhead/minimalist-corporate/1/2.jpg";
+import corporate2 from "../assets/portfolios/letterhead/minimalist-corporate/1/3.jpg";
+
+import modern from "../assets/portfolios/letterhead/modern&corporate/1/modern and corporate letterhead design.jpg";
+import modern2 from "../assets/portfolios/letterhead/modern&corporate/1/modern and dynamic corporate letterhead.jpg";
+import modern3 from "../assets/portfolios/letterhead/modern&corporate/1/modern and geometric corporate letterhead.jpg";
 
 // for banner
 
@@ -659,6 +794,28 @@ const projectsData: Record<string, ProjectType> = {
       customcard3,
       customcard4,
       customcard5,
+      customcard6,
+    ],
+    tools: ["Adobe Illustrator", "Figma", "Photoshop"],
+  },
+
+  "modern-card-design": {
+    title: "Modern Business Card Design",
+    category: "Business Card Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Business Card Design", "Modern Card"],
+    coverImage: moderncard,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+      moderncard,
+      moderncard1,
+      moderncard2,
+      moderncard3,
+      moderncard4,
+      moderncard5,
     ],
     tools: ["Adobe Illustrator", "Figma", "Photoshop"],
   },
@@ -731,6 +888,254 @@ const projectsData: Record<string, ProjectType> = {
     ],
     tools: ["Adobe Illustrator", "Figma", "Photoshop"],
   },
+
+  "player-logo-design": {
+    title: "player Logo Design",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: player,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+      player,
+      player1,
+      player2,
+      player3,
+      player4,
+      player5,
+      player6,
+      player7,
+      player8,
+      player9,
+      player10,
+      player11,
+      player12,
+      player13,
+      player14,
+      player15,
+      player16,
+    ],
+    tools: ["Adobe Illustrator", "Figma", "Photoshop"],
+  },
+
+  "the-player-logo-design": {
+    title: "Player Logo Design",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: playerlogo,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+      playerlogo,
+      playerlogo1,
+      playerlogo2,
+      playerlogo3,
+      playerlogo4,
+      playerlogo5,
+      playerlogo6,
+      playerlogo7,
+      playerlogo8,
+      playerlogo9,
+      playerlogo10,
+      playerlogo11,
+      playerlogo12,
+      playerlogo13,
+      playerlogo14,
+      playerlogo15,
+      playerlogo16,
+    ],
+    tools: ["Adobe Illustrator", "Figma", "Photoshop"],
+  },
+
+  "arborsphere-logo-design": {
+    title: "ArborSphere Logo Design",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: arborsphere,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+      arborsphere,
+      arborsphere1,
+      arborsphere2,
+      arborsphere3,
+      arborsphere4,
+      arborsphere5,
+      arborsphere6,
+      arborsphere7,
+      arborsphere8,
+      arborsphere9,
+      arborsphere10,
+      arborsphere11,
+      arborsphere12,
+      arborsphere13,
+      arborsphere14,
+      arborsphere15,
+      arborsphere16,
+      arborsphere17,
+      arborsphere18,
+      arborsphere19,
+      arborsphere20,
+      arborsphere21,
+    ],
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
+  },
+
+  "wind-logo-design": {
+    title: "Wind Logo Design",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: wind1,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+      wind,
+      wind1,
+      wind2,
+      wind3,
+      wind4,
+      wind5,
+      wind6,
+      wind7,
+      wind8,
+      wind9,
+      wind10,
+    ],
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
+  },
+
+  "zxon-logo-design": {
+    title: "Zxon Logo Design",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: zxon,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+      zxon,
+      zxon1,
+      zxon2,
+      zxon3,
+      zxon4,
+      zxon5,
+      zxon6,
+      zxon7,
+      zxon8,
+      zxon9,
+      zxon10,
+      zxon11,
+      zxon12,
+      zxon13,
+    ],
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
+  },
+
+  "zepeq-logo-design": {
+    title: "Zepeq Logo Design",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: zepeq,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+      zepeq,
+      zepeq1,
+      zepeq2,
+      zepeq3,
+      zepeq4,
+      zepeq5,
+      zepeq6,
+      zepeq7,
+      zepeq8,
+      zepeq9,
+      zepeq10,
+      zepeq11,
+      zepeq12,
+      zepeq13,
+      zepeq14,
+      zepeq15,
+    ],
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
+  },
+
+  "ecogrow-logo-design": {
+    title: "Ecogrow Logo Design",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: ecogrow,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+      ecogrow,
+      ecogrow1,
+      ecogrow2,
+      ecogrow3,
+      ecogrow4,
+      ecogrow5,
+      ecogrow6,
+      ecogrow7,
+      ecogrow8,
+      ecogrow9,
+      ecogrow10,
+      ecogrow11,
+      ecogrow12,
+      ecogrow13,
+      ecogrow14,
+      ecogrow15,
+    ],
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
+  },
+
+  "corporate-letterhead-design": {
+    title: "Letterhead Design",
+    category: "Letterhead",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Letterhead", "Corporate"],
+    coverImage: corporate,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [corporate, corporate1, corporate2],
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
+  },
+
+  "modern-letterhead-design": {
+    title: "Letterhead Design",
+    category: "Letterhead",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Letterhead", "Modern"],
+    coverImage: modern,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [modern, modern2, modern3],
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
+  },
+
+  
 
   // ...more projects if needed
 };
@@ -861,58 +1266,58 @@ const ProjectDetails: React.FC = () => {
       <Navbar />
       {/* Hero section */}
       <section
-  className="relative pt-16 sm:pt-20 pb-2 md:pb-10"
-  style={{
-    background: "var(--color-primary, #6c47ff)",
-  }}
->
-  {/* Back to Projects Button - Now at top and out of Details flow */}
-  <div
-    className="absolute left-0 top-0 w-full flex justify-start z-20"
-    style={{ paddingLeft: "1rem", paddingTop: "1.5rem" }} // px-4 pt-6
-  >
-    <Link
-      to="/projects"
-      className="text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 hover:text-yellow-100 transition bg-white/10 backdrop-blur rounded-full px-4 py-2 shadow-lg border border-white/30"
-      style={{ color: "white" }} // Ensures visibility on purple background
-    >
-      <ArrowLeft className="w-4 h-4" />
-      All Projects
-    </Link>
-  </div>
-  <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row gap-8 items-center md:items-end">
-    {/* Details */}
-    <div className="flex-1 min-w-0 text-white py-8 px-0 md:py-16 md:pr-12">
-      {/* h1 and project meta info */}
-      <h1 className="text-4xl md:text-6xl font-black leading-tight mb-2 drop-shadow-[0_4px_16px_rgba(20,0,40,0.2)]">
-        {project.title}
-      </h1>
-      <div className="flex items-center gap-6 text-yellow-100 font-semibold mt-4 text-sm">
-        <div className="flex items-center gap-2">
-          <Calendar className="h-4 w-4" />
-          <span>{project.date}</span>
+        className="relative pt-16 sm:pt-20 pb-2 md:pb-10"
+        style={{
+          background: "var(--color-primary, #6c47ff)",
+        }}
+      >
+        {/* Back to Projects Button - Now at top and out of Details flow */}
+        <div
+          className="absolute left-0 top-0 w-full flex justify-start z-20"
+          style={{ paddingLeft: "1rem", paddingTop: "1.5rem" }} // px-4 pt-6
+        >
+          <Link
+            to="/projects"
+            className="text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 hover:text-yellow-100 transition bg-white/10 backdrop-blur rounded-full px-4 py-2 shadow-lg border border-white/30"
+            style={{ color: "white" }} // Ensures visibility on purple background
+          >
+            <ArrowLeft className="w-4 h-4" />
+            All Projects
+          </Link>
         </div>
-        <div className="flex items-center gap-2">
-          <User className="h-4 w-4" />
-          <span>{project.client}</span>
+        <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row gap-8 items-center md:items-end">
+          {/* Details */}
+          <div className="flex-1 min-w-0 text-white py-8 px-0 md:py-16 md:pr-12">
+            {/* h1 and project meta info */}
+            <h1 className="text-4xl md:text-6xl font-black leading-tight mb-2 drop-shadow-[0_4px_16px_rgba(20,0,40,0.2)]">
+              {project.title}
+            </h1>
+            <div className="flex items-center gap-6 text-yellow-100 font-semibold mt-4 text-sm">
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4" />
+                <span>{project.date}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <User className="h-4 w-4" />
+                <span>{project.client}</span>
+              </div>
+            </div>
+            <p className="mt-7 mb-3 text-white/90 font-normal text-lg max-w-xl">
+              {project.description}
+            </p>
+          </div>
+          {/* Cover image */}
+          <div className="flex justify-center">
+            <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[520px] xl:w-[650px] 2xl:w-[850px] rounded-3xl shadow-2xl border-4 border-white/40 overflow-hidden mb-6 md:mb-0 mx-auto">
+              <img
+                src={project.coverImage}
+                alt="Project Cover"
+                className="w-full object-cover h-[400px] md:h-[350px] xl:h-[600px] brightness-95"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-      <p className="mt-7 mb-3 text-white/90 font-normal text-lg max-w-xl">
-        {project.description}
-      </p>
-    </div>
-    {/* Cover image */}
-    <div className="flex justify-center">
-      <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[520px] xl:w-[650px] 2xl:w-[850px] rounded-3xl shadow-2xl border-4 border-white/40 overflow-hidden mb-6 md:mb-0 mx-auto">
-        <img
-          src={project.coverImage}
-          alt="Project Cover"
-          className="w-full object-cover h-[400px] md:h-[350px] xl:h-[600px] brightness-95"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Content/Challenge/Solution/Process */}
       <main className="flex-1 w-full">

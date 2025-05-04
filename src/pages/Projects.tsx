@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -11,17 +10,39 @@ import blooddonation from "../assets/portfolios/logo-design/combination-mark/hea
 import uniflora from "../assets/portfolios/logo-design/lettermark-logo/letter-u/1/1.jpg";
 import winnest from "../assets/portfolios/logo-design/wordmark/real-estate/1/1.jpg";
 import meloplay from "../assets/portfolios/logo-design/lettermark-logo/letter-mp/1/1.jpg";
+import player from "../assets/portfolios/logo-design/abstrack-mark/player-logo/2/1.jpg";
+import arborsphere from "../assets/portfolios/logo-design/combination-mark/nature-logo/1/1.jpg";
+import wind from "../assets/portfolios/logo-design/lettermark-logo/letter-w/1/1.jpg";
+import zxon from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/1.jpg";
+import zepeq from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/1.jpg";
+import ecogrow from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/1.jpg";
+import playerlogo from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/1.jpg";
+
+// for business card design
 import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
 import modernbusinesscard from "../assets/portfolios/business-card/minimalist/2/1.jpg";
 import visitingcard from "../assets/portfolios/business-card/professional/1/1.jpg";
 import minimalistcard from "../assets/portfolios/business-card/minimalist/3/mnvb-24.jpg";
 import professionalcard from "../assets/portfolios/business-card/professional/2/1.jpg";
 import customcard from "../assets/portfolios/business-card/custom/1/1.jpg";
+import moderncard from "../assets/portfolios/business-card/modern/1/1.jpg";
+
+// for letterhead design
 import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
 import modernminimalist from "../assets/portfolios/letterhead/modern&minimalist-corporate/1/modern and minimalist corporate letterhead.jpg";
+import corporate from "../assets/portfolios/letterhead/minimalist-corporate/1/3.jpg";
+import modern from "../assets/portfolios/letterhead/modern&corporate/1/modern and corporate letterhead design.jpg";
+
+// for banner design
 import professionalpromotionalbanner from "../assets/portfolios/banner/promotional/1/1.jpg";
+
+// for social media cover design
 import socialmediacoverdesign from "../assets/portfolios/social-cover/facebook-cover/1/1.jpg";
+
+// image editing
 import imageclippingpath from "../assets/portfolios/background-remove/clipping-path/1/10.jpg";
+
+// for brand guidelines
 import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
 import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
 import nexus from "../assets/portfolios/logo-design/brand-guidelines/letter-n/1/1.jpg";
@@ -53,25 +74,9 @@ const categories = [
 
 // Subcategories (unchanged, used for filtering)
 const subcategories = {
-  logo: [
-    "All",
-    "Lettermark",
-    "Wordmark",
-    "Abstract",
-    "Combination Mark",
-  ],
-  "business-card": [
-    "All",
-    "Minimal",
-    "Corporate",
-    "Creative",
-    "Modern",
-  ],
-  letterhead: [
-    "All",
-    "Modern",
-    "Minimalist",
-  ],
+  logo: ["All", "Lettermark", "Wordmark", "Abstract", "Combination Mark"],
+  "business-card": ["All", "Minimal", "Corporate", "Creative", "Modern"],
+  letterhead: ["All", "Modern", "Minimalist", "Corporate"],
   "social-media-post": [
     "All",
     "Instagram Post",
@@ -79,20 +84,9 @@ const subcategories = {
     "LinkedIn Post",
     "Promotional",
   ],
-  banner: [
-    "All",
-    "Promotional Banner",
-  ],
-  "web-banner": [
-    "All",
-    "Youtube Thumbnail",
-    "Email Banner",
-  ],
-  "email-signature": [
-    "All",
-    "Personal",
-    "Corporate",
-  ],
+  banner: ["All", "Promotional Banner"],
+  "web-banner": ["All", "Youtube Thumbnail", "Email Banner"],
+  "email-signature": ["All", "Personal", "Corporate"],
   flyer: [
     "All",
     "Event Flyer",
@@ -342,7 +336,7 @@ const Projects = () => {
       title: "Modern Business Card Design",
       categories: ["business-card", "stationery"],
       subcategories: ["Cross Platform", "Creative"],
-      tags: ["Business Card",],
+      tags: ["Business Card"],
       image: modernbusinesscard,
     },
     {
@@ -404,7 +398,7 @@ const Projects = () => {
     {
       id: "nexus-brand-guidelines",
       title: "Nexus Brand Guidelines",
-      categories: ["brand-guidelines"],
+      categories: ["brand-guidelines", "logo"],
       subcategories: ["Logo Design"],
       tags: ["Brand Guidelines", "Logo Design"],
       image: nexus,
@@ -424,6 +418,86 @@ const Projects = () => {
       subcategories: ["Lettermark"],
       tags: ["Logo", "Lettermark"],
       image: meloplay,
+    },
+    {
+      id: "player-logo-design",
+      title: "Player Logo Design",
+      categories: ["logo"],
+      subcategories: ["Abstrack"],
+      tags: ["Logo", "Abstrack"],
+      image: player,
+    },
+    {
+      id: "arborsphere-logo-design",
+      title: "ArborSphere Logo Design",
+      categories: ["logo"],
+      subcategories: ["Abstrack"],
+      tags: ["Logo", "Abstrack"],
+      image: arborsphere,
+    },
+    {
+      id: "modern-card-design",
+      title: "Modern Type Business Card Design",
+      categories: ["business-card"],
+      subcategories: ["Modern"],
+      tags: ["Business Card", "Modern"],
+      image: moderncard,
+    },
+    {
+      id: "wind-logo-design",
+      title: "Wind Logo Design",
+      categories: ["logo"],
+      subcategories: ["Lettermark"],
+      tags: ["Logo Deisgn", "Lettermark"],
+      image: wind,
+    },
+    {
+      id: "zxon-logo-design",
+      title: "Zxon Logo Design",
+      categories: ["logo"],
+      subcategories: ["Lettermark"],
+      tags: ["Logo Deisgn", "Lettermark"],
+      image: zxon,
+    },
+    {
+      id: "zepeq-logo-design",
+      title: "Zepeq Logo Design",
+      categories: ["logo"],
+      subcategories: ["Lettermark"],
+      tags: ["Logo Deisgn", "Lettermark"],
+      image: zepeq,
+    },
+    {
+      id: "ecogrow-logo-design",
+      title: "Ecogrow Logo Design",
+      categories: ["logo"],
+      subcategories: ["Lettermark"],
+      tags: ["Logo Deisgn", "Lettermark"],
+      image: ecogrow,
+    },
+    {
+      id: "corporate-letterhead-design",
+      title: "Corporate Design",
+      categories: ["letterhead"],
+      subcategories: ["Corporate"],
+      tags: ["Letterhead Deisgn", "Corporate"],
+      image: corporate,
+    },
+    {
+      id: "modern-letterhead-design",
+      title: "Modern Letterhead Design",
+      categories: ["letterhead"],
+      subcategories: ["modern"],
+      tags: ["Letterhead Deisgn", "Modern"],
+      image: modern,
+    },
+    {
+      id: "the-player-logo-design",
+      title: "Player Logo Design",
+      categories: ["logo"],
+      subcategories: ["Abstrack"],
+      tags: ["Logo", "Abstrack"],
+      image: playerlogo,
     },
   ];
 
@@ -457,9 +531,7 @@ const Projects = () => {
         subcats.some(
           (sub) => sub.toLowerCase() === activeSubFilter.toLowerCase()
         ) ||
-        tags.some(
-          (tag) => tag.toLowerCase() === activeSubFilter.toLowerCase()
-        )
+        tags.some((tag) => tag.toLowerCase() === activeSubFilter.toLowerCase())
       );
     }
 
