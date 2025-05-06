@@ -225,7 +225,7 @@ const serviceData = {
       },
       {
         id: "cycle-logo-design",
-        title: "Cyc;e Logo Design",
+        title: "Cycle Logo Design",
         tags: ["Logo", "Lettermark"],
         image: cycle,
       },

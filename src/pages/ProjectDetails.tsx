@@ -212,6 +212,22 @@ import playerlogo14 from "../assets/portfolios/logo-design/abstrack-mark/player-
 import playerlogo15 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/16.jpg";
 import playerlogo16 from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/17.jpg";
 
+import cycle from "../assets/portfolios/logo-design/lettermark-logo/cycle/1.png";
+import cycle1 from "../assets/portfolios/logo-design/lettermark-logo/cycle/2.png";
+import cycle2 from "../assets/portfolios/logo-design/lettermark-logo/cycle/3.png";
+import cycle3 from "../assets/portfolios/logo-design/lettermark-logo/cycle/4.png";
+import cycle4 from "../assets/portfolios/logo-design/lettermark-logo/cycle/5.png";
+import cycle5 from "../assets/portfolios/logo-design/lettermark-logo/cycle/6.jpg";
+import cycle6 from "../assets/portfolios/logo-design/lettermark-logo/cycle/7.png";
+import cycle7 from "../assets/portfolios/logo-design/lettermark-logo/cycle/8.jpg";
+import cycle8 from "../assets/portfolios/logo-design/lettermark-logo/cycle/9.png";
+import cycle9 from "../assets/portfolios/logo-design/lettermark-logo/cycle/10.png";
+import cycle10 from "../assets/portfolios/logo-design/lettermark-logo/cycle/11.png";
+import cycle11 from "../assets/portfolios/logo-design/lettermark-logo/cycle/12.png";
+import cycle12 from "../assets/portfolios/logo-design/lettermark-logo/cycle/13.jpg";
+
+
+
 // for business card
 
 import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
@@ -1132,6 +1148,35 @@ const projectsData: Record<string, ProjectType> = {
       "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
 
     galleryImages: [modern, modern2, modern3],
+    tools: ["Adobe Illustrator", "Adobe Photoshop"],
+  },
+
+  "cycle-logo-design": {
+    title: "Cycle Logo Design",
+    category: "Logo",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo", "Lettermark"],
+    coverImage: cycle,
+    description:
+      "Momentum Menswear's logo is a bold, geometric representation of modern masculinity and motion. The stylized 'M' is strong, angular, and minimal; premium black and silver create a luxury style, enhancing brand confidence and recognition.",
+
+    galleryImages: [
+
+      cycle,
+      cycle1,
+      cycle2,
+      cycle3,
+      cycle4,
+      cycle5,
+      cycle6,
+      cycle7,
+      cycle8,
+      cycle9,
+      cycle10,
+      cycle11,
+      cycle12,
+    ],
     tools: ["Adobe Illustrator", "Adobe Photoshop"],
   },
 

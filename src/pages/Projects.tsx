@@ -17,6 +17,7 @@ import zxon from "../assets/portfolios/logo-design/lettermark-logo/letter-z/1/1.
 import zepeq from "../assets/portfolios/logo-design/lettermark-logo/letter-zpq/1/1.jpg";
 import ecogrow from "../assets/portfolios/logo-design/combination-mark/nature-logo/2/1.jpg";
 import playerlogo from "../assets/portfolios/logo-design/abstrack-mark/player-logo/1/1.jpg";
+import cycle from "../assets/portfolios/logo-design/lettermark-logo/cycle/1.png";
 
 // for business card design
 import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
@@ -498,6 +499,14 @@ const Projects = () => {
       subcategories: ["Abstrack"],
       tags: ["Logo", "Abstrack"],
       image: playerlogo,
+    },
+    {
+      id: "cycle-logo-design",
+      title: "Cycle Logo Design",
+      categories: ["logo"],
+      subcategories: ["Lettermark"],
+      tags: ["Logo", "Lettermark"],
+      image: cycle,
     },
   ];
 
