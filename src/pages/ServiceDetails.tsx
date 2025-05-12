@@ -17,6 +17,7 @@ import {
   Sparkle,
   BookOpen,
   Eye,
+  RefreshCw,
 } from "lucide-react";
 // logo design portfolio
 import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
@@ -76,17 +77,17 @@ const serviceData = {
       "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
     process: [
       {
-        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+               icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Discovery",
         desc: "Understand your brand, audience, and vision.",
       },
       {
-        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+               icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Research & Concept",
         desc: "Market analysis and brainstorming unique ideas.",
       },
       {
-        icon: <Figma className="h-7 w-7 text-pink-500" />,
+            icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Design & Refinement",
         desc: "Crafting and iterating on logo concepts.",
       },
@@ -96,34 +97,34 @@ const serviceData = {
         desc: "Showcase options and gather your feedback.",
       },
       {
-        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+               icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Delivery",
         desc: "Final files in all formats, ready for use.",
       },
     ],
     features: [
       {
-        icon: <Star className="h-6 w-6 text-yellow-400" />,
+              icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Original Concepts",
       },
       {
-        icon: <Users className="h-6 w-6 text-blue-500" />,
+              icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Collaborative Process",
       },
       {
-        icon: <Figma className="h-6 w-6 text-pink-500" />,
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Vector Source Files",
       },
       {
-        icon: <Rocket className="h-6 w-6 text-green-500" />,
+             icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Fast Turnaround",
       },
       {
-        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+             icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Brand Guidelines",
       },
       {
-        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+             icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Usage Documentation",
       },
     ],
@@ -244,42 +245,42 @@ const serviceData = {
       "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
     process: [
       {
-        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+           icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Discovery",
-        desc: "Understand your brand, audience, and vision.",
+        desc: "Understanding your brand identity, target audience, and specific requirements for your business card.",
       },
       {
-        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+            icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Research & Concept",
-        desc: "Market analysis and brainstorming unique ideas.",
+        desc: "Analyzing industry standards and creating unique design concepts that align with your brand.",
       },
       {
-        icon: <Figma className="h-7 w-7 text-pink-500" />,
+           icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Design & Refinement",
-        desc: "Crafting and iterating on logo concepts.",
+        desc: "Creating and refining card layouts, typography, and visual elements for maximum impact.",
       },
       {
         icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Presentation",
-        desc: "Showcase options and gather your feedback.",
+        desc: "Presenting multiple design options with different styles, colors, and layouts for your selection.",
       },
       {
-        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+            icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Delivery",
-        desc: "Final files in all formats, ready for use.",
+        desc: "Providing print-ready files and specifications for professional printing of your business cards.",
       },
     ],
     features: [
       {
-        icon: <Star className="h-6 w-6 text-yellow-400" />,
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Original Concepts",
       },
       {
-        icon: <Users className="h-6 w-6 text-blue-500" />,
+             icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Collaborative Process",
       },
       {
-        icon: <Figma className="h-6 w-6 text-pink-500" />,
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Vector Source Files",
       },
       {
@@ -287,23 +288,19 @@ const serviceData = {
         label: "Fast Turnaround",
       },
       {
-        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
+           icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Brand Guidelines",
       },
       {
-        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
+             icon: <Rocket className="h-6 w-6 text-green-500" />,
         label: "Usage Documentation",
       },
     ],
     subServices: [
-      "Wordmark Logos",
-      "Brandmarks & Symbols",
-      "Monogram Logos",
-      "Emblem Logos",
-      "Mascot Logos",
-      "Minimal Logos",
+      "Standard & Premium Business Card Designs",
+      "Tailored Layouts to Match Logo Types & Brand Identity",
     ],
-    deliverables: ["Modern", "Creative", "Professional"],
+    deliverables: ["Primary & Secondary Business Card Design (Front & Back)", "Color & Black/White Variations", "SVG/PNG/PDF/EPS Files", "Mini Brand Guidelines Sheet", "Favicon & Social Media Kit", "Mockups for Real-World Use",],
     timeframe: "1-2 weeks",
     portfolios: [
       {
@@ -342,12 +339,6 @@ const serviceData = {
         tags: ["Business Card", "Modern"],
         image: moderncard,
       },
-      {
-        id: "wind-logo-design",
-        title: "Wind Logo Design",
-        tags: ["Logo Deisgn", "Lettermark"],
-        image: wind,
-      },
     ],
   },
 
@@ -355,24 +346,24 @@ const serviceData = {
     icon: (
       <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
     ),
-    coverText: "Logo Design",
-    title: "Logo Design Excellence",
-    tagline: "Distinctive. Memorable. Timeless brand marks.",
+    coverText: "Letterhead Design",
+    title: "Professional Letterhead Design",
+    tagline: "Branded. Polished. Print-ready business essentials.",
     description:
-      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
+      "I design clean, professional, and on-brand letterheads that reinforce your visual identity in every piece of correspondence. Each design is tailored to align with your brand aesthetics, ensuring consistency across all communications.",
     process: [
       {
-        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Discovery",
         desc: "Understand your brand, audience, and vision.",
       },
       {
-        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Research & Concept",
         desc: "Market analysis and brainstorming unique ideas.",
       },
       {
-        icon: <Figma className="h-7 w-7 text-pink-500" />,
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Design & Refinement",
         desc: "Crafting and iterating on logo concepts.",
       },
@@ -382,54 +373,59 @@ const serviceData = {
         desc: "Showcase options and gather your feedback.",
       },
       {
-        icon: <Briefcase className="h-7 w-7 text-green-500" />,
+        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
         title: "Delivery",
         desc: "Final files in all formats, ready for use.",
       },
     ],
     features: [
       {
-        icon: <Star className="h-6 w-6 text-yellow-400" />,
-        label: "Original Concepts",
-      },
-      {
-        icon: <Users className="h-6 w-6 text-blue-500" />,
-        label: "Collaborative Process",
-      },
-      {
-        icon: <Figma className="h-6 w-6 text-pink-500" />,
-        label: "Vector Source Files",
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+
+        label: "Custom Layouts",
       },
       {
         icon: <Rocket className="h-6 w-6 text-green-500" />,
-        label: "Fast Turnaround",
+
+        label: "Tailored to Brand Identity",
       },
       {
-        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
-        label: "Brand Guidelines",
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+
+        label: "Editable Source Files",
       },
       {
-        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
-        label: "Usage Documentation",
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+        label: "Quick Turnaround",
+      },
+      {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+
+        label: "Print & Digital Ready",
+      },
+      {
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
+
+        label: "Usage Guide Included",
       },
     ],
     subServices: [
-      "Wordmark Logos",
-      "Brandmarks & Symbols",
-      "Monogram Logos",
-      "Emblem Logos",
-      "Mascot Logos",
-      "Minimal Logos",
+      "Corporate Letterheads",
+      "Minimal Letterheads",
+      "Modern & Creative Styles",
+      "Personal Letterheads",
+      "Brand Identity-Aligned Designs",
+      "Print-Ready Templates",
     ],
     deliverables: [
-      "Primary & Secondary Logo",
-      "Black/White & Color Variations",
-      "SVG, PNG, PDF, EPS Files",
-      "Brand Guidelines Sheet",
-      "Favicon & Social Media Kit",
-      "Mockups for Real-World Use",
+      "Primary & Alternative Layouts",
+      "Black/White & Color Versions",
+      "SVG, PNG, PDF, DOCX Files",
+      "Editable Source File (AI/PSD)",
+      "Usage & Print Instructions",
+      "Mockups for Presentation",
     ],
-    timeframe: "1-2 weeks",
+    timeframe: "3-5 days",
     portfolios: [
       {
         id: "modern-minimalist-letterhead-design",
@@ -458,284 +454,927 @@ const serviceData = {
     ],
   },
 
-  "brand-guidelines-design": {
-    icon: (
-      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
-    ),
-    coverText: "Logo Design",
-    title: "Logo Design Excellence",
-    tagline: "Distinctive. Memorable. Timeless brand marks.",
-    description:
-      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
-    process: [
-      {
-        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
-        title: "Discovery",
-        desc: "Understand your brand, audience, and vision.",
-      },
-      {
-        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
-        title: "Research & Concept",
-        desc: "Market analysis and brainstorming unique ideas.",
-      },
-      {
-        icon: <Figma className="h-7 w-7 text-pink-500" />,
-        title: "Design & Refinement",
-        desc: "Crafting and iterating on logo concepts.",
-      },
-      {
-        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
-        title: "Presentation",
-        desc: "Showcase options and gather your feedback.",
-      },
-      {
-        icon: <Briefcase className="h-7 w-7 text-green-500" />,
-        title: "Delivery",
-        desc: "Final files in all formats, ready for use.",
-      },
-    ],
-    features: [
-      {
-        icon: <Star className="h-6 w-6 text-yellow-400" />,
-        label: "Original Concepts",
-      },
-      {
-        icon: <Users className="h-6 w-6 text-blue-500" />,
-        label: "Collaborative Process",
-      },
-      {
-        icon: <Figma className="h-6 w-6 text-pink-500" />,
-        label: "Vector Source Files",
-      },
-      {
+"brand-guidelines-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Brand Guidelines",
+  title: "Brand Guidelines Design",
+  tagline: "Consistent. Clear. Cohesive brand documentation.",
+  description:
+    "I craft comprehensive and visually compelling brand guideline documents that ensure consistency across every touchpoint. These guidelines define your brand's voice, visuals, and rules so anyone can communicate your identity with clarity and confidence.",
+  process: [
+    {
+            icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Discovery",
+      desc: "Understand your brand, target audience, and usage needs.",
+    },
+    {
+             icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Content Planning",
+      desc: "Outline the structure for logo, typography, colors, and more.",
+    },
+    {
+           icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Design & Layout",
+      desc: "Create a clean, professional document layout with your brand assets.",
+    },
+    {
+             icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Review & Feedback",
+      desc: "Present draft for review and make adjustments as needed.",
+    },
+    {
+            icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Final Delivery",
+      desc: "Deliver a fully editable, shareable, and print-ready brand guideline.",
+    },
+  ],
+  features: [
+    {
+            icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Custom-Branded Layout",
+    },
+    {
         icon: <Rocket className="h-6 w-6 text-green-500" />,
-        label: "Fast Turnaround",
-      },
-      {
-        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
-        label: "Brand Guidelines",
-      },
-      {
-        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
-        label: "Usage Documentation",
-      },
-    ],
-    subServices: [
-      "Wordmark Logos",
-      "Brandmarks & Symbols",
-      "Monogram Logos",
-      "Emblem Logos",
-      "Mascot Logos",
-      "Minimal Logos",
-    ],
-    deliverables: [
-      "Primary & Secondary Logo",
-      "Black/White & Color Variations",
-      "SVG, PNG, PDF, EPS Files",
-      "Brand Guidelines Sheet",
-      "Favicon & Social Media Kit",
-      "Mockups for Real-World Use",
-    ],
-    timeframe: "1-2 weeks",
-    portfolios: [
-      {
-        id: "boldpath-brand-guidelines",
-        title: "The Guidelines for Bold Path",
-        tags: ["Brand Guidelines"],
-        image: boldpath,
-      },
-      {
-        id: "ranova-brand-guidelines",
-        title: "Ranova Brand Guidelines",
-        tags: ["Brand Guidelines"],
-        image: ranova,
-      },
-      {
-        id: "nexus-brand-guidelines",
-        title: "Nexus Brand Guidelines",
-        tags: ["Brand Guidelines"],
-        image: nexus,
-      },
-    ],
-  },
+      label: "Collaborative Refinement",
+    },
+    {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Editable Source File",
+    },
+    {
+          icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Quick Delivery",
+    },
+    {
+           icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Logo & Color Usage Rules",
+    },
+    {
+        icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Typography & Layout Guides",
+    },
+  ],
+  subServices: [
+    "Logo Usage Rules",
+    "Color Palette Guidelines",
+    "Typography Specifications",
+    "Spacing & Placement Rules",
+    "Imagery & Iconography Direction",
+    "Tone of Voice & Messaging",
+  ],
+  deliverables: [
+    "Complete Brand Guidelines Document (PDF)",
+    "Editable Source File (AI/INDD/Figma)",
+    "Logo, Font & Color Assets",
+    "Print & Web Usage Rules",
+    "Visual Examples & Mockups",
+    "Documentation for Team/Partners",
+  ],
+  timeframe: "1-2 weeks",
+  portfolios: [
+    {
+      id: "boldpath-brand-guidelines",
+      title: "The Guidelines for Bold Path",
+      tags: ["Brand Guidelines"],
+      image: boldpath,
+    },
+    {
+      id: "ranova-brand-guidelines",
+      title: "Ranova Brand Guidelines",
+      tags: ["Brand Guidelines"],
+      image: ranova,
+    },
+    {
+      id: "nexus-brand-guidelines",
+      title: "Nexus Brand Guidelines",
+      tags: ["Brand Guidelines"],
+      image: nexus,
+    },
+  ],
+},
 
-  "image-editing": {
-    icon: (
-      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
-    ),
-    coverText: "Logo Design",
-    title: "Logo Design Excellence",
-    tagline: "Distinctive. Memorable. Timeless brand marks.",
-    description:
-      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
-    process: [
-      {
-        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
-        title: "Discovery",
-        desc: "Understand your brand, audience, and vision.",
-      },
-      {
-        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
-        title: "Research & Concept",
-        desc: "Market analysis and brainstorming unique ideas.",
-      },
-      {
-        icon: <Figma className="h-7 w-7 text-pink-500" />,
-        title: "Design & Refinement",
-        desc: "Crafting and iterating on logo concepts.",
-      },
-      {
-        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
-        title: "Presentation",
-        desc: "Showcase options and gather your feedback.",
-      },
-      {
-        icon: <Briefcase className="h-7 w-7 text-green-500" />,
-        title: "Delivery",
-        desc: "Final files in all formats, ready for use.",
-      },
-    ],
-    features: [
-      {
-        icon: <Star className="h-6 w-6 text-yellow-400" />,
-        label: "Original Concepts",
-      },
-      {
-        icon: <Users className="h-6 w-6 text-blue-500" />,
-        label: "Collaborative Process",
-      },
-      {
-        icon: <Figma className="h-6 w-6 text-pink-500" />,
-        label: "Vector Source Files",
-      },
-      {
-        icon: <Rocket className="h-6 w-6 text-green-500" />,
-        label: "Fast Turnaround",
-      },
-      {
-        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
-        label: "Brand Guidelines",
-      },
-      {
-        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
-        label: "Usage Documentation",
-      },
-    ],
-    subServices: [
-      "Wordmark Logos",
-      "Brandmarks & Symbols",
-      "Monogram Logos",
-      "Emblem Logos",
-      "Mascot Logos",
-      "Minimal Logos",
-    ],
-    deliverables: [
-      "Primary & Secondary Logo",
-      "Black/White & Color Variations",
-      "SVG, PNG, PDF, EPS Files",
-      "Brand Guidelines Sheet",
-      "Favicon & Social Media Kit",
-      "Mockups for Real-World Use",
-    ],
-    timeframe: "1-2 weeks",
-    portfolios: [
-      {
-        id: "image-background-remove-clipping-path",
-        title: "Image Clipping Path",
-        tags: ["Background Remove", "Clipping Path"],
-        image: imageclippingpath,
-      },
-    ],
-  },
+
+
+
+"image-editing": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Image Editing",
+  title: "Professional Image Editing",
+  tagline: "Clean. Polished. Pixel-perfect visuals.",
+  description:
+    "I provide high-quality image editing services to enhance, retouch, and transform your photos with precision. From background removal and color correction to detailed retouching, I ensure your visuals are crisp, professional, and ready for any platform or purpose.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Requirement Analysis",
+      desc: "Understand your specific editing needs and file types.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Editing & Enhancement",
+      desc: "Apply corrections, retouching, background removal, and effects.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Client Review",
+      desc: "Share preview files for feedback and adjustments.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Final Delivery",
+      desc: "Deliver optimized and high-resolution edited files.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "High-Resolution Output",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Background Removal",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Color & Light Correction",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Advanced Retouching",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Fast Turnaround",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Unlimited Revisions",
+    },
+  ],
+  subServices: [
+    "Background Removal",
+    "Color Correction",
+    "Product Photo Editing",
+    "Portrait Retouching",
+    "Shadow & Reflection Effects",
+    "Clipping Path & Masking",
+  ],
+  deliverables: [
+    "High-Resolution JPEG/PNG Files",
+    "Transparent PNGs (if applicable)",
+    "PSD or Source Files (on request)",
+    "Optimized Web & Print Versions",
+    "Before/After Comparison (if needed)",
+    "Bulk File Packaging & Delivery",
+  ],
+  timeframe: "24-72 hours (depending on project size)",
+  portfolios: [
+    {
+      id: "image-background-remove-clipping-path",
+      title: "Image Clipping Path",
+      tags: ["Background Remove", "Clipping Path"],
+      image: imageclippingpath,
+    },
+  ],
+},
+
+
+
+
+
+  
 
   "background-removal": {
-    icon: (
-      <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
-    ),
-    coverText: "Logo Design",
-    title: "Logo Design Excellence",
-    tagline: "Distinctive. Memorable. Timeless brand marks.",
-    description:
-      "I create unique, versatile, and memorable logos that capture your brand's essence and make a lasting impression. My process blends research, creativity, and precision to deliver logos that stand out in any industry.",
-    process: [
-      {
-        icon: <Rocket className="h-7 w-7 text-yellow-500" />,
-        title: "Discovery",
-        desc: "Understand your brand, audience, and vision.",
-      },
-      {
-        icon: <BookOpen className="h-7 w-7 text-purple-500" />,
-        title: "Research & Concept",
-        desc: "Market analysis and brainstorming unique ideas.",
-      },
-      {
-        icon: <Figma className="h-7 w-7 text-pink-500" />,
-        title: "Design & Refinement",
-        desc: "Crafting and iterating on logo concepts.",
-      },
-      {
-        icon: <Sparkle className="h-7 w-7 text-blue-400" />,
-        title: "Presentation",
-        desc: "Showcase options and gather your feedback.",
-      },
-      {
-        icon: <Briefcase className="h-7 w-7 text-green-500" />,
-        title: "Delivery",
-        desc: "Final files in all formats, ready for use.",
-      },
-    ],
-    features: [
-      {
-        icon: <Star className="h-6 w-6 text-yellow-400" />,
-        label: "Original Concepts",
-      },
-      {
-        icon: <Users className="h-6 w-6 text-blue-500" />,
-        label: "Collaborative Process",
-      },
-      {
-        icon: <Figma className="h-6 w-6 text-pink-500" />,
-        label: "Vector Source Files",
-      },
-      {
-        icon: <Rocket className="h-6 w-6 text-green-500" />,
-        label: "Fast Turnaround",
-      },
-      {
-        icon: <Sparkle className="h-6 w-6 text-purple-500" />,
-        label: "Brand Guidelines",
-      },
-      {
-        icon: <BookOpen className="h-6 w-6 text-indigo-500" />,
-        label: "Usage Documentation",
-      },
-    ],
-    subServices: [
-      "Wordmark Logos",
-      "Brandmarks & Symbols",
-      "Monogram Logos",
-      "Emblem Logos",
-      "Mascot Logos",
-      "Minimal Logos",
-    ],
-    deliverables: [
-      "Primary & Secondary Logo",
-      "Black/White & Color Variations",
-      "SVG, PNG, PDF, EPS Files",
-      "Brand Guidelines Sheet",
-      "Favicon & Social Media Kit",
-      "Mockups for Real-World Use",
-    ],
-    timeframe: "1-2 weeks",
-    portfolios: [
-      {
-        id: "image-background-remove-clipping-path",
-        title: "Image Clipping Path",
-        tags: ["Background Remove", "Clipping Path"],
-        image: imageclippingpath,
-      },
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Background Removal",
+  title: "Precise Background Removal",
+  tagline: "Clean cuts. Crisp edges. Transparent perfection.",
+  description:
+    "I offer professional background removal services using advanced techniques to isolate subjects with pixel-perfect precision. Whether it's for e-commerce, presentations, or creative projects, I ensure your images look sharp, clean, and ready for use on any background.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Requirement Analysis",
+      desc: "Review images and confirm output format and style preferences.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Manual Clipping & Masking",
+      desc: "Use pen tool or masking to remove background cleanly.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Refinement & Edge Smoothing",
+      desc: "Polish edges, handle hair and complex objects with care.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Final Delivery",
+      desc: "Export files in transparent PNG, white background, or as requested.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Pixel-Perfect Clipping Path",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Transparent & Custom Backgrounds",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Batch Processing Available",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Hair & Soft Edge Masking",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Quick Turnaround",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Multiple File Format Delivery",
+    },
+  ],
+  subServices: [
+    "Clipping Path Services",
+    "Transparent Backgrounds",
+    "White or Solid Backgrounds",
+    "Shadow & Reflection Effects",
+    "Object Removal",
+    "Edge Refinement & Feathering",
+  ],
+  deliverables: [
+    "Transparent PNG Files",
+    "White/Custom Background JPEGs",
+    "PSD or Source Files (on request)",
+    "Batch Folder Organization",
+    "Before/After Previews (optional)",
+    "Exported for Web, Print, or E-commerce",
+  ],
+  timeframe: "12-48 hours (depending on volume)",
+  portfolios: [
+    {
+      id: "image-background-remove-clipping-path",
+      title: "Image Clipping Path",
+      tags: ["Background Remove", "Clipping Path"],
+      image: imageclippingpath,
+    },
     ],
   },
+
+
+  "social-media-post-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Social Media Design",
+  title: "Social Media Post Design",
+  tagline: "Scroll-stopping visuals for every platform.",
+  description:
+    "I design high-impact social media posts that boost engagement and communicate your brand message effectively. Whether for Instagram, Facebook, LinkedIn, or any other platform, each post is tailored to your audience and optimized for visual appeal and clarity.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Brief & Strategy",
+      desc: "Understand your goals, platform, target audience, and design style.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Concept Development",
+      desc: "Sketch ideas and plan layouts for your brand message and content.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Design Execution",
+      desc: "Create eye-catching posts with brand consistency and high impact.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Feedback & Delivery",
+      desc: "Make revisions based on feedback and deliver final assets.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Platform-Optimized Sizes",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Branded Visual Consistency",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Custom Graphics & Layouts",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Content-Driven Design",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Fast Turnaround",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Editable Source Files",
+    },
+  ],
+  subServices: [
+    "Instagram Post Design",
+    "Facebook & LinkedIn Graphics",
+    "Carousel & Story Designs",
+    "Promotional & Sale Banners",
+    "Event & Announcement Posts",
+    "Brand Consistency Templates",
+  ],
+  deliverables: [
+    "High-Resolution JPG/PNG Files",
+    "Editable Source Files (PSD/AI/Figma)",
+    "Optimized Sizes for Each Platform",
+    "Multiple Layout Options (if needed)",
+    "Design Variations for Campaigns",
+    "Folder Organization by Campaign/Platform",
+  ],
+  timeframe: "2-4 days (depending on quantity)",
+  portfolios: [
+
+  ],
+},
+
+
+"banner-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Banner Design",
+  title: "Custom Banner Design",
+  tagline: "Bold visuals. Clear messaging. Maximum impact.",
+  description:
+    "I design professional banners tailored for both digital and print use—perfect for websites, ads, events, or storefronts. Each design is built to command attention, communicate your message clearly, and align with your brand identity.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Requirement Gathering",
+      desc: "Discuss your banner's purpose, dimensions, content, and target audience.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Concept Sketching",
+      desc: "Create initial layout ideas and visual direction.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Design Development",
+      desc: "Design the banner with strong visuals, clear hierarchy, and branding.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Revision & Finalization",
+      desc: "Incorporate your feedback and deliver print/web-ready files.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Web & Print-Ready Designs",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "High-Resolution Output",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Custom Dimensions & Layouts",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Brand-Aligned Design",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Fast Turnaround Time",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Editable Source Files",
+    },
+  ],
+  subServices: [
+    "Website Header Banners",
+    "Social Media Banners",
+    "YouTube Channel Art",
+    "Event & Conference Banners",
+    "Roll-up & Standee Designs",
+    "Promotional Sale Banners",
+  ],
+  deliverables: [
+    "High-Resolution JPEG/PNG Files",
+    "Print-Ready Files (300 DPI)",
+    "Web-Optimized Versions",
+    "Editable Source Files (PSD/AI/Figma)",
+    "Custom Sizes on Request",
+    "Organized Export by Usage Type",
+  ],
+  timeframe: "2-5 days (depending on banner type and quantity)",
+  portfolios: [
+
+  ],
+},
+
+
+"web-banner-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Web Banners",
+  title: "Web Banner Design",
+  tagline: "Scroll-stopping designs for web and digital platforms.",
+  description:
+    "I create high-impact web banners optimized for websites, online ads, and digital promotions. Each design is crafted to grab attention, drive clicks, and reflect your brand's visual identity—perfect for boosting conversions and enhancing online presence.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Brief & Goal Analysis",
+      desc: "Understand campaign goals, target audience, and placement details.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Visual Concepting",
+      desc: "Sketch layout directions based on messaging and branding.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Banner Design",
+      desc: "Design banners optimized for web dimensions and performance.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Review & Delivery",
+      desc: "Refine with your feedback and deliver ready-to-use assets.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Standard & Custom Sizes",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "High-Quality & Lightweight",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Brand-Aligned Visuals",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Multiple Variants (A/B Test Ready)",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Responsive-Friendly Layouts",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Editable Source Files",
+    },
+  ],
+  subServices: [
+    "Website Hero Banners",
+    "Google Display Ads",
+    "Social Media Cover Banners",
+    "Email Header Banners",
+    "Promotional Sliders",
+    "E-commerce Banners",
+  ],
+  deliverables: [
+    "High-Resolution Web-Optimized PNG/JPEG",
+    "Multiple Banner Sizes",
+    "Animated/GIF Version (on request)",
+    "Editable Source Files (PSD/AI/Figma)",
+    "Responsive Variants (if needed)",
+    "Organized File Folders for Easy Use",
+  ],
+  timeframe: "1-3 days (based on quantity and complexity)",
+  portfolios: [
+
+  ],
+},
+
+
+"email-signature-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Email Signatures",
+  title: "Email Signature Design",
+  tagline: "Professional. Clickable. Brand-aligned signatures.",
+  description:
+    "I design elegant, responsive, and clickable email signatures that reflect your brand identity. Whether for personal use or across a team, my designs help enhance brand credibility, improve communication professionalism, and integrate seamlessly with major email platforms.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Requirement Collection",
+      desc: "Gather contact details, brand assets, and preferred layout style.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Design Concept",
+      desc: "Create signature layout with icons, logos, and CTA links.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Feedback & Adjustment",
+      desc: "Share initial designs and revise based on your feedback.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Final Delivery",
+      desc: "Deliver ready-to-install HTML or image-based signature files.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Clickable Social Icons & Links",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Mobile & Email Client Compatibility",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Brand Consistent Colors & Fonts",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "HTML & Image-Based Options",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Multiple Team Member Variants",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Fast Turnaround with Revisions",
+    },
+  ],
+  subServices: [
+    "HTML Email Signatures",
+    "Image-Based Signatures",
+    "Corporate Signature Sets",
+    "Social Media Icon Integration",
+    "Call-to-Action Buttons (e.g., 'Book a Call')",
+    "Dark Mode Friendly Options",
+  ],
+  deliverables: [
+    "HTML Signature File",
+    "Image Version (PNG/JPEG)",
+    "Installation Guide (PDF/Video)",
+    "Multiple Variants (on request)",
+    "Signature Preview Mockup",
+    "All Icons & Assets Packaged",
+  ],
+  timeframe: "1-2 days per signature (bulk orders vary)",
+  portfolios: [
+
+  ],
+},
+
+"flyer-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Flyer Design",
+  title: "Custom Flyer Design",
+  tagline: "Bold. Informative. Purpose-driven print & digital flyers.",
+  description:
+    "I design professional, eye-catching flyers tailored to your audience and goals—whether it's for an event, business promotion, or announcement. Every flyer is crafted with compelling visuals, strategic layout, and brand alignment to ensure it captures attention and drives action.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Brief & Content Gathering",
+      desc: "Understand your objective, audience, size format, and message.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Concept Design",
+      desc: "Create an initial layout based on style and branding preferences.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Feedback & Refinement",
+      desc: "Revise layout, text, and visuals based on client feedback.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Finalization & Export",
+      desc: "Deliver print-ready and web-friendly versions in multiple formats.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Print & Digital Ready Files",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Custom Size & Format",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "High-Resolution Output",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Modern & Creative Layouts",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Editable Source Files",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Fast Delivery with Revisions",
+    },
+  ],
+  subServices: [
+    "Event Flyers",
+    "Business Promotional Flyers",
+    "Real Estate Flyers",
+    "Nonprofit & NGO Flyers",
+    "Club & Party Flyers",
+    "Product Launch Flyers",
+  ],
+  deliverables: [
+    "Print-Ready PDF",
+    "Web-Optimized JPEG/PNG",
+    "Editable Source File (AI, PSD, or InDesign)",
+    "Multiple Size Variants (if requested)",
+    "Social Media Adaptations (optional)",
+    "Mockup Presentation (optional)",
+  ],
+  timeframe: "1-3 days (depending on complexity)",
+  portfolios: [
+
+  ],
+},
+
+"billboard-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Billboard Design",
+  title: "Impactful Billboard Design",
+  tagline: "Big message. Bold impact. Designed to be seen.",
+  description:
+    "I create visually striking and effective billboard designs that grab attention and deliver your message at a glance. Each design is optimized for visibility, clarity, and brand impact—whether it's for highways, urban displays, or digital billboards.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Brief & Strategy",
+      desc: "Understand the campaign goal, message, target location, and size format.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Concept Design",
+      desc: "Create bold, high-contrast layouts tailored to outdoor visibility.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Client Review",
+      desc: "Present the initial design and gather feedback for revisions.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Final Delivery",
+      desc: "Deliver high-resolution, print-ready files in correct billboard dimensions.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Large-Format Ready Design",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "High-Impact Visual Composition",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Clear Typography & Readability",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "CMYK Print Ready Output",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Digital Billboard Versions (on request)",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Fast Turnaround & Revisions",
+    },
+  ],
+  subServices: [
+    "Traditional Billboard Design",
+    "Digital Billboard Graphics",
+    "Real Estate Billboard",
+    "Political/NGO Campaign Boards",
+    "Event Promotion Billboard",
+    "Corporate Branding Billboard",
+  ],
+  deliverables: [
+    "Print-Ready High-Resolution File (PDF/TIFF)",
+    "Editable Source File (AI/PSD)",
+    "Mockup Presentation",
+    "Multiple Size Adaptations (on request)",
+    "CMYK Color Profile for Accurate Printing",
+    "Digital Format Export (for LED Billboards)",
+  ],
+  timeframe: "2–4 days (depending on scope)",
+  portfolios: [
+
+  ],
+},
+
+"stationery-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Stationery Design",
+  title: "Professional Stationery Design",
+  tagline: "Branded essentials. Elegant impressions.",
+  description:
+    "I design cohesive and elegant stationery items that reflect your brand identity across every touchpoint. From business cards to letterheads, each item is crafted with precision to ensure a consistent, professional, and memorable brand experience.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Discovery",
+      desc: "Understand your brand guidelines, preferences, and required items.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Concept & Layout",
+      desc: "Design unique, brand-aligned layouts for each stationery element.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Client Feedback",
+      desc: "Present design drafts and revise based on your input.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Finalization & Delivery",
+      desc: "Prepare print-ready files and editable source files in standard formats.",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Brand-Aligned Layouts",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Print-Ready CMYK Files",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Editable Source Files",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Custom Shapes & Sizes (on request)",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Consistent Visual Hierarchy",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "High-Resolution Output",
+    },
+  ],
+  subServices: [
+    "Business Card Design",
+    "Letterhead Design",
+    "Envelope Design",
+    "Notepad & Folder Design",
+    "Compliment Slips",
+    "Corporate Stamp & ID Badge Design",
+  ],
+  deliverables: [
+    "Print-Ready PDF Files (CMYK)",
+    "Editable AI or PSD Files",
+    "High-Resolution PNG or JPG (optional)",
+    "Mockups for Presentation",
+    "Packaging in Organized Folders",
+    "Multiple Size Options (if needed)",
+  ],
+  timeframe: "2–5 days (depending on items)",
+  portfolios: [
+
+  ],
+},
+
+"resume-design": {
+  icon: (
+    <Smartphone className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+  ),
+  coverText: "Resume Design",
+  title: "Professional Resume Design",
+  tagline: "Stand out. Be remembered. Get hired.",
+  description:
+    "I design polished and impactful resumes that showcase your skills and experience in a visually compelling way. Whether you're applying for a job, internship, or promotion, I create resumes that catch the eye of hiring managers and make your qualifications shine.",
+  process: [
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Consultation & Discovery",
+      desc: "Understand your career goals, background, and desired resume style.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Design & Layout",
+      desc: "Create a visually appealing and easy-to-read resume layout.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Content Optimization",
+      desc: "Refine and format your content to highlight your strengths and achievements.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Client Review & Feedback",
+      desc: "Present the design and adjust based on your feedback.",
+    },
+    {
+      icon: <Sparkle className="h-7 w-7 text-blue-400" />,
+      title: "Final Delivery",
+      desc: "Deliver the final resume design in multiple formats (PDF, Word, etc.).",
+    },
+  ],
+  features: [
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "ATS-Friendly Layout",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Professional & Modern Design",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Content Optimization for Impact",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Tailored to Your Industry",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Editable Formats Included",
+    },
+    {
+      icon: <Rocket className="h-6 w-6 text-green-500" />,
+      label: "Quick Turnaround Time",
+    },
+  ],
+  subServices: [
+    "Resume Design (Entry-Level to Executive)",
+    "Cover Letter Design",
+    "LinkedIn Profile Optimization",
+    "CV Design",
+    "Portfolio Design",
+  ],
+  deliverables: [
+    "Final Resume Design (PDF, Word, etc.)",
+    "Cover Letter Design (Optional)",
+    "Editable Source Files (AI/PSD)",
+    "Optimized Version for Online Applications",
+    "LinkedIn Profile Design Tips",
+    "Before/After Comparison (if needed)",
+  ],
+  timeframe: "3–7 days (depending on complexity)",
+  portfolios: [
+
+  ],
+}
+
+
+
+
 };
 
 const ServiceDetails = () => {
@@ -750,141 +1389,147 @@ const ServiceDetails = () => {
     : undefined;
 
   if (!service) {
-    // Not Found Section with extra top spacing for all screens
-    const primary = "var(--color-primary, #6c47ff)";
-    const primarySoft = "#ede9fe"; // Soft/lighter version for hover
-    const secondary = "var(--color-secondary, #ffe03a)";
-
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-indigo-50 to-fuchsia-100 flex flex-col">
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
         <Navbar />
-        <main className="flex-grow flex flex-col items-center justify-start px-2 sm:px-4 text-center">
-          {/* Extra space above (much more for large and mobile) */}
-          <div className="h-20 sm:h-32 lg:h-44" />
-          <div
-            className="flex flex-col items-center w-full max-w-lg rounded-3xl shadow-2xl p-5 sm:p-8 md:p-10 border transition-all duration-200 mx-2 sm:mx-4"
-            style={{
-              background: "rgba(255,255,255,0.96)",
-              borderColor: primary,
-            }}
-          >
-            {/* Illustration */}
-            <div className="mb-6">
-              <svg width="90" height="90" viewBox="0 0 120 120" fill="none">
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="58"
-                  fill="#f3f4f6"
-                  stroke={primary}
-                  strokeWidth="4"
-                />
-                <text
-                  x="50%"
-                  y="54%"
-                  textAnchor="middle"
-                  fill={primary}
-                  fontSize="38"
-                  fontWeight="bold"
-                  dy=".3em"
-                  style={{ fontFamily: "inherit" }}
-                >
-                  404
-                </text>
-                <ellipse cx="60" cy="90" rx="24" ry="7" fill={secondary} />
-              </svg>
+        <div className="container mx-auto px-4 md:px-8 pt-32 pb-20">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="mb-12">
+              <div className="inline-block p-4 bg-[var(--color-secondary)]/10 rounded-full mb-6">
+                <RefreshCw className="h-14 w-14 theme-color-secondary drop-shadow-xl" />
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Service Not Found
+              </h1>
+              <p className="text-xl text-muted-foreground">
+                We couldn't find the service you're looking for. Please try refreshing the page or return to our services.
+              </p>
             </div>
-            <h1
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2"
-              style={{ color: primary }}
-            >
-              Service Not Found
-            </h1>
-            <p className="mb-8 text-gray-600 text-base sm:text-lg">
-              The service you requested doesn't exist or was moved.
-              <br />
-              Please check the URL or explore other services.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 w-full justify-center mb-2">
-              <Link to="/services" className="w-full sm:w-auto">
-                <button
-                  className="w-full sm:w-auto text-white px-6 py-2 rounded-full font-semibold shadow transition-all duration-200"
-                  style={{
-                    background: primary,
-                    border: `2px solid ${primary}`,
-                  }}
-                  onMouseOver={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.background =
-                      primarySoft;
-                    (e.currentTarget as HTMLButtonElement).style.color =
-                      "#3b2f7f";
-                    (e.currentTarget as HTMLButtonElement).style.borderColor =
-                      primarySoft;
-                  }}
-                  onMouseOut={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.background =
-                      primary;
-                    (e.currentTarget as HTMLButtonElement).style.color = "#fff";
-                    (e.currentTarget as HTMLButtonElement).style.borderColor =
-                      primary;
-                  }}
-                >
-                  Back to Services
-                </button>
-              </Link>
-              <Link to="/" className="w-full sm:w-auto">
-                <button
-                  className="w-full sm:w-auto bg-white px-6 py-2 rounded-full font-semibold shadow border-2 transition-all duration-200"
-                  style={{
-                    color: primary,
-                    borderColor: primary,
-                  }}
-                  onMouseOver={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.background =
-                      primarySoft;
-                    (e.currentTarget as HTMLButtonElement).style.color =
-                      "#3b2f7f";
-                    (e.currentTarget as HTMLButtonElement).style.borderColor =
-                      primarySoft;
-                  }}
-                  onMouseOut={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.background =
-                      "white";
-                    (e.currentTarget as HTMLButtonElement).style.color =
-                      primary;
-                    (e.currentTarget as HTMLButtonElement).style.borderColor =
-                      primary;
-                  }}
-                >
-                  Go to Homepage
-                </button>
-              </Link>
-            </div>
-            <div
-              className="mt-6 text-sm"
-              style={{ color: primary, opacity: 0.6 }}
-            >
-              If you think this is a server error, please{" "}
-              <a
-                href="mailto:acs.arifulislam@gmail.com"
-                className="underline transition-colors duration-200"
-                style={{ color: secondary }}
-                onMouseOver={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = primary;
-                }}
-                onMouseOut={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.color =
-                    secondary;
-                }}
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => window.location.reload()}
+                className="group inline-flex items-center justify-center px-8 py-4 bg-[var(--color-secondary)] text-white rounded-full font-medium hover:bg-opacity-90 transition-all duration-300"
               >
-                contact support
-              </a>
-              .
+                <RefreshCw className="h-5 w-5 mr-2 group-hover:animate-spin" />
+                Refresh Page
+              </button>
+              
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] rounded-full font-medium hover:bg-[var(--color-secondary)] hover:text-white transition-all duration-300"
+              >
+                <ArrowLeft className="h-5 w-5 mr-2" />
+                Back to Services
+              </Link>
             </div>
           </div>
-          {/* Extra space below */}
-          <div className="h-12 sm:h-20 lg:h-32" />
-        </main>
+        </div>
+
+        {/* Available Services Section - Full Width */}
+        <div className="w-full bg-white mt-12 py-12">
+          <div className="container mx-auto px-4 md:px-8">
+            <h2 className="text-2xl font-semibold mb-8 text-center">Available Services</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+              <Link
+                to="/services/business-card-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Business Card Design
+              </Link>
+              <Link
+                to="/services/logo-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Logo Design
+              </Link>
+              <Link
+                to="/services/brand-identity"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Brand Identity
+              </Link>
+              <Link
+                to="/services/social-media"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Social Media Design
+              </Link>
+              <Link
+                to="/services/letterhead-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Letterhead Design
+              </Link>
+              <Link
+                to="/services/brand-guidelines-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Brand Guidelines
+              </Link>
+              <Link
+                to="/services/image-editing"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Image Editing
+              </Link>
+              <Link
+                to="/services/background-removal"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Background Removal
+              </Link>
+              <Link
+                to="/services/social-media-post-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Social Media Post Design
+              </Link>
+              <Link
+                to="/services/banner-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Banner Design
+              </Link>
+              <Link
+                to="/services/web-banner-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Web Banner Design
+              </Link>
+              <Link
+                to="/services/email-signature-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Email Signature Design
+              </Link>
+              <Link
+                to="/services/flyer-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Flyer Design
+              </Link>
+              <Link
+                to="/services/billboard-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Billboard Design
+              </Link>
+              <Link
+                to="/services/stationery-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Stationery Design
+              </Link>
+              <Link
+                to="/services/resume-design"
+                className="p-4 bg-[#f9f9f9] rounded-2xl transition-all duration-300 border border-gray-100 hover:border-[var(--color-secondary)]"
+              >
+                Resume Design
+              </Link>
+            </div>
+          </div>
+        </div>
         <Footer />
       </div>
     );
