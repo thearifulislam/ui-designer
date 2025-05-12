@@ -1015,7 +1015,7 @@ const ServiceDetails = () => {
                             item.tags.map((tag, idx) => (
                               <span
                                 key={idx}
-                                className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-[5px] font-medium mr-2 mb-2"
+                                className="text-xs bg-blue-600 text-white px-2 py-1 rounded-[5px] font-medium mr-2 mb-2"
                               >
                                 {tag}
                               </span>

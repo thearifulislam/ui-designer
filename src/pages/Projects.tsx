@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { Search, Eye } from "lucide-react";
+import { Search, Eye, Filter, X } from "lucide-react";
 
 // Asset imports (unchanged, use as in your project)
 import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
@@ -149,7 +149,7 @@ function useInView<T extends HTMLElement = HTMLElement>(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.disconnect(); // Only animate-once style: disconnect on first view
+          observer.disconnect();
         }
       },
       { threshold: 0.15, ...options }
@@ -161,23 +161,24 @@ function useInView<T extends HTMLElement = HTMLElement>(
   return [ref, inView] as const;
 }
 
-// --- Portfolio Card with scroll-dependent animation ---
-// Only show tags, don't show subcategory chips
+// --- Portfolio Card with enhanced hover effects ---
 function AnimatedCard({ item, idx }: { item: any; idx: number }) {
   const [ref, inView] = useInView<HTMLDivElement>();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
       ref={ref}
-      className={
-        "portfolio-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group card-scroll-animate" +
-        (inView ? " card-scroll-animate-active" : "")
-      }
+      className={`portfolio-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group card-scroll-animate ${
+        inView ? "card-scroll-animate-active" : ""
+      }`}
       style={{
         animationDelay: `${idx * 80}ms`,
         animationDuration: "700ms",
         animationFillMode: "both",
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <Link to={`/projects/${item.id}`}>
         <div className="h-80 overflow-hidden relative">
@@ -186,30 +187,33 @@ function AnimatedCard({ item, idx }: { item: any; idx: number }) {
             alt={item.title}
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"></div>
+          <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}>
+            <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
+              <div className="flex flex-wrap gap-2 mb-2">
+                {item.tags?.map((tag: string, idx2: number) => (
+                  <span
+                    key={idx2}
+                    className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-[5px] font-medium mr-2 mb-2"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </Link>
       <div className="p-6">
-        <div className="flex flex-wrap gap-2 mb-2">
-          {item.tags &&
-            item.tags.map((tag: string, idx2: number) => (
-              <span
-                key={idx2}
-                className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium mr-2 mb-2"
-              >
-                {tag}
-              </span>
-            ))}
-        </div>
         <Link to={`/projects/${item.id}`}>
-          <h3 className="text-xl font-bold text-black-soft group-hover:text-[var(--color-secondary)] transition-colors mb-2">
+          <h3 className="text-xl font-bold text-gray-900 group-hover:text-[var(--color-secondary)] transition-colors mb-3 line-clamp-2">
             {item.title}
           </h3>
         </Link>
-        {/* No subcategory chips */}
         <Link
           to={`/projects/${item.id}`}
-          className="view-button theme-bg-secondary hover:theme-bg-primary text-white px-4 py-2 rounded-full font-medium flex items-center justify-center w-full mt-4"
+          className="view-button bg-gray-100 hover:bg-[var(--color-secondary)] hover:text-white text-gray-700 px-4 py-2 rounded-full font-medium flex items-center justify-center w-full transition-all duration-300"
         >
           <Eye className="mr-2 h-5 w-5" />
           View Project
@@ -227,9 +231,8 @@ const Projects = () => {
   const [hidingSubFilter, setHidingSubFilter] = useState(false);
   const [activeSubFilter, setActiveSubFilter] = useState("All");
   const [filterAnim, setFilterAnim] = useState(false);
-  const [cardAnimKey, setCardAnimKey] = useState(
-    getFilterKey("", "all", "All")
-  );
+  const [cardAnimKey, setCardAnimKey] = useState(getFilterKey("", "all", "All"));
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const getSubcategories = () => {
     if (activeFilter === "all") return [];
@@ -240,12 +243,15 @@ const Projects = () => {
   const handleCategoryClick = (categoryId: string) => {
     const subs = subcategories[categoryId as keyof typeof subcategories];
 
-    if (categoryId === activeFilter && showSubFilter) {
-      setHidingSubFilter(true);
-      setTimeout(() => {
+    if (categoryId === activeFilter) {
+      // Toggle subfilter visibility if clicking the same category
+      if (showSubFilter) {
         setShowSubFilter(false);
-        setHidingSubFilter(false);
-      }, ANIMATION_DURATION);
+        setActiveSubFilter("All");
+      } else if (subs && subs.length > 0) {
+        setActiveSubFilter(subs[0]);
+        setShowSubFilter(true);
+      }
       return;
     }
 
@@ -552,96 +558,114 @@ const Projects = () => {
   }, [searchQuery, activeFilter, activeSubFilter]);
 
   return (
-    <div className="min-h-screen bg-[#f9f9f9]">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <section className="pt-32 pb-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="theme-color-secondary">Portfolio</span>
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="container mx-auto px-4 md:px-8 text-center relative">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+            Creative <span className="theme-color-secondary">Portfolio</span>
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
             Explore my latest projects and design work across various industries
             and platforms. Each project represents a unique challenge and
             creative solution.
           </p>
         </div>
       </section>
-      <section className="py-12">
+
+      <section className="py-0">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="mb-8 relative">
-            <div className="relative max-w-md mx-auto">
+          {/* Search and Filter Bar */}
+          <div className="mb-0 flex flex-row items-center pb-4">
+            <div className="relative flex-1">
               <input
                 type="text"
                 placeholder="Search projects..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full py-3 pl-12 pr-4 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+                className="w-full py-5 pl-16 pr-4 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)] shadow-sm text-xl h-[56px]"
               />
               <Search
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                size={18}
+                className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400"
+                size={26}
               />
             </div>
+            <button
+              onClick={() => setIsFilterOpen((prev) => !prev)}
+              className="flex-shrink-0 ml-4 flex items-center gap-2 px-6 bg-white rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors h-[56px] text-xl"
+              style={{ minWidth: "120px" }}
+            >
+              <Filter size={22} />
+              <span>Filters</span>
+            </button>
           </div>
 
-          {/* Main filter bar */}
-          <div className="mb-6 flex flex-wrap justify-center gap-3 rounded-xl p-5 bg-blue-50 shadow-sm">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => handleCategoryClick(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeFilter === category.id
-                    ? "bg-[var(--color-secondary)] text-white"
-                    : "bg-white text-gray-700 hover:bg-gray-100"
-                }`}
-                style={{
-                  transition: "all 0.2s cubic-bezier(.4,2,1,0.9)",
-                  transform:
-                    filterAnim && activeFilter === category.id
-                      ? "scale(1.08)"
-                      : "scale(1)",
-                }}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Subfilter bar with hide/show animation */}
-          {getSubcategories().length > 0 &&
-            (showSubFilter || hidingSubFilter) && (
-              <div
-                className={`mb-10 flex flex-wrap justify-center gap-2 rounded-xl p-5 bg-blue-50 shadow-sm transition-all duration-300 ${
-                  showSubFilter && !hidingSubFilter
-                    ? "animate-fade-in"
-                    : hidingSubFilter
-                    ? "slide-fade-out"
-                    : "hidden"
-                }`}
-              >
-                {getSubcategories().map((subcategory) => (
+          {/* Filter Panel */}
+          {isFilterOpen && (
+            <div className="transition-all duration-300 mb-8">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-lg font-semibold">Filter Projects</h3>
                   <button
-                    key={subcategory}
-                    onClick={() => handleSubFilterClick(subcategory)}
-                    className={`filter-item cursor-pointer transition-all duration-200 px-4 py-1 rounded-md text-sm font-medium ${
-                      activeSubFilter?.toLowerCase() ===
-                      subcategory?.toLowerCase()
-                        ? "bg-[var(--color-secondary)] text-white"
-                        : "bg-white text-gray-700 hover:bg-blue-100"
-                    }`}
-                    style={{ transition: "all 0.2s cubic-bezier(.4,2,1,0.9)" }}
+                    onClick={() => setIsFilterOpen(false)}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                   >
-                    {subcategory}
+                    <X size={18} />
                   </button>
-                ))}
-              </div>
-            )}
+                </div>
 
-          {/* Portfolio cards with scroll animation */}
+                {/* Main Categories */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium text-gray-500 mb-3">Categories</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {categories.map((category) => (
+                      <button
+                        key={category.id}
+                        onClick={() => handleCategoryClick(category.id)}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                          activeFilter === category.id
+                            ? "bg-[var(--color-secondary)] text-white"
+                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        }`}
+                      >
+                        {category.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Subcategories */}
+                {showSubFilter && getSubcategories().length > 0 && (
+                  <div className="border-t pt-6">
+                    <h4 className="text-sm font-medium text-gray-500 mb-3">Subcategories</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {getSubcategories().map((subcategory) => (
+                        <button
+                          key={subcategory}
+                          onClick={() => handleSubFilterClick(subcategory)}
+                          className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                            activeSubFilter?.toLowerCase() === subcategory?.toLowerCase()
+                              ? "bg-[var(--color-secondary)] text-white"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          }`}
+                        >
+                          {subcategory}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Portfolio Grid */}
           <div
             key={cardAnimKey}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10 pb-10"
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8`}
           >
             {filteredProjects.map((item, idx) => (
               <AnimatedCard key={item.id} idx={idx} item={item} />
@@ -649,19 +673,27 @@ const Projects = () => {
           </div>
 
           {filteredProjects.length === 0 && (
-            <div className="text-center py-12">
-              <h3 className="text-xl font-semibold mb-2">No projects found</h3>
-              <p className="text-muted-foreground">
+            <div className="text-center py-16 bg-white rounded-2xl shadow-sm">
+              <h3 className="text-2xl font-semibold mb-3">No projects found</h3>
+              <p className="text-gray-600">
                 Try adjusting your search or filter criteria
               </p>
             </div>
           )}
         </div>
       </section>
+
       <Footer />
+
       {/* Animation styles */}
       <style>
         {`
+        .bg-grid-pattern {
+          background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px),
+                           linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
+          background-size: 20px 20px;
+        }
+
         @keyframes fadeInUp {
           0% {
             opacity: 0;
@@ -672,9 +704,11 @@ const Projects = () => {
             transform: translateY(0);
           }
         }
+
         .animate-fade-in-up {
           animation-name: fadeInUp;
         }
+
         @keyframes slideFadeOut {
           0% {
             opacity: 1;
@@ -685,10 +719,11 @@ const Projects = () => {
             transform: translateY(-24px);
           }
         }
+
         .slide-fade-out {
           animation: slideFadeOut ${ANIMATION_DURATION}ms cubic-bezier(.4,2,1,0.9) both;
         }
-        /* Card scroll-in animation */
+
         @keyframes scrollFadeInCard {
           0% {
             opacity: 0;
@@ -699,12 +734,21 @@ const Projects = () => {
             transform: translateY(0) scale(1);
           }
         }
+
         .card-scroll-animate {
           opacity: 0;
           transform: translateY(40px) scale(0.97);
         }
+
         .card-scroll-animate.card-scroll-animate-active {
           animation: scrollFadeInCard 0.7s cubic-bezier(.23, 1.07, .66, .99) forwards;
+        }
+
+        .line-clamp-2 {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
         `}
       </style>
