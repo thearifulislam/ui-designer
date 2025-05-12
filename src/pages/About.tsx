@@ -10,9 +10,13 @@ import {
   MapPin,
   Phone,
   CheckCircle,
+  Star,
+  Award,
+  Users,
 } from "lucide-react";
 
 import me from "../assets/profile/aboutsection.png"
+import cv from "../assets/resume/Ariful islam.pdf"
 
 function useCountUp(to: number, duration = 1200, start = 0) {
   // Custom hook for animated counting up
@@ -109,238 +113,126 @@ const About = () => {
   const industries = useCountUp(50, 1250, 0); // 0 -> 50+
 
   return (
-    <div className="min-h-screen bg-[#f9f9f9] overflow-hidden">
-      {/* ---------- STYLES FOR ALL ANIMATIONS ---------- */}
-      <style>
-        {`
-          /* Floating/Oribtal Elements */
-          .about-floating-element {
-            position: absolute;
-            pointer-events: none;
-            z-index: 7;
-            opacity: 0.76;
-            mix-blend-mode: lighten;
-          }
-          .float1 {
-            width: 40px; height: 40px;
-            left: -55px; top: 14px;
-            background: radial-gradient(ellipse at 41% 43%, #19cfc9 60%, #ffffff10 100%);
-            border-radius: 50%;
-            animation: float1-anim 5.2s cubic-bezier(.74,-0.02,.31,1.41) infinite alternate;
-          }
-          @keyframes float1-anim {
-            0%   { transform: translate(0, 0) scale(1);}
-            36%  { transform: translate(-10px, 29px) scale(1.17);}
-            51%  { transform: translate(-21px, 13px) scale(1.10);}
-            82%  { transform: translate(6px, 24px) scale(1.07);}
-            100% { transform: translate(-2px, 0) scale(1);}
-          }
-          .float2 {
-            width: 28px; height: 28px;
-            right: -30px; top: 72px;
-            background: radial-gradient(ellipse at 50% 50%, #fbe06e 80%, #fdedb450 100%);
-            border-radius: 50%;
-            animation: float2-anim 6.8s ease-in-out infinite alternate;
-          }
-          @keyframes float2-anim {
-            0%   { transform: translate(0,0) scale(1);}
-            14%  { transform: translate(18px,-20px) scale(0.89);}
-            44%  { transform: translate(21px,10px) scale(1.08);}
-            63%  { transform: translate(-8px,17px) scale(0.97);}
-            83%  { transform: translate(-25px,0px) scale(1.18);}
-            100% { transform: translate(0,0) scale(1);}
-          }
-          .float3 {
-            width: 52px; height: 24px;
-            left: 56px; top: -30px;
-            background: linear-gradient(108deg,#31daf6 1%, #16adc5 79%);
-            border-radius: 60% 40% / 80% 20%;
-            animation: float3-anim 7.6s cubic-bezier(.61,-0.35,.34,1.56) infinite alternate;
-          }
-          @keyframes float3-anim {
-            0%   { transform: translate(0,0) rotate(-9deg);}
-            33%  { transform: translate(14px,12px) rotate(17deg);}
-            57%  { transform: translate(7px,21px) rotate(-11deg);}
-            88%  { transform: translate(-18px,7px) rotate(27deg);}
-            100% { transform: translate(0,0) rotate(-9deg);}
-          }
-          .float4 {
-            width: 34px; height: 38px;
-            right: -42px; bottom: 21px;
-            background: linear-gradient(136deg,#babbfc 7%, #baeffc 88%);
-            border-radius: 52% 48% / 44% 56%;
-            animation: float4-anim 6.2s cubic-bezier(.74,-0.02,.31,1.41) infinite alternate;
-          }
-          @keyframes float4-anim {
-            0%   { transform: translate(0,0) rotate(11deg);}
-            23%  { transform: translate(-18px,6px) rotate(-17deg);}
-            65%  { transform: translate(15px,12px) rotate(11deg);}
-            100% { transform: translate(0,0) rotate(11deg);}
-          }
-          .float5 {
-            width: 27px; height: 27px;
-            left: -32px; bottom: 53px;
-            background: radial-gradient(circle, #ff68a8 60%, #fbe8e5 100%);
-            border-radius: 50%;
-            opacity: .61;
-            animation: float5-anim 4.9s cubic-bezier(.67,0,.33,1) infinite alternate;
-          }
-          @keyframes float5-anim {
-            0%   { transform: translate(0,0) scale(1) rotate(0deg);}
-            39%  { transform: translate(15px,10px) scale(1.16) rotate(-7deg);}
-            59%  { transform: translate(-10px,-12px) scale(1.04) rotate(8deg);}
-            100% { transform: translate(0,0) scale(1) rotate(0deg);}
-          }
-
-          /* Rotating animated border arc (SVG) */
-          .about-anim-border-arc {
-            position: absolute;
-            left: -32px;
-            top: -32px;
-            width: 192px;
-            height: 192px;
-            opacity: 0.33;
-            z-index: 8;
-            pointer-events: none;
-          }
-          .about-anim-border-arc-circle {
-            stroke: var(--color-secondary, #19cfc9);
-            stroke-width: 6;
-            fill: none;
-            stroke-dasharray: 180 160;
-            stroke-linecap: round;
-            animation: border-arc-spin 2.4s linear infinite;
-            transform-origin: 50% 50%;
-            filter: drop-shadow(0 0 12px #19cfc955);
-          }
-          @keyframes border-arc-spin {
-            100% { transform: rotate(360deg);}
-          }
-        `}
-      </style>
-
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Navbar />
 
-      {/* Hero Section with animated counters and floating visual elements */}
-      <section className="pt-32 pb-16 bg-white relative">
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                About <span className="theme-color-secondary">Me</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="relative z-10">
+              <div className="inline-block px-4 py-2 bg-[var(--color-secondary)]/10 rounded-full mb-6">
+                <span className="text-[var(--color-secondary)] font-medium">Creative Designer</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Crafting Digital <br />
+                <span className="theme-color-secondary">Experiences</span>
               </h1>
 
-              <p className="text-muted-foreground mb-6">
-                Hi, I'm Ariful, a Graphic Designer with over 4 years of
-                experience in the brand design. I specialize in crafting unique
-                brand identities and delivering top-tier design solutions that
-                help businesses stand out in today's competitive market.
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Hi, I'm Ariful, a passionate Graphic Designer with over 4 years of
+                experience in brand design. I specialize in creating unique brand
+                identities and delivering exceptional design solutions that help
+                businesses thrive in today's competitive market.
               </p>
 
-              <p className="text-muted-foreground mb-8">
-                I help brands thrive in the digital world by creating impactful
-                designs that communicate their unique vision and connect with
-                their audience. With over 4 years of experience, I've developed
-                a deep understanding of design principles and how they intersect
-                with business goals.
-              </p>
-
-              {/* == Animated Counters == */}
-              <div className="flex items-center gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold theme-color-secondary">
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-8 mb-10">
+                <div className="text-center p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-3xl font-bold theme-color-secondary mb-2">
                     {years}+
                   </div>
                   <div className="text-sm text-muted-foreground">
                     Years Experience
                   </div>
                 </div>
-                <div className="h-12 w-px bg-gray-200"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold theme-color-secondary">
+                <div className="text-center p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-3xl font-bold theme-color-secondary mb-2">
                     {projects}+
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Projects Completed
+                    Projects
                   </div>
                 </div>
-                <div className="h-12 w-px bg-gray-200"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold theme-color-secondary">
+                <div className="text-center p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-3xl font-bold theme-color-secondary mb-2">
                     {industries}+
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Industries Covered
+                    Industries
                   </div>
                 </div>
               </div>
 
-              <Link
-                to="#"
-                className="inline-flex items-center theme-bg-primary text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300"
-              >
-                Download Resume
-                <Download className="ml-2 h-5 w-5" />
-              </Link>
+              <div className="flex gap-4">
+                <a
+                  href={cv}
+                  download="Ariful_Islam_Resume.pdf"
+                  className="inline-flex items-center theme-bg-primary text-white px-8 py-4 rounded-full font-medium hover:shadow-lg transition-all duration-300"
+                >
+                  Download Resume
+                  <Download className="ml-2 h-5 w-5" />
+                </a>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] px-8 py-4 rounded-full font-medium hover:bg-[var(--color-secondary)] hover:text-white transition-all duration-300"
+                >
+                  Contact Me
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </div>
             </div>
 
-            {/* --- Animated/floating elements and SVG border around image --- */}
-            <div className="relative flex flex-col items-center">
-              {/* SVG Rotating border arc */}
-              <svg className="about-anim-border-arc">
-                <circle
-                  className="about-anim-border-arc-circle"
-                  cx="96"
-                  cy="96"
-                  r="88"
-                />
-              </svg>
-              {/* Floating animated elements "orbiting" the image */}
-              <div className="about-floating-element float1"></div>
-              <div className="about-floating-element float2"></div>
-              <div className="about-floating-element float3"></div>
-              <div className="about-floating-element float4"></div>
-              <div className="about-floating-element float5"></div>
-              {/* The profile image */}
-              <div className="bg-white rounded-3xl overflow-hidden shadow-lg relative z-10">
+            {/* Profile Image with Decorative Elements */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)]/20 to-transparent rounded-3xl transform rotate-3"></div>
+              <div className="relative z-10 bg-white rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src={me}
                   alt="Ariful Islam - About Me"
-                  className="w-full h-auto object-cover rounded-3xl"
+                  className="w-full h-auto object-cover rounded-3xl transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
+              {/* Decorative Elements */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[var(--color-secondary)]/10 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-2xl"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Professional Experience */}
-      <section className="py-10">
+      {/* Experience Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Professional Experience
-          </h2>
-          <div className="space-y-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Professional Journey</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              My experience spans across various design disciplines, helping businesses
+              achieve their goals through creative solutions.
+            </p>
+          </div>
+
+          <div className="space-y-8">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="flex flex-col md:flex-row gap-6 md:gap-10"
+                className="group bg-gradient-to-r from-white to-gray-50 p-8 rounded-3xl transition-all duration-300"
               >
-                <div className="md:w-1/4">
-                  <div className="flex items-center">
-                    <Calendar
-                      className="text-[var(--color-secondary)] mr-2"
-                      size={18}
-                    />
-                    <span className="text-muted-foreground">{exp.period}</span>
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="md:w-1/4">
+                    <div className="flex items-center bg-[var(--color-secondary)]/10 px-4 py-2 rounded-full">
+                      <Calendar className="text-[var(--color-secondary)] mr-2" size={18} />
+                      <span className="text-[var(--color-secondary)] font-medium">{exp.period}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="md:w-3/4 bg-white p-6 md:p-8 rounded-2xl shadow-sm">
-                  <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
-                  <p className="text-[var(--color-secondary)] font-medium mb-4">
-                    {exp.company}
-                  </p>
-                  <p className="text-muted-foreground">{exp.description}</p>
+                  <div className="md:w-3/4">
+                    <h3 className="text-2xl font-semibold mb-2">{exp.title}</h3>
+                    <p className="text-[var(--color-secondary)] font-medium mb-4">
+                      {exp.company}
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -348,24 +240,27 @@ const About = () => {
         </div>
       </section>
 
-      {/* Skills & Expertise */}
-      <section className="py-20 bg-white">
+      {/* Skills Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Skills & Expertise
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Skills & Expertise</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              A comprehensive set of skills that enable me to deliver exceptional design solutions
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {skills.map((skillSet, index) => (
-              <div key={index} className="bg-[#f9f9f9] p-8 rounded-2xl">
-                <h3 className="text-xl font-semibold mb-6 theme-color-secondary">
+              <div key={index} className="bg-white p-8 rounded-3xl transition-all duration-300">
+                <h3 className="text-2xl font-semibold mb-6 theme-color-secondary">
                   {skillSet.category}
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {skillSet.items.map((skill, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 theme-color-primary mr-3 mt-0.5" />
-                      <span>{skill}</span>
+                    <li key={idx} className="flex items-start group">
+                      <CheckCircle className="h-6 w-6 theme-color-primary mr-3 mt-0.5 group-hover:scale-110 transition-transform" />
+                      <span className="text-lg">{skill}</span>
                     </li>
                   ))}
                 </ul>
@@ -375,32 +270,36 @@ const About = () => {
         </div>
       </section>
 
-      {/* Education */}
-      <section className="py-10">
+      {/* Education Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center">Education</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Education</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              My academic journey that has shaped my professional growth
+            </p>
+          </div>
 
-          <div className="space-y-10">
+          <div className="space-y-8">
             {education.map((edu, index) => (
               <div
                 key={index}
-                className="flex flex-col md:flex-row gap-6 md:gap-10"
+                className="group bg-gradient-to-r from-white to-gray-50 p-8 rounded-3xl transition-all duration-300"
               >
-                <div className="md:w-1/4">
-                  <div className="flex items-center">
-                    <Calendar
-                      className="text-[var(--color-secondary)] mr-2"
-                      size={18}
-                    />
-                    <span className="text-muted-foreground">{edu.period}</span>
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="md:w-1/4">
+                    <div className="flex items-center bg-[var(--color-secondary)]/10 px-4 py-2 rounded-full">
+                      <Calendar className="text-[var(--color-secondary)] mr-2" size={18} />
+                      <span className="text-[var(--color-secondary)] font-medium">{edu.period}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="md:w-3/4 bg-white p-6 md:p-8 rounded-2xl shadow-sm">
-                  <h3 className="text-xl font-semibold mb-1">{edu.degree}</h3>
-                  <p className="text-[var(--color-secondary)] font-medium mb-4">
-                    {edu.institution}
-                  </p>
-                  <p className="text-muted-foreground">{edu.location}</p>
+                  <div className="md:w-3/4">
+                    <h3 className="text-2xl font-semibold mb-2">{edu.degree}</h3>
+                    <p className="text-[var(--color-secondary)] font-medium mb-4">
+                      {edu.institution}
+                    </p>
+                    <p className="text-muted-foreground">{edu.location}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -408,64 +307,68 @@ const About = () => {
         </div>
       </section>
 
-      {/* Contact Info */}
-      <section className="py-20 bg-white">
+      {/* Contact Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Contact Information
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Let's discuss how we can work together to bring your vision to life
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#f9f9f9] p-8 rounded-2xl text-center">
-              <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4">
-                <Mail className="h-6 w-6 text-[var(--color-secondary)]" />
+            <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
+              <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4 group-hover:scale-110 transition-transform">
+                <Mail className="h-8 w-8 text-[var(--color-secondary)]" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Email</h3>
+              <h3 className="text-xl font-semibold mb-2">Email</h3>
               <a
                 href="mailto:acs.arifulislam@gmail.com"
-                className="text-muted-foreground hover:text-[var(--color-secondary)] transition-colors"
+                className="text-muted-foreground hover:text-[var(--color-secondary)] transition-colors text-lg"
               >
                 acs.arifulislam@gmail.com
               </a>
             </div>
 
-            <div className="bg-[#f9f9f9] p-8 rounded-2xl text-center">
-              <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4">
-                <Phone className="h-6 w-6 text-[var(--color-secondary)]" />
+            <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
+              <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4 group-hover:scale-110 transition-transform">
+                <Phone className="h-8 w-8 text-[var(--color-secondary)]" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Phone</h3>
+              <h3 className="text-xl font-semibold mb-2">Phone</h3>
               <a
                 href="tel:+8801938434733"
-                className="text-muted-foreground hover:text-[var(--color-secondary)] transition-colors"
+                className="text-muted-foreground hover:text-[var(--color-secondary)] transition-colors text-lg"
               >
                 +88 01938-434733
               </a>
             </div>
 
-            <div className="bg-[#f9f9f9] p-8 rounded-2xl text-center">
-              <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4">
-                <MapPin className="h-6 w-6 text-[var(--color-secondary)]" />
+            <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
+              <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4 group-hover:scale-110 transition-transform">
+                <MapPin className="h-8 w-8 text-[var(--color-secondary)]" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Location</h3>
-              <p className="text-muted-foreground">Khulna, Bangladesh</p>
+              <h3 className="text-xl font-semibold mb-2">Location</h3>
+              <p className="text-muted-foreground text-lg">Khulna, Bangladesh</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-[var(--color-secondary)] text-white">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">
+      {/* CTA Section */}
+      <section className="py-20 bg-[var(--color-secondary)] relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="container mx-auto px-4 md:px-8 text-center relative z-10">
+          <h2 className="text-4xl font-bold mb-6 text-white">
             Ready to Start Your Project?
           </h2>
-          <p className="max-w-2xl mx-auto mb-8 text-white/80">
+          <p className="max-w-2xl mx-auto mb-10 text-white/90 text-lg">
             Let's collaborate to create an amazing digital experience that
             achieves your business goals and delights your users.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center bg-white text-[var(--color-primary)] px-6 py-3 rounded-full font-medium hover:bg-[var(--color-secondary)] hover:text-white transition-all duration-300"
+            className="inline-flex items-center bg-white text-[var(--color-primary)] px-8 py-4 rounded-full font-medium hover:bg-opacity-90 transition-all duration-300 text-lg"
           >
             Get in Touch
             <ArrowRight className="ml-2 h-5 w-5" />

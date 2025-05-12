@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   const navLinks = [
-    { name: "Home", href: "#hero" },
+    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/projects" },
