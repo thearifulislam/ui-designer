@@ -1,51 +1,70 @@
 import { useState, useEffect, useRef } from "react";
-import { Download } from "lucide-react";
+import { Download, Figma, Framer, Code, Monitor, Palette, Boxes, Eye } from "lucide-react";
 import EmotionalButton from "./EmotionalButton";
 import aboutpic from "../assets/profile/aboutsection.png";
 import cv from "../assets/resume/Ariful islam.pdf";
 
-const FloatingHeart = ({
-  size,
-  delay,
-  duration,
-  left,
-  top,
-}: {
-  size: number;
-  delay: number;
-  duration: number;
-  left: number;
-  top: number;
-}) => {
-  return (
-    <div
-      className="absolute opacity-40"
-      style={{
-        left: `${left}%`,
-        top: `${top}%`,
-        width: size,
-        height: size,
-        animation: `floating ${duration}s ease-in-out infinite ${delay}s`,
-      }}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="var(--color-secondary)"
-        className="w-full h-full"
-      >
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-      </svg>
-    </div>
-  );
-};
+// Decorative background component
+const BackgroundDecoration = () => (
+  <div className="absolute inset-0 overflow-hidden">
+    {/* Gradient mesh background */}
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--color-secondary-rgb),0.1)_0%,rgba(255,255,255,0)_50%)]" />
 
+    {/* Dot pattern */}
+    <div className="absolute inset-0" style={{
+      backgroundImage: `radial-gradient(var(--color-secondary) 1px, transparent 1px)`,
+      backgroundSize: '40px 40px',
+      opacity: 0.05
+    }} />
+
+    {/* Animated gradient lines */}
+    <div className="absolute -top-[400px] left-1/2 w-[800px] h-[800px] -translate-x-1/2">
+      <div className="absolute inset-0 animate-[spin_20s_linear_infinite] opacity-[0.03]">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute inset-0 border border-[var(--color-secondary)]"
+            style={{
+              transform: `rotate(${i * 30}deg)`,
+              borderRadius: '40%'
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+// Skill card component
+const SkillCard = ({ icon: Icon, title, description }: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}) => (
+  <div className="group p-5 rounded-2xl bg-white border border-gray-100 hover:border-[var(--color-secondary)] transition-all duration-300">
+    <div className="flex items-start gap-4">
+      <div className="p-3 rounded-xl bg-gray-50 group-hover:bg-[var(--color-secondary)] group-hover:text-white transition-colors">
+        <Icon className="w-6 h-6" />
+      </div>
+      <div>
+        <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>
+        <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
+      </div>
+    </div>
+  </div>
+);
+
+// Animated counter component
 const Counter = ({
   target,
   duration = 2000,
+  label,
+  icon: Icon,
 }: {
   target: number;
   duration?: number;
+  label: string;
+  icon: React.ElementType;
 }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef<HTMLDivElement>(null);
@@ -84,166 +103,145 @@ const Counter = ({
   }, [target, duration, hasAnimated]);
 
   return (
-    <div
-      ref={countRef}
-      className="text-3xl md:text-4xl font-bold theme-color-primary"
-    >
-      {count}+
+    <div ref={countRef} className="relative group">
+      <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:border-[var(--color-secondary)] transition-all duration-300">
+        <div className="p-2 rounded-xl bg-gray-50 group-hover:bg-[var(--color-secondary)] group-hover:text-white transition-colors">
+          <Icon className="w-6 h-6" />
+        </div>
+        <div>
+          <div className="text-2xl font-bold text-gray-800">
+            {count}
+            <span className="text-[var(--color-secondary)]">+</span>
+          </div>
+          <div className="text-sm text-gray-500">{label}</div>
+        </div>
+      </div>
     </div>
   );
 };
 
 const AboutSection = () => {
-  const stats = [
-    { number: 100, label: "Projects" },
-    { number: 50, label: "Industries Covered" },
-    { number: 4, label: "Years of Experience" },
+  const skills = [
+    {
+      icon: Monitor,
+      title: "UI Design",
+      description: "Creating beautiful, intuitive interfaces that users love to interact with."
+    },
+    {
+      icon: Boxes,
+      title: "Design Systems",
+      description: "Building scalable and consistent design systems for seamless product development."
+    },
+    {
+      icon: Code,
+      title: "Prototyping",
+      description: "Crafting interactive prototypes to validate design decisions early."
+    },
+    {
+      icon: Palette,
+      title: "Visual Design",
+      description: "Developing stunning visuals that align with brand identity and user expectations."
+    }
   ];
 
-  const rotatingElementRef = useRef<HTMLDivElement>(null);
+  const stats = [
+    { number: 100, label: "Projects Completed", icon: Monitor },
+    { number: 50, label: "Design Systems", icon: Boxes },
+    { number: 4, label: "Years Experience", icon: Palette }
+  ];
 
-  useEffect(() => {
-    if (rotatingElementRef.current) {
-      rotatingElementRef.current.style.animation = "orbit 8s linear infinite";
-    }
-  }, []);
-
-  // Generate random floating hearts
-  const floatingHearts = Array.from({ length: 10 }, (_, i) => ({
-    id: i,
-    size: Math.floor(Math.random() * 20) + 10, // 10-30px
-    delay: Math.random() * 5,
-    duration: Math.random() * 5 + 5, // 5-10s
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-  }));
+  const tools = [
+    { name: "Figma", icon: Figma },
+    { name: "Framer", icon: Framer },
+    { name: "Adobe XD", icon: Monitor },
+    { name: "Sketch", icon: Palette }
+  ];
 
   return (
-    <section id="about" className="py-24">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          {/* Image with animated background */}
-          <div className="md:w-1/2 relative">
-            <div className="absolute top-1/4 -left-5 w-full h-full theme-bg-secondary/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+    <section id="about" className="py-24 relative">
+      <BackgroundDecoration />
 
-            {/* CSS Animations */}
-            <style>
-              {`
-                @keyframes floating {
-                  0% { transform: translateY(0) rotate(0deg); }
-                  50% { transform: translateY(-20px) rotate(10deg); }
-                  100% { transform: translateY(0) rotate(0deg); }
-                }
-
-                @keyframes orbit {
-                  from { transform: rotate(0deg) translateX(70px) rotate(0deg); }
-                  to { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
-                }
-              `}
-            </style>
-
+      <div className="container mx-auto px-4 md:px-8 relative">
+        {/* Hero Section */}
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-20">
+          {/* Image Section */}
+          <div className="lg:w-1/2">
             <div className="relative">
-              {/* Ellipse with rotating elements */}
-              <div className="absolute -left-8 -top-8 w-48 h-48 border-2 border-[var(--color-secondary)] rounded-full opacity-30"></div>
-
-              <div className="bg-[#f5f5f5] rounded-3xl overflow-hidden">
-                {/* Floating Hearts animation */}
-                {floatingHearts.map((heart) => (
-                  <FloatingHeart
-                    key={heart.id}
-                    size={heart.size}
-                    delay={heart.delay}
-                    duration={heart.duration}
-                    left={heart.left}
-                    top={heart.top}
-                  />
-                ))}
-
-                {/* Orbiting element */}
-                <div
-                  className="absolute"
-                  style={{
-                    top: "50%",
-                    left: "50%",
-                    width: "20px",
-                    height: "20px",
-                    marginTop: "-10px",
-                    marginLeft: "-10px",
-                  }}
-                >
-                  <div
-                    ref={rotatingElementRef}
-                    className="absolute theme-bg-secondary rounded-full h-5 w-5"
-                  ></div>
-                </div>
-
+              {/* Simple border with shadow */}
+              <div className="p-4 bg-white rounded-2xl shadow-lg">
                 <img
                   src={aboutpic}
-                  alt="Ariful Islam - About Me"
-                  className="w-full object-cover rounded-3xl relative z-10"
+                  alt="UI Designer Profile"
+                  className="w-full rounded-xl"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-40 h-40 theme-bg-secondary blob-shape animate-pulse"></div>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="md:w-1/2 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              About <span className="theme-color-primary">Me</span>
-            </h2>
+          {/* Content Section */}
+          <div className="lg:w-1/2 space-y-8">
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[var(--color-secondary)]">
+                Crafting Digital
+                <br />
+                Experiences
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                As a UI Designer with a passion for creating exceptional digital experiences,
+                I combine aesthetic excellence with user-centered design principles. My approach
+                focuses on transforming complex challenges into elegant, intuitive solutions
+                that delight users and drive business success.
+              </p>
+            </div>
 
-            <p className="text-black-soft/80">
-              Hi, I'm Ariful — a passionate Graphic Designer with 4+ years of
-              experience in brand identity design. I specialize in building
-              powerful visual identities that not only capture attention but
-              also align perfectly with a brand's purpose and values.
-            </p>
-
-            <p className="text-black-soft/80">
-              My mission is to help brands grow and thrive in the digital space
-              by designing visuals that speak their language and resonate with
-              their audience. Over the years, I’ve honed my skills in blending
-              creativity with strategy to deliver impactful design solutions
-              that drive real business results.
-            </p>
-
-            {/* Stats with animated counters */}
-            <div className="grid grid-cols-3 gap-4 py-6">
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <Counter target={stat.number} />
-                  <div className="text-black-soft/70 text-sm mt-1">
-                    {stat.label}
-                  </div>
-                </div>
+                <Counter
+                  key={index}
+                  target={stat.number}
+                  label={stat.label}
+                  icon={stat.icon}
+                />
               ))}
             </div>
 
-            {/* Download CV Button */}
-            <a
-              href={cv}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center theme-bg-primary text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300"
-              download
-            >
-              Download CV
-              <Download className="ml-2 h-5 w-5" />
-            </a>
-
-            <div className="flex items-end justify-end mt-6">
-              <div
-                className="text-3xl md:text-4xl theme-color-primary"
-                style={{
-                  fontFamily: `'Dancing Script', 'Pacifico', 'Great Vibes', 'Allura', cursive, sans-serif`,
-                  fontWeight: 600,
-                  letterSpacing: "2px",
-                }}
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="/projects"
+                className="inline-flex items-center px-8 py-3 rounded-full font-medium border-2 border-[var(--color-secondary)] bg-[var(--color-secondary)] text-white hover:bg-white hover:text-[var(--color-secondary)] transition-all duration-300"
               >
-                — Ariful Islam
-              </div>
+                View Portfolio
+                <Eye className="ml-2 h-5 w-5" />
+              </a>
+
+              <a
+                href={cv}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-3 rounded-full font-medium border-2 border-gray-200 hover:border-[var(--color-secondary)] text-gray-600 hover:text-[var(--color-secondary)] transition-all duration-300"
+                download
+              >
+                Download Resume
+                <Download className="ml-2 h-5 w-5" />
+              </a>
             </div>
+          </div>
+        </div>
+
+        {/* Skills Section */}
+        <div className="mt-20">
+          <h3 className="text-2xl font-bold mb-8 text-center">Design Expertise</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skills.map((skill, index) => (
+              <SkillCard
+                key={index}
+                icon={skill.icon}
+                title={skill.title}
+                description={skill.description}
+              />
+            ))}
           </div>
         </div>
       </div>

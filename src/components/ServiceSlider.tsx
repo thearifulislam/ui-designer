@@ -1,29 +1,28 @@
-
 import React from "react";
 
 const services = [
-  "Graphic Design",
-  "Brand Identity",
-  "Branding",
-  "Logo Design",
-  "Business card Design",
-  "Letterhead Design",
-  "Image Editing",
-  "Packaging Design",
-  "Social Media Design",
+  "UI Design",
+  "UX Design",
   "Web Design",
-  "UI/UX Design",
   "Mobile App Design",
   "Design Systems",
+  "Wireframing",
+  "Prototyping",
+  "Responsive Design",
+  "Interface Design",
   "Visual Design",
-  "Typography",
-  "Color Theory",
-  "Layout Design",
-  "Print Design",
-  "Infographic Design",
-  "Illustration",
-  "Virtual Reality",
-  "User Interface Design",
+  "Interaction Design",
+  "User Research",
+  "Design Strategy",
+  "Component Design",
+  "Design Thinking",
+  "User Testing",
+  "Information Architecture",
+  "Design Documentation",
+  "Design Handoff",
+  "Design QA",
+  "Design Collaboration",
+  "Design Leadership"
 ];
 
 const ServiceSlider = () => {
@@ -31,19 +30,19 @@ const ServiceSlider = () => {
   const marqueeItems = [...services, ...services];
 
   return (
-    <section className="relative overflow-hidden h-20 bg-[#344c36] flex items-center">
+    <section className="relative overflow-hidden h-20 bg-[#344c36] flex items-center justify-center">
       {/* Text Slider */}
       <div className="animate-marquee flex space-x-16 whitespace-nowrap">
         {marqueeItems.map((text, index) => (
           <div
             key={index}
-            className="flex items-center text-white text-2xl font-medium space-x-6"
+            className="flex items-center justify-center text-white text-2xl font-medium space-x-6"
           >
             {/* Star-like Icon Before Text */}
-            <span className="text-[#faad1b] text-5xl font-bold">*</span>
-            <span>{text}</span>
+            <span className="text-[#faad1b] text-5xl font-bold flex items-center justify-center leading-none">*</span>
+            <span className="flex items-center">{text}</span>
             {/* Star-like Icon After Text */}
-            <span className="text-[#faad1b] text-5xl font-bold">*</span>
+            <span className="text-[#faad1b] text-5xl font-bold flex items-center justify-center leading-none">*</span>
           </div>
         ))}
       </div>

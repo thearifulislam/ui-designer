@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Heart } from "lucide-react";
-import EmotionalButton from "./EmotionalButton";
+import { Menu, X, Heart, Palette, Layers, Code } from "lucide-react";
 
 // ==== Animation CSS ====
-// More pronounced left-to-right slide-in (mobile nav)
-const mobileNavAnimStyle = `
+const navAnimations = `
 @keyframes slideInLeftMobile {
   0% {
     opacity: 0;
@@ -20,38 +18,143 @@ const mobileNavAnimStyle = `
     transform: translateX(0) scale(1);
   }
 }
+
+@keyframes logoSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes navItemSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contactButtonSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .mobile-nav-slidein {
   animation: slideInLeftMobile 0.55s cubic-bezier(.6,1.3,.4,1.05) both;
+}
+
+.nav-item {
+  position: relative;
+  opacity: 0;
+  animation: navItemSlideDown 0.5s ease forwards;
+  transition: all 0.3s ease;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.2s; }
+.nav-item:nth-child(2) { animation-delay: 0.3s; }
+.nav-item:nth-child(3) { animation-delay: 0.4s; }
+.nav-item:nth-child(4) { animation-delay: 0.5s; }
+.nav-item:nth-child(5) { animation-delay: 0.6s; }
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--color-secondary);
+  transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+}
+
+.nav-item.active::after {
+  width: 100%;
+}
+
+.logo-text {
+  animation: logoSlideIn 0.8s ease-out forwards;
+}
+
+.logo-text-first {
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.logo-text-last {
+  color: var(--color-secondary);
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover .logo-text-first {
+  color: var(--color-secondary);
+}
+
+.logo-container:hover .logo-text-last {
+  color: var(--color-primary);
+}
+
+.contact-button {
+  opacity: 0;
+  animation: contactButtonSlide 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
 }
 `;
 
 if (typeof window !== "undefined") {
-  const styleId = "mobile-nav-slidein";
+  const styleId = "nav-animations";
   if (!document.getElementById(styleId)) {
     const style = document.createElement("style");
     style.id = styleId;
-    style.innerHTML = mobileNavAnimStyle;
+    style.innerHTML = navAnimations;
     document.head.appendChild(style);
   }
 }
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Projects", href: "/projects" },
-  { name: "Blog", href: "/blogs" },
-  { name: "FAQs", href: "/faqs" },
+  { name: "Home", href: "/", icon: <Heart className="w-4 h-4" /> },
+  { name: "About", href: "/about", icon: <Code className="w-4 h-4" /> },
+  { name: "Services", href: "/services", icon: <Palette className="w-4 h-4" /> },
+  { name: "Projects", href: "/projects", icon: <Layers className="w-4 h-4" /> },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [iconKey, setIconKey] = useState(0);
   const [activeLink, setActiveLink] = useState("/");
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Update active link on path change (browser)
+  // Update active link on path change
   useEffect(() => {
     setActiveLink(window.location.pathname);
+  }, []);
+
+  // Add scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Add body scroll lock when mobile menu open
@@ -63,90 +166,86 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  // Handle menu open/close
   const handleMenuToggle = () => {
     setIsOpen((v) => !v);
     setIconKey((prev) => prev + 1);
   };
 
-  // Staggered animation delay for each nav item
   const getAnimDelay = (idx: number) => ({
     animationDelay: `${idx * 0.1 + 0.08}s`,
   });
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-md">
-      <div className="container mx-auto px-4 md:px-8 flex items-center min-h-[64px]">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/90 backdrop-blur-md shadow-lg"
+          : "bg-white/95 backdrop-blur-sm shadow-md"
+      }`}
+    >
+      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between min-h-[70px]">
         {/* Logo */}
-        <a
-          href="/"
-          className="text-xl md:text-2xl font-bold theme-color-primary flex items-center group shrink-0"
+        <Link
+          to="/"
+          className="text-2xl md:text-3xl font-bold flex items-center group shrink-0 transition-transform duration-300 hover:scale-105 logo-container"
         >
           <Heart
             className="mr-2 text-[var(--color-secondary)] fill-[var(--color-secondary)] heart-bounce"
-            size={20}
+            size={24}
           />
-          <span className="text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors">
-            Ariful
+          <span className="logo-text">
+            <span className="logo-text-first">Ariful</span>{" "}
+            <span className="logo-text-last">Islam</span>
           </span>
-          <span className="group-hover:text-[var(--color-secondary)] transition-colors">
-            Islam
-          </span>
-        </a>
+        </Link>
 
         {/* Desktop Nav - Centered */}
-        <div className="hidden md:flex items-center justify-center flex-1">
-          <div className="flex items-center space-x-10">
-            {navLinks.map((link, index) => (
+        <div className="hidden md:flex items-center justify-center flex-1 ml-10">
+          <div className="flex items-center space-x-8">
+            {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className={`font-medium nav-item transition-colors duration-300 nav-item-animation ${
-                  activeLink === link.href ? "theme-color-secondary" : ""
+                className={`font-medium nav-item flex items-center space-x-2 px-2 py-1 rounded-md transition-colors duration-300 ${
+                  activeLink === link.href
+                    ? "theme-color-secondary active"
+                    : "text-gray-600 hover:text-gray-900"
                 }`}
-                style={{
-                  animationName: "slideInFromRight",
-                  animationDuration: "0.5s",
-                  animationDelay: `${index * 0.1}s`,
-                  animationFillMode: "both",
-                }}
               >
-                {link.name}
+                {link.icon}
+                <span>{link.name}</span>
               </Link>
             ))}
           </div>
         </div>
 
-        {/* Hire Me Button - Right aligned */}
+        {/* Contact Button - Right aligned */}
         <div className="hidden md:block shrink-0">
-          <EmotionalButton
-            href="/contact"
-            className="theme-bg-secondary text-white py-2 px-6 rounded-full font-medium hover:scale-110 hover:bg-yellow-400 hover:text-green-900 transition-all duration-200 flex items-center hire-me-btn"
-            style={{ transition: "transform 0.25s cubic-bezier(.4,2,.5,1)" }}
-            emotionType="heart"
-            numEmotions={3}
+          <Link
+            to="/contact"
+            className="contact-button inline-flex items-center gap-2 bg-green hover:bg-green/90 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300"
           >
-            Hire Me <Heart className="ml-2 h-4 w-4" />
-          </EmotionalButton>
+            Contact Me
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
             onClick={handleMenuToggle}
-            className="text-black-soft focus:outline-none"
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? (
               <X
                 key={"x-" + iconKey}
-                className="h-6 w-6"
+                className="h-6 w-6 text-gray-600"
                 data-testid="mobile-menu-close"
               />
             ) : (
               <Menu
                 key={"menu-" + iconKey}
-                className="h-6 w-6"
+                className="h-6 w-6 text-gray-600"
                 data-testid="mobile-menu-open"
               />
             )}
@@ -154,40 +253,43 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Nav Slide-in Left (More visible & smooth) */}
+      {/* Mobile Nav with Glass Effect */}
       {isOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm shadow-lg transition-all duration-200">
-          <div className="px-4 py-6 space-y-5 flex flex-col">
-            {navLinks.map((link, idx) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={`
-                  block font-medium rounded-xl shadow nav-mobile-card mobile-nav-slidein hover:scale-105 transition
-                  ${
-                    activeLink === link.href
-                      ? "bg-yellow-50 theme-color-secondary border border-yellow-300"
-                      : "bg-white/95"
-                  }
-                `}
-                style={getAnimDelay(idx)}
-                onClick={() => setIsOpen(false)}
-              >
-                <div className="px-4 py-3 flex items-center space-x-3 text-base">
+        <div className="md:hidden fixed inset-0 bg-black/5 backdrop-blur-sm">
+          <div className="h-screen w-[80%] max-w-[300px] bg-white shadow-2xl">
+            <div className="px-4 py-6 space-y-4">
+              {navLinks.map((link, idx) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`
+                    block font-medium rounded-xl p-3 mobile-nav-slidein
+                    flex items-center space-x-3 transition-all duration-300
+                    ${
+                      activeLink === link.href
+                        ? "bg-yellow-50 theme-color-secondary shadow-sm"
+                        : "hover:bg-gray-50"
+                    }
+                  `}
+                  style={getAnimDelay(idx)}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.icon}
                   <span>{link.name}</span>
-                </div>
-              </Link>
-            ))}
-            <div style={getAnimDelay(navLinks.length)}>
-              <EmotionalButton
-                href="/contact"
-                className="block w-full theme-bg-secondary text-white py-2 px-6 rounded-xl font-medium text-center hover:theme-bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center hire-me-btn shadow mobile-nav-slidein"
-                emotionType="heart"
-                numEmotions={2}
-                onClick={() => setIsOpen(false)}
+                </Link>
+              ))}
+              <div
+                className="pt-4 mobile-nav-slidein"
+                style={getAnimDelay(navLinks.length)}
               >
-                Hire Me <Heart className="ml-2 h-4 w-4" />
-              </EmotionalButton>
+                <Link
+                  to="/contact"
+                  className="w-full bg-green hover:bg-green/90 text-white py-3 px-6 rounded-xl font-medium text-center transition-all duration-300 flex items-center justify-center"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact Me
+                </Link>
+              </div>
             </div>
           </div>
         </div>

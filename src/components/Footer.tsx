@@ -13,8 +13,6 @@ const Footer = () => {
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/projects" },
-    { name: "Blog", href: "/blog" },
-    { name: "FAQs", href: "/faq" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -95,7 +93,7 @@ const Footer = () => {
                   href="/services/logo-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  Logo Design
+                  UI Design
                 </a>
               </li>
               <li>
@@ -103,7 +101,7 @@ const Footer = () => {
                   href="/services/business-card-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  Business Card Design
+                  Design Systems
                 </a>
               </li>
               <li>
@@ -111,7 +109,7 @@ const Footer = () => {
                   href="/services/letterhead-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  Letterhead Design
+                  Web App Design
                 </a>
               </li>
               <li>
@@ -119,7 +117,7 @@ const Footer = () => {
                   href="/services/brand-guidelines-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  Brand Guidelines Design
+                  Mobile App Design
                 </a>
               </li>
               <li>
@@ -127,7 +125,7 @@ const Footer = () => {
                   href="/services/social-media-post-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  Social Media Post Design
+                  Interactive Prototypes
                 </a>
               </li>
               <li>
@@ -135,73 +133,10 @@ const Footer = () => {
                   href="/services/banner-design"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  Banner Design
+                  Design Consultation
                 </a>
               </li>
-              <li>
-                <a
-                  href="/services/web-banner-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Web Banner Design
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/email-signature-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Email Signature Design
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/flyer-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Brochures, Posters, and Flyers Design
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/billboards-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Billboards Design
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/stationery-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Stationery Design
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/image-editing"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Image Editing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/resume-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Resume Designs
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/background-removal"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Background Removal
-                </a>
-              </li>
+
             </ul>
           </div>
 

@@ -122,63 +122,100 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-muted">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex justify-between items-center flex-wrap mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold theme-color-primary">
-            My Latest Projects
-          </h2>
+    <section id="portfolio" className="py-24 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-8 relative">
+        {/* Header */}
+        <div className="flex justify-between items-center flex-wrap mb-16">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-8 h-[2px] bg-green rounded-full"></span>
+              <span className="text-green font-medium">Creative Portfolio</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              My Latest <span className="text-green">Projects</span>
+            </h2>
+          </div>
           <EmotionalButton
             href="/projects"
-            className="mt-4 md:mt-0 theme-bg-secondary hover:bg-[#f9be5a] text-white px-5 py-3 rounded-full font-semibold flex items-center shadow transition-all duration-300"
+            className="mt-4 md:mt-0 bg-green hover:bg-green/90 text-white px-6 py-3.5 rounded-xl font-medium flex items-center gap-2 shadow-lg shadow-green/20 transition-all duration-300"
             emotionType="heart"
             numEmotions={3}
           >
             View All Projects
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="h-5 w-5" />
           </EmotionalButton>
         </div>
+
+        {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Only .map, NO .slice! */}
           {portfolioItems.map((item) => (
             <div
               key={item.id}
-              className="portfolio-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group animate-fade-in"
+              className="group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1 border border-gray-100"
             >
-              <div className="h-80 overflow-hidden relative">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"></div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {item.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-[5px] font-medium mr-2 mb-2"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              {/* Image Container with Overlay */}
+              <Link to={`/projects/${item.id}`} className="block">
+                <div className="relative h-[320px] overflow-hidden bg-gray-50">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  </div>
                 </div>
-                <Link to={`/projects/${item.id}`}>
-                  <h3 className="text-xl font-bold text-black-soft group-hover:text-[var(--color-primary)] transition-colors">
+              </Link>
+
+              {/* Content */}
+              <div className="p-8">
+                <Link 
+                  to={`/projects/${item.id}`}
+                  className="block mb-4 group-hover:text-green transition-colors duration-300"
+                >
+                  <h3 className="text-xl font-bold text-gray-900">
                     {item.title}
                   </h3>
                 </Link>
-                <Link
-                  to={`/projects/${item.id}`}
-                  className="view-button theme-bg-secondary hover:theme-bg-primary text-white px-4 py-2 rounded-full font-medium flex items-center justify-center w-full mx-auto mt-4"
-                >
-                  <Eye className="mr-2 h-4 w-4" />
-                  View Portfolio
-                </Link>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-4">
+                  <Link
+                    to={`/projects/${item.id}`}
+                    className="flex items-center justify-center gap-2 flex-1 bg-gray-50 hover:bg-green text-gray-600 hover:text-white px-4 py-3 rounded-xl font-medium transition-all duration-300"
+                  >
+                    <Eye className="h-4 w-4" />
+                    <span>View Project</span>
+                  </Link>
+                  <Link
+                    to={`/projects/${item.id}`}
+                    className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-50 hover:bg-green text-gray-600 hover:text-white transition-all duration-300"
+                  >
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="mt-6 h-1 w-full bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full w-0 group-hover:w-full bg-green transition-all duration-700 rounded-full"></div>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom Decoration */}
+        <div className="mt-20 flex justify-center">
+          <div className="flex items-center gap-2">
+            <div className="w-16 h-[2px] bg-green/20 rounded-full"></div>
+            <div className="w-3 h-3 rounded-full bg-green"></div>
+            <div className="w-16 h-[2px] bg-green/20 rounded-full"></div>
+          </div>
         </div>
       </div>
     </section>

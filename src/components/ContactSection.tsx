@@ -3,8 +3,6 @@ import {
   Mail,
   MapPin,
   ArrowRight,
-  Linkedin,
-  Instagram,
 } from "lucide-react";
 import { useState } from "react";
 import confetti from "canvas-confetti";
@@ -22,8 +20,8 @@ const ContactSection = () => {
     name: "",
     email: "",
     phone: "",
-    budget: "",
-    country: "",
+    projectType: "",
+    timeline: "",
     message: "",
   });
 
@@ -41,7 +39,7 @@ const ContactSection = () => {
     const defaults = {
       origin: { y: 0.7 },
       shapes: ["circle", "square"],
-      colors: ["#FFB6C1", "#87CEEB", "#F6A300"],
+      colors: ["#F6A300", "#FFB6C1", "#87CEEB"],
     };
 
     function fire(particleRatio: number, opts: any) {
@@ -65,62 +63,50 @@ const ContactSection = () => {
       decay: 0.91,
       scalar: 0.8,
     });
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 25,
-      decay: 0.92,
-      scalar: 1.2,
-    });
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 45,
-      scalar: 1.2,
-    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-
-    // Reset form
     setFormData({
       name: "",
       email: "",
       phone: "",
-      budget: "",
-      country: "",
+      projectType: "",
+      timeline: "",
       message: "",
     });
-
-    // Show success animation
     launchConfetti();
-
-    // This is where actual form submission would happen
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#f9f9f9]">
+    <section id="contact" className="py-24 bg-gradient-to-b from-white to-[#f9f9f9]">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Let's Talk for Your <span className="text-green">Next Projects</span>
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Let's Create Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow to-green">Amazing</span> Together
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Ready to transform your digital vision into reality? I'm here to help bring your UI design project to life.
+          </p>
+        </div>
 
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Contact Info */}
           <div className="lg:w-1/3">
-            <div className="bg-white rounded-3xl p-8 shadow-sm">
-              <h3 className="text-2xl font-semibold mb-6">Contact Info</h3>
+            <div className="bg-white rounded-2xl p-8 shadow-lg backdrop-blur-sm bg-white/50">
+              <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-yellow to-green text-transparent bg-clip-text">Let's Connect</h3>
 
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="bg-yellow/10 p-3 rounded-full mr-4">
+                  <div className="bg-gradient-to-r from-yellow/10 to-green/10 p-3 rounded-xl mr-4">
                     <Phone className="h-5 w-5 text-yellow" />
                   </div>
                   <div>
-                    <p className="text-sm text-black-soft/70">Phone</p>
+                    <p className="text-sm text-gray-500">Phone</p>
                     <a
                       href="tel:01938434733"
-                      className="font-medium text-black hover:text-green transition-colors duration-200"
+                      className="font-medium text-gray-800 hover:text-yellow transition-colors duration-200"
                     >
                       +88 01938434733
                     </a>
@@ -128,14 +114,14 @@ const ContactSection = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="bg-yellow/10 p-3 rounded-full mr-4">
+                  <div className="bg-gradient-to-r from-yellow/10 to-green/10 p-3 rounded-xl mr-4">
                     <Mail className="h-5 w-5 text-yellow" />
                   </div>
                   <div>
-                    <p className="text-sm text-black-soft/70">Email</p>
+                    <p className="text-sm text-gray-500">Email</p>
                     <a
                       href="mailto:acs.arifulislam@gmail.com"
-                      className="font-medium text-black hover:text-green transition-colors duration-200"
+                      className="font-medium text-gray-800 hover:text-yellow transition-colors duration-200"
                     >
                       acs.arifulislam@gmail.com
                     </a>
@@ -143,24 +129,24 @@ const ContactSection = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="bg-yellow/10 p-3 rounded-full mr-4">
+                  <div className="bg-gradient-to-r from-yellow/10 to-green/10 p-3 rounded-xl mr-4">
                     <MapPin className="h-5 w-5 text-yellow" />
                   </div>
                   <div>
-                    <p className="text-sm text-black-soft/70">Address</p>
-                    <p className="font-medium">Khulna, Bangladesh</p>
+                    <p className="text-sm text-gray-500">Location</p>
+                    <p className="font-medium text-gray-800">Khulna, Bangladesh</p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-10">
-                <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
+                <h4 className="text-lg font-semibold mb-4 text-gray-800">Find Me On</h4>
                 <div className="flex space-x-4">
                   <a
                     href="https://facebook.com/arifulislamofficialprofile"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    className="bg-gray-50 p-3 rounded-xl hover:bg-green hover:text-white transition-all duration-300"
                     aria-label="Facebook"
                   >
                     <FaFacebookF className="h-5 w-5" />
@@ -169,7 +155,7 @@ const ContactSection = () => {
                     href="https://www.instagram.com/_md._ariful_islam/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    className="bg-gray-50 p-3 rounded-xl hover:bg-green hover:text-white transition-all duration-300"
                     aria-label="Instagram"
                   >
                     <FaInstagram className="h-5 w-5" />
@@ -178,7 +164,7 @@ const ContactSection = () => {
                     href="https://linkedin.com/in/arifulcreatorstudio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    className="bg-gray-50 p-3 rounded-xl hover:bg-green hover:text-white transition-all duration-300"
                     aria-label="LinkedIn"
                   >
                     <FaLinkedinIn className="h-5 w-5" />
@@ -187,7 +173,7 @@ const ContactSection = () => {
                     href="https://behance.net/arifulcreatorstudio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    className="bg-gray-50 p-3 rounded-xl hover:bg-green hover:text-white transition-all duration-300"
                     aria-label="Behance"
                   >
                     <FaBehance className="h-5 w-5" />
@@ -196,7 +182,7 @@ const ContactSection = () => {
                     href="https://dribbble.com/arifulcreatorstudio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-green/10 p-3 rounded-full hover:bg-green hover:text-white transition-all duration-300"
+                    className="bg-gray-50 p-3 rounded-xl hover:bg-green hover:text-white transition-all duration-300"
                     aria-label="Dribbble"
                   >
                     <FaDribbble className="h-5 w-5" />
@@ -210,15 +196,17 @@ const ContactSection = () => {
           <div className="lg:w-2/3">
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-3xl p-8 shadow-sm"
+              className="bg-white rounded-2xl p-8 shadow-lg backdrop-blur-sm bg-white/50"
             >
-              <h3 className="text-2xl font-semibold mb-6">Send A Message</h3>
+              <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-yellow to-green text-transparent bg-clip-text">
+                Start Your Project
+              </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Your Name
                   </label>
@@ -228,7 +216,7 @@ const ContactSection = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green/50"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow/50"
                     placeholder="John Doe"
                     required
                   />
@@ -237,7 +225,7 @@ const ContactSection = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Email Address
                   </label>
@@ -247,7 +235,7 @@ const ContactSection = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green/50"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow/50"
                     placeholder="john@example.com"
                     required
                   />
@@ -256,7 +244,7 @@ const ContactSection = () => {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Phone Number
                   </label>
@@ -266,90 +254,57 @@ const ContactSection = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green/50"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow/50"
                     placeholder="+1 (555) 123-4567"
                   />
                 </div>
 
                 <div>
                   <label
-                    htmlFor="budget"
-                    className="block text-sm font-medium mb-2"
+                    htmlFor="projectType"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Budget Range
+                    Project Type
                   </label>
                   <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green/50"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow/50"
+                    required
                   >
-                    <option value="">Select budget range</option>
-                    <option value="$1,000 - $5,000">$1,000 - $5,000</option>
-                    <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                    <option value="$25,000+">$25,000+</option>
+                    <option value="">Select project type</option>
+                    <option value="Website Design">Website Design</option>
+                    <option value="Mobile App Design">Mobile App Design</option>
+                    <option value="Design System">Design System</option>
+                    <option value="UI Audit">UI Audit</option>
+                    <option value="Prototype">Interactive Prototype</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
                 <div>
                   <label
-                    htmlFor="country"
-                    className="block text-sm font-medium mb-2"
+                    htmlFor="timeline"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Country
-                  </label>
-                  <input
-                    type="text"
-                    id="country"
-                    name="country"
-                    value={formData.country}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green/50"
-                    placeholder="United States"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    I'm interested in...
+                    Project Timeline
                   </label>
                   <select
-                    id="service"
-                    name="service"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green/50"
+                    id="timeline"
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow/50"
+                    required
                   >
-                    <option value="">Select a service</option>
-                    <option value="Logo Design">Logo Design</option>
-                    <option value="Business Card Design">
-                      Business Card Design
-                    </option>
-                    <option value="Letterhead Design">Letterhead Design</option>
-                    <option value="Brand Guidelines Design">
-                      Brand Guidelines Design
-                    </option>
-                    <option value="Social Media Post Design">
-                      Social Media Post Design
-                    </option>
-                    <option value="Poster Design">Poster Design</option>
-                    <option value="Banner Design">Banner Design</option>
-                    <option value="Web Banner Design">Web Banner Design</option>
-                    <option value="Email-Signature Design">
-                      Email-Signature Design
-                    </option>
-                    <option value="Flyer Design">Flyer Design</option>
-                    <option value="Billboard Design">Billboard Design</option>
-                    <option value="Stationery Design">Stationery Design</option>
-                    <option value="Image Editing">Image Editing</option>
-                    <option value="Resume Design">Resume Design</option>
-                    <option value="Background Removal">
-                      Background Removal
-                    </option>
-                    <option value="Other">Other</option>
+                    <option value="">Select timeline</option>
+                    <option value="Less than 1 month">Less than 1 month</option>
+                    <option value="1-2 months">1-2 months</option>
+                    <option value="2-3 months">2-3 months</option>
+                    <option value="3+ months">3+ months</option>
+                    <option value="Not sure">Not sure yet</option>
                   </select>
                 </div>
               </div>
@@ -357,25 +312,25 @@ const ContactSection = () => {
               <div className="mb-6">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Your Message
+                  Project Details
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green/50"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow/50"
                   rows={5}
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me about your project goals, requirements, and any specific features you'd like to include..."
                   required
                 />
               </div>
 
               <button
                 type="submit"
-                className="bg-green text-white px-6 py-3 rounded-full font-medium flex items-center hover:shadow-lg transition-all duration-300"
+                className="bg-green text-white px-8 py-4 rounded-xl font-medium flex items-center hover:shadow-lg transition-all duration-300 hover:bg-green/90"
               >
                 Send Message
                 <ArrowRight className="ml-2 h-5 w-5" />

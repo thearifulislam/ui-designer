@@ -1,93 +1,98 @@
-
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Layers, Palette, Layout, Smartphone, Monitor, Box, Figma, Framer } from "lucide-react";
 import EmotionalButton from "./EmotionalButton";
 import { Link } from "react-router-dom";
 
 const services = [
   {
-    id: "brand-identity-design",
-    iconBg: "bg-blue-100 text-blue-700",
-    icon: "🖥️️",
-    title: "Brand Identity Design",
+    id: "ui-design",
+    iconBg: "bg-violet-100 text-violet-600",
+    icon: <Layout className="w-6 h-6" />,
+    title: "UI Design",
     description:
-      "Creating unique and memorable brand identities that resonate with your target audience.",
-    features: ["Responsive Design", "SEO Optimization", "UX", "Performance"],
-    subServices: ["Landing Pages", "E-commerce", "Portfolios"],
-  },
-  {
-    id: "marketing-advertising-design",
-    iconBg: "bg-yellow-100 text-yellow-700",
-    icon: "💻",
-    title: "Marketing & Advertising Design",
-    description:
-      "Creating visually appealing and user-friendly websites that drive traffic and conversions.",
-    features: ["Responsive"],
-    subServices: ["Landing Pages", "E-commerce", "Portfolios"],
-  },
-  {
-    id: "packging-design",
-    iconBg: "bg-green-100 text-green-700",
-    icon: "📊",
-    title: "Packaging Design",
-    description:
-      "Crafting visually appealing packaging that enhances product visibility and brand recognition.",
-    features: ["Packaging Design", "Packaging Materials", "Packaging Printing"],
-    subServices: [
-      "Packaging Design",
-      "Packaging Materials",
-      "Packaging Printing",
-    ],
-  },
-  {
-    id: "logo-design",
-    iconBg: "bg-pink-100 text-pink-700",
-    icon: "🎨",
-    title: "Logo Design",
-    description:
-      "Designing logos that capture the essence of your brand and stand out in a crowded market.",
-    features: ["Logo Design", "Color Palettes", "Brand Guides", "Typography"],
-    subServices: [
-      "Logo Design",
-      "Color Palettes",
-      "Brand Guides",
-      "Typography",
-    ],
-  },
-  {
-    id: "brand-guidelines-design",
-    iconBg: "bg-orange-100 text-orange-700",
-    icon: "💼",
-    title: "Brand Guidelines Design",
-    description:
-      "Creating a cohesive brand identity through guidelines that define visual elements, messaging, and tone of voice.",
+      "Creating beautiful, intuitive interfaces that elevate user experience and drive engagement.",
     features: [
-      "Brand Guidelines",
-      "Color Palettes",
-      "Typography",
-      "Iconography",
+      "User Interface Design",
+      "Design Systems",
+      "Interactive Prototypes",
+      "Visual Design",
     ],
-    subServices: [
-      "Brand Guidelines",
-      "Color Palettes",
-      "Typography",
-      "Iconography",
-    ],
+    tools: ["Figma", "Adobe XD", "Sketch"],
   },
   {
-    id: "image-editing",
-    iconBg: "bg-purple-100 text-purple-700",
-    icon: "📄",
-    title: "Image Editing",
+    id: "responsive-design",
+    iconBg: "bg-blue-100 text-blue-600",
+    icon: <Smartphone className="w-6 h-6" />,
+    title: "Responsive Design",
     description:
-      "Editing and enhancing images to create visually appealing and professional-looking content.",
-    features: ["Image Editing", "Retouching", "Color Correction", "Retouching"],
-    subServices: [
-      "Image Editing",
-      "Retouching",
-      "Color Correction",
-      "Retouching",
+      "Crafting seamless experiences across all devices with pixel-perfect precision and attention to detail.",
+    features: [
+      "Mobile-First Design",
+      "Cross-Platform UI",
+      "Adaptive Layouts",
+      "Touch Interactions",
     ],
+    tools: ["Figma", "Principle", "Framer"],
+  },
+  {
+    id: "design-systems",
+    iconBg: "bg-amber-100 text-amber-600",
+    icon: <Box className="w-6 h-6" />,
+    title: "Design Systems",
+    description:
+      "Building scalable design systems that ensure consistency and accelerate product development.",
+    features: [
+      "Component Libraries",
+      "Style Guides",
+      "Documentation",
+      "Design Tokens",
+    ],
+    tools: ["Figma", "Storybook", "Zeroheight"],
+  },
+  {
+    id: "interaction-design",
+    iconBg: "bg-emerald-100 text-emerald-600",
+    icon: <Framer className="w-6 h-6" />,
+    title: "Interaction Design",
+    description:
+      "Designing meaningful interactions and micro-animations that delight users and enhance usability.",
+    features: [
+      "Motion Design",
+      "Micro-interactions",
+      "State Transitions",
+      "Animated Prototypes",
+    ],
+    tools: ["Framer", "Principle", "After Effects"],
+  },
+  {
+    id: "web-app-design",
+    iconBg: "bg-rose-100 text-rose-600",
+    icon: <Monitor className="w-6 h-6" />,
+    title: "Web App Design",
+    description:
+      "Designing complex web applications with focus on functionality, usability, and visual appeal.",
+    features: [
+      "Dashboard Design",
+      "Data Visualization",
+      "Complex Workflows",
+      "Information Architecture",
+    ],
+    tools: ["Figma", "Maze", "Miro"],
+  },
+  {
+    id: "design-consultation",
+    iconBg: "bg-cyan-100 text-cyan-600",
+    icon: <Palette className="w-6 h-6" />,
+    title: "Design Consultation",
+    description:
+      "Providing expert guidance on design strategy, UX improvements, and visual design direction.",
+    features: [
+      "UX Audits",
+      "Design Reviews",
+      "Brand Guidelines",
+      "Design Workshops",
+    ],
+    tools: ["Figma", "Miro", "FigJam"],
   },
 ];
 
@@ -95,125 +100,122 @@ const ServicesSection = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section
-      id="services"
-      className="py-16 sm:py-24 bg-gradient-to-b from-[#f9fafb] to-[#f3f4f6]"
-    >
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-10 sm:mb-16 gap-6 md:gap-8">
-          <div>
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-gray-900 mb-3 sm:mb-4 tracking-tight">
-              Services{" "}
-              <span className="text-[var(--color-secondary)]">I Provide</span>
+    <section id="services" className="py-24 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-8 relative">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-8 mb-16">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Crafting Digital{" "}
+              <span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
+                Experiences
+              </span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl">
-              Tailored solutions for your digital business. Every project
-              receives dedicated creative, strategic, and technical focus from
-              our team.
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Specialized UI design services tailored to elevate your digital products. 
+              From concept to implementation, I create intuitive and visually stunning 
+              interfaces that users love.
             </p>
           </div>
-          <div className="hidden md:block">
+          <div className="shrink-0">
             <Link to="/services">
               <EmotionalButton
-                className="bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] text-white px-7 py-2 rounded-full font-semibold shadow-md transition-colors flex items-center gap-2"
+                className="bg-[var(--color-secondary)] text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300 flex items-center gap-2"
                 emotionType="heart"
-                numEmotions={2}
+                numEmotions={3}
               >
-                View All Services
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Explore All Services
+                <ArrowRight className="w-5 h-5" />
               </EmotionalButton>
             </Link>
           </div>
         </div>
-        {/* Card Grid with extra top margin for separation from header */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <div
               key={service.id}
-              className={`mt-10 group bg-white rounded-2xl border border-gray-100 shadow-md relative flex flex-col px-5 sm:px-8 pt-10 pb-7 transition-all duration-300 hover:shadow-lg hover:-translate-y-2 ${
+              className={`group bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
                 hoveredCard === service.id
-                  ? "ring-2 ring-[var(--color-secondary)]/40"
+                  ? "ring-2 ring-[var(--color-secondary)]"
                   : ""
               }`}
               onMouseEnter={() => setHoveredCard(service.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Service Icon */}
-              <div
-                className={`absolute -top-7 left-5 sm:left-8 w-12 sm:w-14 h-12 sm:h-14 rounded-2xl flex items-center justify-center shadow-lg border border-gray-200 ${service.iconBg}`}
-              >
-                <span className="text-2xl sm:text-3xl">{service.icon}</span>
-              </div>
-              {/* Heading */}
-              <div className="mt-8 sm:mt-10 mb-2 sm:mb-3">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+              {/* Card Content */}
+              <div className="p-8">
+                {/* Icon */}
+                <div
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${service.iconBg} transition-transform group-hover:scale-110`}
+                >
+                  {service.icon}
+                </div>
+
+                {/* Title & Description */}
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {service.title}
                 </h3>
-              </div>
-              {/* Description */}
-              <p className="text-gray-500 mb-4 min-h-[40px] sm:min-h-[48px] text-sm sm:text-base">
-                {service.description}
-              </p>
-              {/* Features as a dot list */}
-              <div className="mb-2 sm:mb-3">
-                <h4 className="text-xs sm:text-xs font-semibold text-gray-400 mb-1 tracking-wider">
-                  KEY FEATURES
-                </h4>
-                <ul className="space-y-1">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700 text-[13px] sm:text-xs font-medium">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] mr-2"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {/* SubServices */}
-              <div className="flex flex-wrap gap-2 mb-2">
-                {service.subServices.map((subService, idx) => (
-                  <span
-                    key={idx}
-                    className="bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] px-2 py-1 rounded-full text-[11px] sm:text-xs font-medium"
+                <p className="text-gray-600 mb-6 min-h-[80px]">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center text-gray-700">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)] mr-3" />
+                        <span className="text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Tools */}
+                  <div className="pt-4 border-t border-gray-100">
+                    <div className="flex flex-wrap gap-2">
+                      {service.tools.map((tool, idx) => (
+                        <span
+                          key={idx}
+                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-50 text-gray-600"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="mt-8">
+                  <Link
+                    to={`/services/${service.id}`}
+                    className="inline-flex items-center text-[var(--color-secondary)] font-medium group/link"
                   >
-                    {subService}
-                  </span>
-                ))}
-              </div>
-              {/* Call to Action */}
-              <div className="mt-2 pt-1 flex justify-start">
-                <Link
-                  to={`/services/${service.id}`}
-                  className="group/learnmore flex items-center"
-                >
-                  <span className="text-[var(--color-primary)] group-hover/learnmore:text-[var(--color-secondary)] text-sm font-semibold transition-colors">
-                    Learn More
-                  </span>
-                  {/* Animated ArrowRight */}
-                  <ArrowRight
-                    className="
-                      h-4 w-4 ml-1 
-                      text-[var(--color-primary)] 
-                      transition-transform 
-                      duration-300 
-                      group-hover/learnmore:translate-x-2
-                      group-hover/learnmore:text-[var(--color-secondary)]
-                    "
-                  />
-                </Link>
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/link:translate-x-1" />
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
         </div>
-        {/* Mobile Only: View All */}
-        <div className="mt-10 sm:mt-12 flex justify-center md:hidden">
+
+        {/* Mobile CTA */}
+        <div className="mt-12 text-center md:hidden">
           <Link to="/services">
             <EmotionalButton
-              className="bg-[var(--color-secondary)] hover:bg-[var(--color-primary)] text-white px-7 py-2 rounded-full font-semibold shadow transition-colors flex items-center gap-2"
+              className="bg-[var(--color-secondary)] text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2"
               emotionType="heart"
               numEmotions={2}
             >
-              View All Services
-              <ArrowRight className="ml-2 h-5 w-5" />
+              Explore All Services
+              <ArrowRight className="w-5 h-5" />
             </EmotionalButton>
           </Link>
         </div>

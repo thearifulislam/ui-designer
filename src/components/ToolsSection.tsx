@@ -1,14 +1,10 @@
 import {
   SiFigma,
-  SiAdobexd,
-  SiAdobephotoshop,
-  SiAdobeillustrator,
   SiSketch,
-  SiAdobeaftereffects,
-  SiAdobeindesign,
+  SiFramer,
+  SiAdobexd,
+  SiWebflow,
   SiInvision,
-  SiStorybook,
-  SiPhotopea,
 } from "react-icons/si";
 import {
   Tooltip,
@@ -21,34 +17,33 @@ const tools = [
   {
     name: "Figma",
     icon: SiFigma,
-    description: "Primary design tool for interface design and prototyping",
+    description: "UI Design & Prototyping",
   },
   {
     name: "Adobe XD",
     icon: SiAdobexd,
-    description: "Used for user experience design and interactive prototypes",
+    description: "UI/UX Design",
   },
   {
-    name: "Photoshop",
-    icon: SiAdobephotoshop,
-    description: "Image editing and manipulation for design assets",
+    name: "Sketch",
+    icon: SiSketch,
+    description: "Interface Design",
   },
   {
-    name: "Illustrator",
-    icon: SiAdobeillustrator,
-    description: "Vector graphics and illustration for brand elements",
+    name: "Framer",
+    icon: SiFramer,
+    description: "Interactive Design",
   },
   {
-    name: "Photopea",
-    icon: SiPhotopea,
-    description: "Used for editing and manipulating images and graphics",
+    name: "Webflow",
+    icon: SiWebflow,
+    description: "Web Design",
   },
   {
-    name: "Adobe Indesign ",
-    icon: SiAdobeindesign,
-    description:
-      "Used for typography, layout, and page layout for print and digital media",
-  },
+    name: "InVision",
+    icon: SiInvision,
+    description: "Prototyping",
+  }
 ];
 
 const ToolsSection = () => {
@@ -56,20 +51,10 @@ const ToolsSection = () => {
     <section id="tools" className="py-20 bg-[#f9f9f9]">
       <div className="container mx-auto px-4 md:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Exploring the <span className="text-green">Tools</span> Behind My
-          Designs
+          Tools I <span className="text-[var(--color-secondary)]">Use</span>
         </h2>
 
-        <div
-          className="
-          grid 
-          grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 
-          gap-8 
-          place-items-center     /* Vertically & horizontally center in cell */
-          justify-center         /* Center the whole grid row content */
-          mx-auto
-        "
-        >
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 place-items-center justify-center mx-auto">
           <TooltipProvider>
             {tools.map((tool, index) => {
               const Icon = tool.icon;
@@ -77,7 +62,7 @@ const ToolsSection = () => {
                 <div key={index} className="flex flex-col items-center">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <div className="bg-white h-20 w-20 rounded-2xl shadow-sm flex items-center justify-center mb-3 hover:shadow-md transition-all duration-300">
+                      <div className="bg-white h-20 w-20 rounded-xl shadow-sm flex items-center justify-center mb-3 hover:shadow-md transition-all duration-300">
                         <Icon className="h-10 w-10" />
                       </div>
                     </TooltipTrigger>
