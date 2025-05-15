@@ -76,10 +76,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-md">
-      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center min-h-[64px]">
+      <div className="container mx-auto px-4 md:px-8 flex items-center min-h-[64px]">
+        {/* Logo */}
         <a
           href="/"
-          className="text-xl md:text-2xl font-bold theme-color-primary flex items-center group"
+          className="text-xl md:text-2xl font-bold theme-color-primary flex items-center group shrink-0"
         >
           <Heart
             className="mr-2 text-[var(--color-secondary)] fill-[var(--color-secondary)] heart-bounce"
@@ -93,25 +94,31 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-10">
-          {navLinks.map((link, index) => (
-            <Link
-              key={link.name}
-              to={link.href}
-              className={`font-medium nav-item transition-colors duration-300 nav-item-animation ${
-                activeLink === link.href ? "theme-color-secondary" : ""
-              }`}
-              style={{
-                animationName: "slideInFromRight",
-                animationDuration: "0.5s",
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: "both",
-              }}
-            >
-              {link.name}
-            </Link>
-          ))}
+        {/* Desktop Nav - Centered */}
+        <div className="hidden md:flex items-center justify-center flex-1">
+          <div className="flex items-center space-x-10">
+            {navLinks.map((link, index) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className={`font-medium nav-item transition-colors duration-300 nav-item-animation ${
+                  activeLink === link.href ? "theme-color-secondary" : ""
+                }`}
+                style={{
+                  animationName: "slideInFromRight",
+                  animationDuration: "0.5s",
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: "both",
+                }}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Hire Me Button - Right aligned */}
+        <div className="hidden md:block shrink-0">
           <EmotionalButton
             href="/contact"
             className="theme-bg-secondary text-white py-2 px-6 rounded-full font-medium hover:scale-110 hover:bg-yellow-400 hover:text-green-900 transition-all duration-200 flex items-center hire-me-btn"

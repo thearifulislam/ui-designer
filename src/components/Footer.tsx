@@ -236,7 +236,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-10 border-t border-white/20 text-center text-white/60">
-          <p>Copyright © 2024 Ariful Islam. All Rights Reserved.</p>
+          <p>Copyright © 2025 Ariful Islam. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

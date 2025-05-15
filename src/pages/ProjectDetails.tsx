@@ -226,6 +226,21 @@ import cycle10 from "../assets/portfolios/logo-design/lettermark-logo/cycle/11.p
 import cycle11 from "../assets/portfolios/logo-design/lettermark-logo/cycle/12.png";
 import cycle12 from "../assets/portfolios/logo-design/lettermark-logo/cycle/13.jpg";
 
+import dynamic from "../assets/portfolios/logo-design/brand-guidelines/letter-d/1.jpg"
+import dynamic1 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/2.jpg"
+import dynamic2 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/3.jpg"
+import dynamic3 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/4.jpg"
+import dynamic4 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/5.jpg"
+import dynamic5 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/6.jpg"
+import dynamic6 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/7.jpg"
+import dynamic7 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/8.jpg"
+import dynamic8 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/9.jpg"
+import dynamic9 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/10.jpg"
+import dynamic10 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/11.jpg"
+import dynamic11 from "../assets/portfolios/logo-design/brand-guidelines/letter-d/12.jpg"
+
+
+
 
 
 // for business card
@@ -261,6 +276,9 @@ import moderncard2 from "../assets/portfolios/business-card/modern/1/3.jpg";
 import moderncard3 from "../assets/portfolios/business-card/modern/1/4.jpg";
 import moderncard4 from "../assets/portfolios/business-card/modern/1/5.jpg";
 import moderncard5 from "../assets/portfolios/business-card/modern/1/6.jpg";
+
+import custombusinesscard from "../assets/portfolios/business-card/custom/2/custombusinesscard1.jpeg"
+import custombusinesscard1 from "../assets/portfolios/business-card/custom/2/custombusinesscard2.jpg"
 
 // for letterhead
 
@@ -299,6 +317,13 @@ import imageclippingpath10 from "../assets/portfolios/background-remove/clipping
 import imageclippingpath11 from "../assets/portfolios/background-remove/clipping-path/1/12.jpg";
 import imageclippingpath12 from "../assets/portfolios/background-remove/clipping-path/1/13.jpg";
 import imageclippingpath13 from "../assets/portfolios/background-remove/clipping-path/1/14.jpg";
+
+// for image editing
+import colorcorrection from "../assets/portfolios/image-editing/color-correction/1/colorcorrection.jpeg"
+import imageretouching from "../assets/portfolios/image-editing/image-retouching/1/image-retouching.jpg"
+import spotremoval from "../assets/portfolios/image-editing/sport-removal/1/spotremove.jpg"
+
+
 
 // for brand guidelines
 import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
@@ -497,6 +522,20 @@ const projectsData: Record<string, ProjectType> = {
     ],
     tools: ["Adobe Illustrator", "Figma", "Photoshop"],
   },
+  
+  "custom-business-card-design": {
+    title: "Custom Business Card Design",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: custombusinesscard,
+    description:
+      "Custom Business Card Design is a design that is created to meet the specific needs of a client. It is a design that is created to meet the specific needs of a client. It is a design that is created to meet the specific needs of a client.",
+    galleryImages: [custombusinesscard, custombusinesscard1],
+    tools: ["Adobe Illustrator", "Figma", "Photoshop"],
+  },
+
 
   // for letterhead design
 
@@ -571,6 +610,52 @@ const projectsData: Record<string, ProjectType> = {
     tools: ["Adobe Illustrator", "Figma", "Photoshop"],
   },
 
+  // for image editing
+
+  "color-correction-photoshop-1": {
+    title: "Color Correction in Photoshop",
+    category: "Image Editing",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Image Editing", "Color Correction"],
+    coverImage: colorcorrection,
+    description:
+      "Color Correction is a process of adjusting the color of an image to make it look more natural and realistic. It is a technique used to correct the color of an image that has been affected by lighting or other factors.",
+
+    galleryImages: [colorcorrection],
+    tools: ["Adobe Photoshop"],
+  },
+
+  "color-retouching-photoshop-1": {
+    title: "Image Retouching in Photoshop",
+    category: "Image Editing",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Image Editing", "Image Retouching"],
+    coverImage: imageretouching,
+    description:
+      "Image Retouching is a process of editing an image to make it look more natural and realistic. It is a technique used to correct the image that has been affected by lighting or other factors.",
+
+    galleryImages: [imageretouching],
+    tools: ["Adobe Photoshop"],
+  },
+
+  "spot-remova-1": {
+    title: "Spot Removal in Photoshop",
+    category: "Image Editing",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Image Editing", "Spot Removal"],
+    coverImage: spotremoval,
+    description:
+      "Spot Removal is a process of removing a spot from an image. It is a technique used to remove a spot from an image that has been affected by lighting or other factors.",
+
+    galleryImages: [spotremoval],
+    tools: ["Adobe Photoshop"],
+  },
+
+  // for brand guidelines
+
   "boldpath-brand-guidelines": {
     title: "Promotional Banner Design",
     category: "Logo Design",
@@ -632,6 +717,24 @@ const projectsData: Record<string, ProjectType> = {
     ],
     tools: ["Adobe Illustrator", "Figma", "Photoshop"],
   },
+
+
+  "dynamic-brand-guidelines": {
+    title: "Dynamic Brand Guidelines",
+    category: "Logo Design",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["Logo Design", "Branding", "Abastrack Logo"],
+    coverImage: dynamic,
+    description:
+      "Dynamic Brand Guidelines is a collection of images that showcase the different ways to use the brand's logo. The guidelines are designed to help the brand maintain a consistent look and feel across all of its marketing materials.",
+
+    galleryImages: [dynamic, dynamic1, dynamic2, dynamic3, dynamic4, dynamic5, dynamic6, dynamic7, dynamic8, dynamic9, dynamic10, dynamic11],
+    tools: ["Adobe Illustrator", "Figma", "Photoshop"],
+  },
+
+
+
 
   "blood-donation-logo-design": {
     title: "Promotional Banner Design",
@@ -1180,7 +1283,7 @@ const projectsData: Record<string, ProjectType> = {
     tools: ["Adobe Illustrator", "Adobe Photoshop"],
   },
 
-  
+
 
   // ...more projects if needed
 };
@@ -1316,27 +1419,24 @@ const ProjectDetails: React.FC = () => {
           background: "var(--color-primary, #6c47ff)",
         }}
       >
-        {/* Back to Projects Button - Now at top and out of Details flow */}
-        <div
-          className="absolute left-0 top-0 w-full flex justify-start z-20"
-          style={{ paddingLeft: "1rem", paddingTop: "1.5rem" }} // px-4 pt-6
-        >
-          <Link
-            to="/projects"
-            className="text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 hover:text-yellow-100 transition bg-white/10 backdrop-blur rounded-full px-4 py-2 shadow-lg border border-white/30"
-            style={{ color: "white" }} // Ensures visibility on purple background
-          >
-            <ArrowLeft className="w-4 h-4" />
-            All Projects
-          </Link>
-        </div>
         <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row gap-8 items-center md:items-end">
           {/* Details */}
           <div className="flex-1 min-w-0 text-white py-8 px-0 md:py-16 md:pr-12">
+            {/* Back to Projects Button - Moved here, above the title */}
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-all duration-300 text-sm font-medium mb-6 group"
+            >
+              <ArrowLeft className="w-4 h-4 transform transition-transform duration-300 group-hover:-translate-x-1" />
+              Back to Projects
+            </Link>
+
             {/* h1 and project meta info */}
             <h1 className="text-4xl md:text-6xl font-black leading-tight mb-2 drop-shadow-[0_4px_16px_rgba(20,0,40,0.2)]">
               {project.title}
             </h1>
+            
+            {/* Rest of the existing content */}
             <div className="flex items-center gap-6 text-yellow-100 font-semibold mt-4 text-sm">
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
@@ -1351,6 +1451,7 @@ const ProjectDetails: React.FC = () => {
               {project.description}
             </p>
           </div>
+
           {/* Cover image */}
           <div className="flex justify-center">
             <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[520px] xl:w-[650px] 2xl:w-[850px] rounded-3xl shadow-2xl border-4 border-white/40 overflow-hidden mb-6 md:mb-0 mx-auto">
@@ -1460,8 +1561,7 @@ const ProjectDetails: React.FC = () => {
                     <img
                       src={img}
                       alt={`Gallery ${idx + 1}`}
-                      className="w-full h-auto object-cover"
-                      style={{ maxHeight: 520, margin: "0 auto" }}
+                      className="w-full h-auto object-contain" // Changed to object-contain and removed fixed height
                       loading="lazy"
                     />
                   </figure>

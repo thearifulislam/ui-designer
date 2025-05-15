@@ -27,6 +27,7 @@ import minimalistcard from "../assets/portfolios/business-card/minimalist/3/mnvb
 import professionalcard from "../assets/portfolios/business-card/professional/2/1.jpg";
 import customcard from "../assets/portfolios/business-card/custom/1/1.jpg";
 import moderncard from "../assets/portfolios/business-card/modern/1/1.jpg";
+import custombusinesscard from "../assets/portfolios/business-card/custom/2/custombusinesscard1.jpeg"
 
 // for letterhead design
 import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
@@ -42,11 +43,15 @@ import socialmediacoverdesign from "../assets/portfolios/social-cover/facebook-c
 
 // image editing
 import imageclippingpath from "../assets/portfolios/background-remove/clipping-path/1/10.jpg";
+import colorcorrection from "../assets/portfolios/image-editing/color-correction/1/colorcorrection.jpeg"
+import imageretouching from "../assets/portfolios/image-editing/image-retouching/1/image-retouching.jpg"
+import spotremoval from "../assets/portfolios/image-editing/sport-removal/1/spotremove.jpg"
 
 // for brand guidelines
 import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
 import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
 import nexus from "../assets/portfolios/logo-design/brand-guidelines/letter-n/1/1.jpg";
+import dynamic from "../assets/portfolios/logo-design/brand-guidelines/letter-d/1.jpg"
 
 // Util: For animation resets when filters change
 const getFilterKey = (
@@ -513,6 +518,46 @@ const Projects = () => {
       subcategories: ["Lettermark"],
       tags: ["Logo", "Lettermark"],
       image: cycle,
+    },
+    {
+      id: "color-correction-photoshop-1",
+      title: "Color Correction",
+      categories: ["image-editing"],
+      subcategories: ["Color Correction"],
+      tags: ["Image Editing", "Color Correction"],
+      image: colorcorrection,
+    },
+    {
+      id: "color-retouching-photoshop-1",
+      title: "Color Retouching",
+      categories: ["image-editing"],
+      subcategories: ["Color Retouching"],
+      tags: ["Image Editing", "Color Retouching"],
+      image: imageretouching,
+    },
+    {
+      id: "custom-business-card-design",
+      title: "Custom Business Card Design",
+      categories: ["business-card"],
+      subcategories: ["Custom"],
+      tags: ["Business Card", "Custom"],
+      image: custombusinesscard,
+    },
+    {
+      id: "spot-remova-1",
+      title: "Spot Removal",
+      categories: ["image-editing"],
+      subcategories: ["Spot Removal"],
+      tags: ["Image Editing", "Spot Removal"],
+      image: spotremoval,
+    },
+    {
+      id: "dynamic-brand-guidelines",
+      title: "Dynamic Brand Guidelines",
+      categories: ["logo", "brand-guidelines"],
+      subcategories: ["Dynamic"],
+      tags: ["Logo Design", "Combination Mark", "Brand Guidelines"],
+      image: dynamic,
     },
   ];
 
