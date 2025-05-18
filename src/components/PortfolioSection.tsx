@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 // for landing page design
 
-import webui from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg"
+import websiteui1 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg"
 
 // logo design portfolio
 
@@ -67,85 +67,9 @@ const PortfolioSection = () => {
       title: "Tricore Creative One Page Website Template",
       category: "Website UI",
       tags: ["UI", "Website UI"],
-      image: webui,
+      image: websiteui1,
     },
-    {
-      id: "modern-minimalist-camera-business-card",
-      title: "Modern Minimalist Camera Science Business Card",
-      category: "Business Card Design",
-      tags: ["Business Card"],
-      image: modernminimalistcamerabusinesscard,
-    },
-    {
-      id: "elegant-gold-accented-corporate-letterhead",
-      title: "Elegant Gold-Accented Corporate Letterhead",
-      category: "Letterhead Design",
-      tags: ["Letterhead"],
-      image: elegantgoldaccentedcorporateletterhead,
-    },
-    {
-      id: "professional-promotional-banner",
-      title: "Promotional Banner",
-      category: "Banner",
-      tags: ["banner"],
-      image: professionalpromotionalbanner,
-    },
-    {
-      id: "creative-facebook-cover-design",
-      title: "The Future of Luxury Living – Tailored for You",
-      category: "Facebook Cover",
-      tags: ["Social Media Cover"],
-      image: socialmediacoverdesign,
-    },
-    {
-      id: "image-background-remove-clipping-path",
-      title: "Image Clipping Path",
-      category: "Background Remove",
-      tags: ["Background Remove", "Clipping Path"],
-      image: imageclippingpath,
-    },
-    {
-      id: "boldpath-brand-guidelines",
-      title: "The Guidelines for Bold Path",
-      category: "Brand Guidelines",
-      tags: ["Brand Guidelines"],
-      image: boldpath,
-    },
-    {
-      id: "blood-donation-logo-design",
-      title: "Blood Donation Logo Design",
-      category: "Logo Design",
-      tags: ["Logo", "Blood Donation"],
-      image: blooddonation,
-    },
-    {
-      id: "modern-business-card-design",
-      title: "Modern Business Card Design",
-      category: "Business Card",
-      tags: ["Business Card"],
-      image: modernbusinesscard,
-    },
-    {
-      id: "modern-minimalist-letterhead-design",
-      title: "Modern Minimalist Letterhead Design",
-      category: "Letterhead",
-      tags: ["Letterhead"],
-      image: modernminimalist,
-    },
-    {
-      id: "uniflora-logo-design",
-      title: "Uniflora Logo Design",
-      category: "Logo Design",
-      tags: ["Logo", "Uniflora"],
-      image: uniflora,
-    },
-    {
-      id: "ranova-brand-guidelines",
-      title: "Ranova Brand Guidelines",
-      category: "Brand Guidelines",
-      tags: ["Brand Guidelines"],
-      image: ranova,
-    },
+   
   ];
 
   return (

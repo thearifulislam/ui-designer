@@ -18,7 +18,6 @@ import Contact from "./pages/Contact";
 import Faqs from "./pages/Faqs";
 import UserGreeting from "./components/UserGreeting";
 import WhatsAppButton from "./components/WhatsAppButton";
-import ThemeSwitcher from "./components/ThemeSwitcher";
 import IntroLogo from "./components/IntroLogo";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -39,7 +38,6 @@ const App = () => (
         <IntroLogo />
         <UserGreeting />
         <ScrollToTop />
-        <ThemeSwitcher />
         <WhatsAppButton />
 
         <Routes>

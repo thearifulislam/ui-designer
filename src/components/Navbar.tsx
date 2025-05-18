@@ -195,7 +195,7 @@ const Navbar = () => {
           />
           <span className="logo-text">
             <span className="logo-text-first">Ariful</span>{" "}
-            <span className="logo-text-last">Islam</span>
+            <span className="logo-text-last">UI</span>
           </span>
         </Link>
 
