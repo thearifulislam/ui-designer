@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
 import {
   Calendar,
   ArrowLeft,
@@ -11,7 +10,14 @@ import {
   CheckCircle,
   Circle,
   Layers,
+  ArrowUpRight,
+  Eye,
 } from "lucide-react";
+
+// for website ui design
+import websiteui1 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg";
+import websiteui2 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI-UX Design.jpg";
+
 
 // logo design images (add more as needed)
 import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
@@ -479,11 +485,11 @@ const projectsData: Record<string, ProjectType> = {
     client: "Freelance.",
     date: "April 2025",
     tags: ["Business Card", "Card Design", "Visiting Card Design"],
-    coverImage: modernminimalistcamerabusinesscard,
+    coverImage: websiteui1,
     description:
       "The business card embraces a sleek, minimalist aesthetic with bold typography and balanced spacing. The header 'SCIENCE CAMERA' hints at a niche focus—perhaps blending design with scientific or technical visuals. The empty 'ADDTAGLINEHER' space invites a punchy slogan (e.g., 'Designing Clarity Through Pixels').",
 
-    galleryImages: [modernminimalistcamerabusinesscard],
+    galleryImages: [websiteui1, websiteui2],
     tools: ["Adobe Illustrator", "Adobe Photoshop"],
   },
 
@@ -1291,8 +1297,8 @@ const projectsData: Record<string, ProjectType> = {
 const ProjectDetails: React.FC = () => {
   const params = useParams();
   const projectId = params.projectId;
-
   const [isLoading, setIsLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState("overview");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -1305,17 +1311,17 @@ const ProjectDetails: React.FC = () => {
     ? projectsData[projectId]
     : undefined;
 
-  const primary = "var(--color-primary, #6c47ff)";
-  const primarySoft = "#328E6E";
-
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1 flex items-center justify-center bg-gradient-to-br from-indigo-50 to-fuchsia-50">
-          <span className="text-lg text-black/60 tracking-widest font-mono animate-pulse">
-            Loading...
-          </span>
+        <main className="flex-1 flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-50">
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin" />
+            <span className="text-lg text-green-800 tracking-widest font-mono">
+              Loading...
+            </span>
+          </div>
         </main>
         <Footer />
       </div>
@@ -1324,46 +1330,17 @@ const ProjectDetails: React.FC = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex flex-col bg-gradient-to-br from-white via-indigo-50 to-fuchsia-100">
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-white via-green-50 to-emerald-50">
         <Navbar />
         <main className="flex-1 flex flex-col items-center justify-center px-4 text-center">
           <div className="h-12 sm:h-20" />
-          <div
-            className="flex flex-col items-center max-w-lg w-full rounded-3xl shadow-2xl p-10 border transition-all duration-200"
-            style={{
-              background: "rgba(255,255,255,0.96)",
-              borderColor: primary,
-            }}
-          >
+          <div className="flex flex-col items-center max-w-lg w-full rounded-3xl shadow-2xl p-10 border border-green-200 bg-white/95">
             <div className="mb-6">
-              <svg width="110" height="110" viewBox="0 0 120 120" fill="none">
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="58"
-                  fill="#f3f4f6"
-                  stroke={primary}
-                  strokeWidth="4"
-                />
-                <text
-                  x="50%"
-                  y="54%"
-                  textAnchor="middle"
-                  fill={primary}
-                  fontSize="44"
-                  fontWeight="bold"
-                  dy=".3em"
-                  style={{ fontFamily: "inherit" }}
-                >
-                  404
-                </text>
-                <ellipse cx="60" cy="90" rx="26" ry="7" fill={primarySoft} />
-              </svg>
+              <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <Circle className="w-12 h-12 text-green-500" />
+              </div>
             </div>
-            <h1
-              className="text-3xl sm:text-4xl font-extrabold mb-2"
-              style={{ color: primary }}
-            >
+            <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 text-green-600">
               Project Not Found
             </h1>
             <p className="mb-8 text-gray-600 text-base sm:text-lg">
@@ -1371,25 +1348,7 @@ const ProjectDetails: React.FC = () => {
             </p>
             <Link to="/projects" className="w-full sm:w-auto">
               <button
-                className="w-full sm:w-auto flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full font-semibold shadow transition-all duration-200"
-                style={{
-                  background: primary,
-                  border: `2px solid ${primary}`,
-                }}
-                onMouseOver={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.background =
-                    primarySoft;
-                  (e.currentTarget as HTMLButtonElement).style.color = "#fff";
-                  (e.currentTarget as HTMLButtonElement).style.borderColor =
-                    primarySoft;
-                }}
-                onMouseOut={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.background =
-                    primary;
-                  (e.currentTarget as HTMLButtonElement).style.color = "#fff";
-                  (e.currentTarget as HTMLButtonElement).style.borderColor =
-                    primary;
-                }}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 text-white px-6 py-2 rounded-full font-semibold shadow transition-all duration-200 bg-green-600 hover:bg-green-700 border-2 border-green-600 hover:border-green-700"
               >
                 <ArrowLeft className="h-5 w-5 mr-1" />
                 Back to Projects
@@ -1403,177 +1362,230 @@ const ProjectDetails: React.FC = () => {
     );
   }
 
-  // Helper: fallback to tags if creativeFields not present
   const creativeFields =
     project.creativeFields && project.creativeFields.length > 0
       ? project.creativeFields
       : project.tags;
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-tr from-indigo-100/80 via-pink-50 to-fuchsia-50">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      {/* Hero section */}
-      <section
-        className="relative pt-16 sm:pt-20 pb-2 md:pb-10"
-        style={{
-          background: "var(--color-primary, #6c47ff)",
-        }}
-      >
-        <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row gap-8 items-center md:items-end">
-          {/* Details */}
-          <div className="flex-1 min-w-0 text-white py-8 px-0 md:py-16 md:pr-12">
-            {/* Back to Projects Button - Moved here, above the title */}
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-all duration-300 text-sm font-medium mb-6 group"
+      
+      {/* Hero Section */}
+      <section className="pt-24 pb-10 bg-gradient-to-br from-green-900 to-green-800 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]" />
+        </div>
+        
+        <div className="container mx-auto px-4">
+          {/* Back to Projects Button */}
+          <div className="mb-16">
+            <Link 
+              to="/projects" 
+              className="group flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300"
             >
-              <ArrowLeft className="w-4 h-4 transform transition-transform duration-300 group-hover:-translate-x-1" />
-              Back to Projects
+              <ArrowLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
+              <span className="text-base font-medium">Back to Projects</span>
             </Link>
-
-            {/* h1 and project meta info */}
-            <h1 className="text-4xl md:text-6xl font-black leading-tight mb-2 drop-shadow-[0_4px_16px_rgba(20,0,40,0.2)]">
-              {project.title}
-            </h1>
-            
-            {/* Rest of the existing content */}
-            <div className="flex items-center gap-6 text-yellow-100 font-semibold mt-4 text-sm">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <span>{project.date}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                <span>{project.client}</span>
-              </div>
-            </div>
-            <p className="mt-7 mb-3 text-white/90 font-normal text-lg max-w-xl">
-              {project.description}
-            </p>
           </div>
 
-          {/* Cover image */}
-          <div className="flex justify-center">
-            <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[520px] xl:w-[650px] 2xl:w-[850px] rounded-3xl shadow-2xl border-4 border-white/40 overflow-hidden mb-6 md:mb-0 mx-auto">
-              <img
-                src={project.coverImage}
-                alt="Project Cover"
-                className="w-full object-cover h-[400px] md:h-[350px] xl:h-[600px] brightness-95"
-              />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left: Project Info */}
+            <div className="flex flex-col gap-6 sticky top-24">
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+                  {project.title}
+                </h1>
+                <p className="text-lg text-white/90 leading-relaxed max-w-xl">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Project Meta Info */}
+              <div className="flex flex-wrap gap-6 text-white/90 font-medium">
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-5 w-5 text-green-300" />
+                  <span>{project.date}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <User className="h-5 w-5 text-green-300" />
+                  <span>{project.client}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Tag className="h-5 w-5 text-green-300" />
+                  <span>{project.category}</span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-4 mt-4">
+                <button className="px-6 py-3 bg-green-700 text-white rounded-xl font-semibold flex items-center gap-2 hover:bg-green-600 transition-all duration-300">
+                  <ArrowUpRight className="w-5 h-5" />
+                  Visit Project
+                </button>
+              </div>
+            </div>
+
+            {/* Right: Cover Image */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-400 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={project.coverImage}
+                  alt={project.title}
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Content/Challenge/Solution/Process */}
-      <main className="flex-1 w-full">
-        <section className="container mx-auto px-2 md:px-6 pt-12 pb-16">
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-10">
-            {/* Left card for summary/tools/tags/creative fields */}
-            <div className="xl:col-span-5">
-              {/* Big card with sticky behavior */}
-              <div
-                className="bg-white/95 rounded-3xl shadow-2xl px-8 py-9 border border-indigo-100 mb-8 relative z-10"
-                style={{
-                  position: "sticky",
-                  top: "100px",
-                  alignSelf: "flex-start",
-                }}
-              >
-                {/* Tools Used */}
-                {project.tools && project.tools.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="font-bold text-indigo-700 mb-2 flex items-center gap-2">
-                      <Layers className="w-5 h-5" />
-                      Tools Used
-                    </h4>
-                    <ul className="flex flex-wrap gap-2">
-                      {project.tools.map((tool: string, idx: number) => (
-                        <li
-                          key={idx}
-                          className="bg-indigo-50 border border-indigo-200 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1"
-                        >
-                          {tool}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+      {/* Main Content */}
+      <main className="flex-1 py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Left Sidebar */}
+            <div className="lg:col-span-3">
+              <div className="sticky top-24 space-y-8">
+                {/* Project Details Card */}
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-6">
+                    Project Details
+                  </h3>
 
-                {/* Tags */}
-                {project.tags && project.tags.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="font-bold text-pink-700 mb-2 flex items-center gap-2">
-                      <Tag className="w-5 h-5" />
-                      Tags
-                    </h4>
-                    <ul className="flex flex-wrap gap-2">
-                      {project.tags.map((tag: string, idx: number) => (
-                        <li
-                          key={idx}
-                          className="bg-pink-50 border border-pink-200 text-pink-700 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1"
-                        >
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                  {/* Tools */}
+                  {project.tools && project.tools.length > 0 && (
+                    <div className="mb-8">
+                      <h4 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                        <Layers className="w-5 h-5 text-green-500" />
+                        Tools & Technologies
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tools.map((tool, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm font-medium"
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-                {/* Creative Fields */}
-                {creativeFields && creativeFields.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="font-bold text-green-700 mb-2 flex items-center gap-2">
-                      <Layers className="w-5 h-5" />
-                      Creative Fields
-                    </h4>
-                    <ul className="flex flex-wrap gap-2">
-                      {creativeFields.map((field: string, idx: number) => (
-                        <li
-                          key={idx}
-                          className="bg-green-50 border border-green-200 text-green-700 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1"
-                        >
-                          {field}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                  {/* Tags */}
+                  {project.tags && project.tags.length > 0 && (
+                    <div className="mb-8">
+                      <h4 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                        <Tag className="w-5 h-5 text-green-500" />
+                        Project Tags
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 bg-gray-50 text-gray-700 rounded-full text-sm font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-                {/* Project Summary */}
-                {/* <h2 className="text-2xl font-bold mb-3 text-[var(--color-primary)]">
-                  Project Summary
-                </h2>
-                <div className="mb-6 text-gray-700">{project.description}</div> */}
+                  {/* Creative Fields */}
+                  {creativeFields && creativeFields.length > 0 && (
+                    <div>
+                      <h4 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500" />
+                        Creative Fields
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {creativeFields.map((field, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm font-medium"
+                          >
+                            {field}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-            {/* Right: gallery images */}
-            <div className="xl:col-span-7 flex flex-col gap-8 justify-center px-0 md:px-2 mt-6 xl:mt-0">
-              <h2 className="text-2xl font-bold mb-2 text-indigo-700">
-                Visual Gallery
-              </h2>
-              {project.galleryImages && project.galleryImages.length > 0 ? (
-                project.galleryImages.map((img: string, idx: number) => (
-                  <figure
-                    key={idx}
-                    className="w-full bg-white rounded-2xl border border-indigo-100 overflow-hidden hover:shadow-2xl transition duration-200"
-                  >
-                    <img
-                      src={img}
-                      alt={`Gallery ${idx + 1}`}
-                      className="w-full h-auto object-contain" // Changed to object-contain and removed fixed height
-                      loading="lazy"
-                    />
-                  </figure>
-                ))
-              ) : (
-                <div className="text-center text-gray-400 py-16">
-                  No gallery images available.
+
+            {/* Right: Gallery */}
+            <div className="lg:col-span-9">
+              <div className="space-y-12">
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Project Gallery
+                </h2>
+                
+                {/* Gallery Grid - Modified for better handling of long images */}
+                <div className="space-y-16">
+                  {project.galleryImages && project.galleryImages.length > 0 ? (
+                    project.galleryImages.map((img, idx) => {
+                      // Check if it's a UI design image (you might want to add a flag in your data structure)
+                      const isUIDesign = project.category === "Website UI";
+                      
+                      return (
+                        <div
+                          key={idx}
+                          className={`group relative bg-white rounded-xl overflow-hidden shadow-2xl hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)] transition-all duration-500 ${
+                            isUIDesign ? 'max-w-[1400px] mx-auto' : ''
+                          }`}
+                        >
+                          {/* Image Wrapper */}
+                          <div className={`relative ${
+                            isUIDesign ? 'cursor-zoom-in' : ''
+                          }`}>
+                            <img
+                              src={img}
+                              alt={`${project.title} design showcase`}
+                              className={`w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500 ${
+                                isUIDesign ? 'min-h-[200px]' : ''
+                              }`}
+                              loading="lazy"
+                              onClick={() => {
+                                if (isUIDesign) {
+                                  // Open image in new tab for full view
+                                  window.open(img, '_blank');
+                                }
+                              }}
+                            />
+                            {/* Hover Overlay - only gradient effect */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </div>
+                          
+                          {/* Optional Image Description */}
+                          {isUIDesign && (
+                            <div className="p-6 border-t border-gray-100">
+                              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                Section {idx + 1}
+                              </h3>
+                              <p className="text-gray-600">
+                                {/* Add description if available in your data structure */}
+                                Click the image to view in full size for detailed inspection.
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="flex items-center justify-center h-48 bg-gray-50 rounded-xl text-gray-500">
+                      No gallery images available
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           </div>
-        </section>
+        </div>
       </main>
 
       <Footer />

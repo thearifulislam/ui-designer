@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import EmotionalButton from "./EmotionalButton";
 import { ArrowRight, Eye } from "lucide-react";
+import { useEffect } from "react";
+
+
+
+// for landing page design
+
+import webui from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg"
 
 // logo design portfolio
 
@@ -34,13 +41,33 @@ import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-b
 import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
 
 const PortfolioSection = () => {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "50px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show-portfolio-item");
+        }
+      });
+    }, observerOptions);
+
+    const portfolioItems = document.querySelectorAll(".portfolio-item");
+    portfolioItems.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   const portfolioItems = [
     {
-      id: "momentum-clothing-brand-for-men",
-      title: "Momentum Menswear – Modern & Stylish Clothing for Men",
-      category: "Logo Design",
-      tags: ["Logo", "Abastract Logo"],
-      image: momentum,
+      id: "template-tricore-creative-onepage-v1",
+      title: "Tricore Creative One Page Website Template",
+      category: "Website UI",
+      tags: ["UI", "Website UI"],
+      image: webui,
     },
     {
       id: "modern-minimalist-camera-business-card",
@@ -123,6 +150,34 @@ const PortfolioSection = () => {
 
   return (
     <section id="portfolio" className="py-24 relative">
+      <style>
+        {`
+          .portfolio-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0, 1);
+          }
+
+          .show-portfolio-item {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          .portfolio-item:nth-child(1) { transition-delay: 0.1s; }
+          .portfolio-item:nth-child(2) { transition-delay: 0.2s; }
+          .portfolio-item:nth-child(3) { transition-delay: 0.3s; }
+          .portfolio-item:nth-child(4) { transition-delay: 0.4s; }
+          .portfolio-item:nth-child(5) { transition-delay: 0.5s; }
+          .portfolio-item:nth-child(6) { transition-delay: 0.6s; }
+          .portfolio-item:nth-child(7) { transition-delay: 0.7s; }
+          .portfolio-item:nth-child(8) { transition-delay: 0.8s; }
+          .portfolio-item:nth-child(9) { transition-delay: 0.9s; }
+          .portfolio-item:nth-child(10) { transition-delay: 1s; }
+          .portfolio-item:nth-child(11) { transition-delay: 1.1s; }
+          .portfolio-item:nth-child(12) { transition-delay: 1.2s; }
+        `}
+      </style>
+
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]" />
@@ -156,7 +211,7 @@ const PortfolioSection = () => {
           {portfolioItems.map((item) => (
             <div
               key={item.id}
-              className="group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1 border border-gray-100"
+              className="portfolio-item group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1 border border-gray-100"
             >
               {/* Image Container with Overlay */}
               <Link to={`/projects/${item.id}`} className="block">
@@ -187,14 +242,14 @@ const PortfolioSection = () => {
                 <div className="flex items-center gap-4">
                   <Link
                     to={`/projects/${item.id}`}
-                    className="flex items-center justify-center gap-2 flex-1 bg-gray-50 hover:bg-green text-gray-600 hover:text-white px-4 py-3 rounded-xl font-medium transition-all duration-300"
+                    className="flex items-center justify-center gap-2 flex-1 bg-green text-white hover:bg-gray-50 hover:text-gray-600 px-4 py-3 rounded-xl font-medium transition-all duration-300"
                   >
                     <Eye className="h-4 w-4" />
                     <span>View Project</span>
                   </Link>
                   <Link
                     to={`/projects/${item.id}`}
-                    className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-50 hover:bg-green text-gray-600 hover:text-white transition-all duration-300"
+                    className="flex items-center justify-center w-12 h-12 rounded-xl bg-green text-white hover:bg-gray-50 hover:text-gray-600 transition-all duration-300"
                   >
                     <ArrowRight className="h-5 w-5" />
                   </Link>
