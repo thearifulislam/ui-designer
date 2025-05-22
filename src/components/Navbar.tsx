@@ -187,14 +187,14 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl md:text-3xl font-bold flex items-center group shrink-0 transition-transform duration-300 hover:scale-105 logo-container"
+          className="text-2xl md:text-3xl font-bold flex items-center group shrink-0 transition-transform duration-300 logo-container"
         >
           <Heart
             className="mr-2 text-[var(--color-secondary)] fill-[var(--color-secondary)] heart-bounce"
             size={24}
           />
           <span className="logo-text">
-            <span className="logo-text-first">Ariful</span>{" "}
+            <span className="logo-text-first">Ariful</span>
             <span className="logo-text-last">UI</span>
           </span>
         </Link>

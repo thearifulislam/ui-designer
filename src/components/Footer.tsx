@@ -26,12 +26,11 @@ const Footer = () => {
               href="#hero"
               className="text-xl md:text-2xl font-bold mb-4 inline-block"
             >
-              <span className="text-yellow">Ariful</span>Islam
+              <span className="text-yellow">Ariful</span>UI
             </a>
             <p className="text-white/80 mt-4">
-              I specialize in crafting unique brand identities and delivering
-              top-tier design solutions that help businesses stand out in
-              today's competitive market.
+              Crafting beautiful and intuitive user interfaces that make digital experiences 
+              delightful and engaging.
             </p>
             <div className="flex space-x-4 mt-6">
               <a
@@ -90,50 +89,26 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="/services/logo-design"
+                  href="/services/landing-page-ui"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  UI Design
+                  Landing Page UI
                 </a>
               </li>
               <li>
                 <a
-                  href="/services/business-card-design"
+                  href="/services/website-ui"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  Design Systems
+                  Website UI
                 </a>
               </li>
               <li>
                 <a
-                  href="/services/letterhead-design"
+                  href="/services/dashboard-ui"
                   className="text-white/80 hover:text-yellow transition-colors duration-300"
                 >
-                  Web App Design
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/brand-guidelines-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Mobile App Design
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/social-media-post-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Interactive Prototypes
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/banner-design"
-                  className="text-white/80 hover:text-yellow transition-colors duration-300"
-                >
-                  Design Consultation
+                  Dashboard UI
                 </a>
               </li>
 

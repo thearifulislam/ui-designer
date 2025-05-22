@@ -19,6 +19,19 @@ import {
 import websiteui1 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg";
 import websiteui2 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI-UX Design.jpg";
 
+// for dashboard ui
+
+import dashboardui1 from "../assets/portfolios/dashboard/1/1.jpg"
+import dashboardui2 from "../assets/portfolios/dashboard/1/2.png"
+import dashboardui3 from "../assets/portfolios/dashboard/1/3.jpg"
+import dashboardui4 from "../assets/portfolios/dashboard/1/4.jpg"
+import dashboardui5 from "../assets/portfolios/dashboard/1/5.jpg"
+import dashboardui6 from "../assets/portfolios/dashboard/1/6.jpg"
+import dashboardui7 from "../assets/portfolios/dashboard/1/7.jpg"
+import dashboardui8 from "../assets/portfolios/dashboard/1/8.jpg"
+
+
+
 
 type ProjectType = {
   title: string;
@@ -46,6 +59,31 @@ const projectsData: Record<string, ProjectType> = {
     galleryImages: [websiteui1, websiteui2],
     tools: ["Figma", "Adobe Photoshop"],
     projectUrl: "https://www.behance.net/gallery/187436533/Creating-Intuitive-Website-Experiences"
+  },
+
+  // for dashboard ui
+
+  "template-theprotect-task-dashboard-v1": {
+    title: "TheProtect – Smart Task Management Dashboard UI",
+    category: "Dashboard UI",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["UI", "Dashboard UI"],
+    coverImage:
+      dashboardui1,
+
+    description:
+      "TheProtect is a smart task management dashboard that helps you manage your tasks and projects efficiently. It is a simple and easy to use dashboard that is designed to help you manage your tasks and projects efficiently.",
+    galleryImages: [dashboardui1,
+      dashboardui2,
+      dashboardui3,
+      dashboardui4,
+      dashboardui5,
+      dashboardui6,
+      dashboardui7,
+      dashboardui8,],
+    tools: ["Figma", "Adobe Photoshop"],
+    projectUrl: "https://www.behance.net/gallery/172851687/Task-Management-Dashboard-UI-Design"
   },
 
 };
@@ -179,17 +217,6 @@ const ProjectDetails: React.FC = () => {
               <p className="text-lg sm:text-xl text-green-100/80 mb-10">
                 Sorry, we couldn't find the project you're looking for. It might have been moved or doesn't exist.
               </p>
-
-              <Link to="/projects" className="inline-block">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group flex items-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-400 text-[#264734] rounded-xl font-semibold shadow-lg shadow-green-500/25 transition-all duration-300"
-                >
-                  <ArrowLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
-                  <span>Back to Projects</span>
-                </motion.button>
-              </Link>
             </motion.div>
           </div>
         </main>
@@ -210,22 +237,11 @@ const ProjectDetails: React.FC = () => {
         </div>
 
         <div className="container mx-auto px-4">
-          {/* Back to Projects Button */}
-          <div className="mb-16">
-            <Link
-              to="/projects"
-              className="group flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300"
-            >
-              <ArrowLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
-              <span className="text-base font-medium">Back to Projects</span>
-            </Link>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left: Project Info */}
             <div className="flex flex-col gap-6 sticky top-24">
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8">
                   {project.title}
                 </h1>
                 <p className="text-lg text-white/90 leading-relaxed max-w-xl">
@@ -270,7 +286,7 @@ const ProjectDetails: React.FC = () => {
                 <img
                   src={project.coverImage}
                   alt={project.title}
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
@@ -355,13 +371,11 @@ const ProjectDetails: React.FC = () => {
                             }`}
                         >
                           {/* Image Wrapper */}
-                          <div className={`relative ${isUIDesign ? 'cursor-zoom-in' : ''
-                            }`}>
+                          <div className={`relative ${isUIDesign ? 'cursor-zoom-in' : ''}`}>
                             <img
                               src={img}
                               alt={`${project.title} design showcase`}
-                              className={`w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500 ${isUIDesign ? 'min-h-[200px]' : ''
-                                }`}
+                              className={`w-full h-auto object-cover ${isUIDesign ? 'min-h-[200px]' : ''}`}
                               loading="lazy"
                               onClick={() => {
                                 if (isUIDesign) {

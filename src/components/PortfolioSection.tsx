@@ -9,36 +9,10 @@ import { useEffect } from "react";
 
 import websiteui1 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg"
 
-// logo design portfolio
+// for dashboard ui
 
-import momentum from "../assets/portfolios/logo-design/abstrack-mark/men-fashion/1/1.jpg";
-import blooddonation from "../assets/portfolios/logo-design/combination-mark/health-care-logo/1/1.jpg";
-import uniflora from "../assets/portfolios/logo-design/lettermark-logo/letter-u/1/1.jpg";
+import dashboardui1 from "../assets/portfolios/dashboard/1/1.jpg"
 
-// for business card
-
-import modernminimalistcamerabusinesscard from "../assets/portfolios/business-card/minimalist/1/1.jpg";
-import modernbusinesscard from "../assets/portfolios/business-card/minimalist/2/1.jpg";
-
-// for letterhead
-
-import elegantgoldaccentedcorporateletterhead from "../assets/portfolios/letterhead/modern/1/Modern Letterhead.jpg";
-import modernminimalist from "../assets/portfolios/letterhead/modern&minimalist-corporate/1/modern and minimalist corporate letterhead.jpg";
-
-// for banner
-
-import professionalpromotionalbanner from "../assets/portfolios/banner/promotional/1/1.jpg";
-
-// for social media cover
-import socialmediacoverdesign from "../assets/portfolios/social-cover/facebook-cover/1/1.jpg";
-
-// for background remove
-
-import imageclippingpath from "../assets/portfolios/background-remove/clipping-path/1/10.jpg";
-
-// for brand guidelines
-import boldpath from "../assets/portfolios/logo-design/brand-guidelines/letter-bp/1/1.jpg";
-import ranova from "../assets/portfolios/logo-design/brand-guidelines/letter-rn/1/1.jpg";
 
 const PortfolioSection = () => {
   useEffect(() => {
@@ -68,6 +42,13 @@ const PortfolioSection = () => {
       category: "Website UI",
       tags: ["UI", "Website UI"],
       image: websiteui1,
+    },
+    {
+      id: "template-theprotect-task-dashboard-v1",
+      title: "TheProtect – Smart Task Management Dashboard UI",
+      category: "Dashboard UI",
+      tags: ["UI", "Dashboard UI"],
+      image: dashboardui1,
     },
    
   ];
