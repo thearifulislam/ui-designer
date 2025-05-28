@@ -143,6 +143,7 @@ const About = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="pt-32 pb-20 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -152,6 +153,7 @@ const About = () => {
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
+              viewport={{ once: true }}
               className="relative z-10"
             >
               <div className="inline-block px-4 py-2 bg-[var(--color-secondary)]/10 rounded-full mb-6">
@@ -220,6 +222,7 @@ const About = () => {
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
+              viewport={{ once: true }}
               className="relative"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)]/20 to-transparent rounded-3xl transform rotate-3"></div>
@@ -242,13 +245,14 @@ const About = () => {
       <motion.section 
         initial="initial"
         whileInView="animate"
-        viewport={{ margin: "-100px" }}
+        viewport={{ margin: "-100px", once: true }}
         variants={fadeInUp}
         className="py-20 bg-white"
       >
         <div className="container mx-auto px-4 md:px-8">
           <motion.div 
             variants={fadeInUp}
+            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-4">Professional Journey</h2>
@@ -262,7 +266,7 @@ const About = () => {
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
-            viewport={{ margin: "-100px" }}
+            viewport={{ margin: "-100px", once: true }}
             className="space-y-8"
           >
             {experiences.map((exp, index) => (
@@ -296,13 +300,14 @@ const About = () => {
       <motion.section 
         initial="initial"
         whileInView="animate"
-        viewport={{ margin: "-100px" }}
+        viewport={{ margin: "-100px", once: true }}
         variants={fadeInUp}
         className="py-20 bg-gradient-to-b from-gray-50 to-white"
       >
         <div className="container mx-auto px-4 md:px-8">
           <motion.div 
             variants={fadeInUp}
+            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-4">Skills & Expertise</h2>
@@ -315,7 +320,7 @@ const About = () => {
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
-            viewport={{ margin: "-100px" }}
+            viewport={{ margin: "-100px", once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {skills.map((skillSet, index) => (
@@ -345,13 +350,14 @@ const About = () => {
       <motion.section 
         initial="initial"
         whileInView="animate"
-        viewport={{ margin: "-100px" }}
+        viewport={{ margin: "-100px", once: true }}
         variants={fadeInUp}
         className="py-20 bg-white"
       >
         <div className="container mx-auto px-4 md:px-8">
           <motion.div 
             variants={fadeInUp}
+            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-4">Education</h2>
@@ -364,7 +370,7 @@ const About = () => {
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
-            viewport={{ margin: "-100px" }}
+            viewport={{ margin: "-100px", once: true }}
             className="space-y-8"
           >
             {education.map((edu, index) => (
@@ -398,13 +404,14 @@ const About = () => {
       <motion.section 
         initial="initial"
         whileInView="animate"
-        viewport={{ margin: "-100px" }}
+        viewport={{ margin: "-100px", once: true }}
         variants={fadeInUp}
         className="py-20 bg-gradient-to-b from-gray-50 to-white"
       >
         <div className="container mx-auto px-4 md:px-8">
           <motion.div 
             variants={fadeInUp}
+            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
@@ -417,7 +424,7 @@ const About = () => {
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
-            viewport={{ margin: "-100px" }}
+            viewport={{ margin: "-100px", once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             <motion.div variants={scaleIn} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
@@ -461,7 +468,7 @@ const About = () => {
       <motion.section 
         initial="initial"
         whileInView="animate"
-        viewport={{ margin: "-100px" }}
+        viewport={{ margin: "-100px", once: true }}
         variants={fadeInUp}
         className="py-20 bg-[var(--color-secondary)] relative overflow-hidden"
       >

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // for landing page design
 import websiteui1 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg"
+import websiteui2 from "../assets/portfolios/ui/website ui/landing-page/2/1.jpg"
 // for dashboard ui
 import dashboardui1 from "../assets/portfolios/dashboard/1/7.jpg"
 
@@ -55,9 +56,8 @@ function AnimatedCard({ item, idx }: { item: any; idx: number }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className={`portfolio-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group ${
-        inView ? "card-scroll-animate-active" : ""
-      }`}
+      className={`portfolio-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group ${inView ? "card-scroll-animate-active" : ""
+        }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -71,13 +71,13 @@ function AnimatedCard({ item, idx }: { item: any; idx: number }) {
             alt={item.title}
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
           />
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
             className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
           >
-            <motion.div 
+            <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
@@ -142,6 +142,13 @@ const Projects = () => {
       tags: ["UI", "Dashboard UI"],
       image: dashboardui1,
     },
+    {
+      id: "music-discovery-hub-v1",
+      title: "Music Discovery Hub: A Sleek UI for Seamless Browsing and Playlist Creation",
+      categories: ["website"],
+      tags: ["website"],
+      image: websiteui2,
+    },
   ];
 
   // ==== Filtering Logic ====
@@ -167,7 +174,7 @@ const Projects = () => {
     setIsLoading(true);
     setActiveFilter(categoryId);
     setIsFilterOpen(false);
-    
+
     // Simulate loading delay
     setTimeout(() => {
       setIsLoading(false);
@@ -181,7 +188,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -253,11 +260,10 @@ const Projects = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleFilterChange(category.id)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                          activeFilter === category.id
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === category.id
                             ? "bg-[var(--color-secondary)] text-white"
                             : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
+                          }`}
                       >
                         {category.name}
                       </motion.button>

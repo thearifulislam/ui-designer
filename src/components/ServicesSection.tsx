@@ -108,7 +108,12 @@ const ServicesSection = () => {
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-8 mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row md:justify-between md:items-end gap-8 mb-16"
+        >
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Crafting Digital{" "}
@@ -134,7 +139,7 @@ const ServicesSection = () => {
               </EmotionalButton>
             </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -142,8 +147,7 @@ const ServicesSection = () => {
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.5,
                 delay: index * 0.1,
@@ -162,8 +166,7 @@ const ServicesSection = () => {
                 {/* Icon */}
                 <motion.div
                   initial={{ scale: 0.8 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: false }}
+                  animate={{ scale: 1 }}
                   transition={{ duration: 0.3, delay: (index * 0.1) + 0.2 }}
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${service.iconBg} transition-transform group-hover:scale-110`}
                 >
@@ -185,8 +188,7 @@ const ServicesSection = () => {
                       <motion.div 
                         key={idx} 
                         initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.1) + 0.3 }}
                         className="flex items-center text-gray-700"
                       >
@@ -203,8 +205,7 @@ const ServicesSection = () => {
                         <motion.span
                           key={idx}
                           initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: false }}
+                          animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.1) + 0.4 }}
                           className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-50 text-gray-600"
                         >
@@ -231,7 +232,12 @@ const ServicesSection = () => {
         </div>
 
         {/* Mobile CTA */}
-        <div className="mt-12 text-center md:hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center md:hidden"
+        >
           <Link to="/services">
             <EmotionalButton
               className="bg-[var(--color-secondary)] text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2"
@@ -242,7 +248,7 @@ const ServicesSection = () => {
               <ArrowRight className="w-5 h-5" />
             </EmotionalButton>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -13,11 +13,20 @@ import {
   Layers,
   ArrowUpRight,
   Eye,
+  Heart,
+  MessageCircle,
+  Send,
 } from "lucide-react";
+import { database } from "../firebase/config";
+import { ref, set, get, update, onValue } from "firebase/database";
 
 // Website UI Design Images
 import websiteui1 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg";
 import websiteui2 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI-UX Design.jpg";
+
+import websiteui3 from "../assets/portfolios/ui/website ui/landing-page/2/1.jpg"
+import websiteui4 from "../assets/portfolios/ui/website ui/landing-page/2/2.jpg"
+import websiteui5 from "../assets/portfolios/ui/website ui/landing-page/2/3.jpg"
 
 // for dashboard ui
 
@@ -61,6 +70,20 @@ const projectsData: Record<string, ProjectType> = {
     projectUrl: "https://www.behance.net/gallery/187436533/Creating-Intuitive-Website-Experiences"
   },
 
+  "music-discovery-hub-v1": {
+    title: "Music Discovery Hub: A Sleek UI for Seamless Browsing and Playlist Creation",
+    category: "Website UI",
+    client: "Freelance",
+    date: "April 2025",
+    tags: ["UI", "Website UI"],
+    coverImage: websiteui3,
+    description:
+      "A sleek and intuitive music discovery hub that allows users to browse and create playlists seamlessly. The design features a clean, modern interface with a focus on user-friendly navigation and personalized content.",
+    galleryImages: [websiteui3, websiteui4, websiteui5],
+    tools: ["Figma", "Adobe Photoshop"],
+    projectUrl: "https://www.behance.net/gallery/197800781/Landing-Page-UI-Design"
+  },
+
   // for dashboard ui
 
   "template-theprotect-task-dashboard-v1": {
@@ -88,22 +111,195 @@ const projectsData: Record<string, ProjectType> = {
 
 };
 
+interface Comment {
+  id: string;
+  name: string;
+  comment: string;
+  timestamp: string;
+}
+
+interface ProjectStats {
+  viewCount: number;
+  likeCount: number;
+  likedBy: string[];
+  comments: Comment[];
+}
+
+const API_URL = 'https://ariful-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app';
+
 const ProjectDetails: React.FC = () => {
   const params = useParams();
   const projectId = params.projectId;
   const [isLoading, setIsLoading] = useState(true);
-  const [activeSection, setActiveSection] = useState("overview");
+  const [viewCount, setViewCount] = useState(0);
+  const [likeCount, setLikeCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [newComment, setNewComment] = useState({ name: '', comment: '' });
+  const [userIdentifier, setUserIdentifier] = useState('');
 
+  // Get project data from projectsData
+  const project: ProjectType | undefined = projectId ? projectsData[projectId] : undefined;
+
+  // Load initial data
   useEffect(() => {
-    setIsLoading(true);
-    const timer = setTimeout(() => setIsLoading(false), 400);
-    return () => clearTimeout(timer);
-  }, [projectId]);
+    const loadData = async () => {
+      try {
+        // Get user identifier
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        const identifier = `${data.ip}-${navigator.userAgent}`;
+        setUserIdentifier(identifier);
 
-  const project: ProjectType | undefined = projectId
-    ? projectsData[projectId]
-    : undefined;
+        // Check if project exists
+        if (!project) {
+          setIsLoading(false);
+          return;
+        }
 
+        // Get project stats from Firebase
+        const projectRef = `${API_URL}/projects/${projectId}.json`;
+        const statsResponse = await fetch(projectRef);
+        const statsData = await statsResponse.json();
+
+        if (statsData) {
+          setViewCount(statsData.viewCount || 0);
+          setLikeCount(statsData.likeCount || 0);
+          setComments(statsData.comments || []);
+          setIsLiked(statsData.likedBy?.includes(identifier) || false);
+        } else {
+          // Initialize project stats if they don't exist
+          const initialStats = {
+            viewCount: 0,
+            likeCount: 0,
+            likedBy: [],
+            comments: [],
+            viewedBy: []
+          };
+          await fetch(projectRef, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(initialStats)
+          });
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
+  }, [project, projectId]);
+
+  // Handle view count
+  useEffect(() => {
+    const incrementViewCount = async () => {
+      if (projectId && userIdentifier && !isLoading) {
+        const sessionKey = `viewed_${projectId}`;
+        const hasViewed = sessionStorage.getItem(sessionKey);
+
+        if (!hasViewed) {
+          try {
+            const projectRef = `${API_URL}/projects/${projectId}.json`;
+            const response = await fetch(projectRef);
+            const data = await response.json() || { viewCount: 0, viewedBy: [] };
+
+            if (!data.viewedBy?.includes(userIdentifier)) {
+              const newCount = (data.viewCount || 0) + 1;
+              const newViewedBy = [...(data.viewedBy || []), userIdentifier];
+
+              await fetch(projectRef, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  viewCount: newCount,
+                  viewedBy: newViewedBy
+                })
+              });
+
+              setViewCount(newCount);
+              sessionStorage.setItem(sessionKey, 'true');
+            }
+          } catch (error) {
+            console.error('Error updating view count:', error);
+          }
+        }
+      }
+    };
+
+    incrementViewCount();
+  }, [projectId, userIdentifier, isLoading]);
+
+  // Handle like
+  const handleLike = async () => {
+    if (!isLiked && userIdentifier && projectId) {
+      try {
+        const projectRef = `${API_URL}/projects/${projectId}.json`;
+        const response = await fetch(projectRef);
+        const data = await response.json() || { likeCount: 0, likedBy: [] };
+
+        if (!data.likedBy?.includes(userIdentifier)) {
+          const newLikeCount = (data.likeCount || 0) + 1;
+          const newLikedBy = [...(data.likedBy || []), userIdentifier];
+
+          const updateResponse = await fetch(projectRef, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              likeCount: newLikeCount,
+              likedBy: newLikedBy
+            })
+          });
+
+          if (updateResponse.ok) {
+            setLikeCount(newLikeCount);
+            setIsLiked(true);
+          }
+        }
+      } catch (error) {
+        console.error('Error updating like:', error);
+      }
+    }
+  };
+
+  // Handle comment submission
+  const handleCommentSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newComment.name.trim() && newComment.comment.trim() && projectId) {
+      try {
+        const projectRef = `${API_URL}/projects/${projectId}.json`;
+        const response = await fetch(projectRef);
+        const data = await response.json() || { comments: [] };
+
+        const comment: Comment = {
+          id: Date.now().toString(),
+          name: newComment.name.trim(),
+          comment: newComment.comment.trim(),
+          timestamp: new Date().toISOString()
+        };
+
+        const updatedComments = [...(data.comments || []), comment];
+
+        const updateResponse = await fetch(projectRef, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            comments: updatedComments
+          })
+        });
+
+        if (updateResponse.ok) {
+          setComments(updatedComments);
+          setNewComment({ name: '', comment: '' });
+        }
+      } catch (error) {
+        console.error('Error adding comment:', error);
+      }
+    }
+  };
+
+  // If loading, show loading screen
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -121,6 +317,7 @@ const ProjectDetails: React.FC = () => {
     );
   }
 
+  // If project not found, show error screen
   if (!project) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -224,6 +421,7 @@ const ProjectDetails: React.FC = () => {
     );
   }
 
+  // Main render
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
@@ -400,6 +598,114 @@ const ProjectDetails: React.FC = () => {
           </div>
         </div>
       </main>
+
+      {/* Engagement Section (Likes, Comments, Views) */}
+      <section className="py-12 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* Stats Row */}
+            <div className="flex items-center justify-center gap-8">
+              {/* View Counter */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-2 text-green-800"
+              >
+                <Eye className="w-5 h-5" />
+                <span className="text-lg font-medium">{viewCount.toLocaleString()} unique views</span>
+              </motion.div>
+
+              {/* Like Counter */}
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                onClick={handleLike}
+                className={`flex items-center gap-2 ${isLiked ? 'text-green-600' : 'text-green-800 hover:text-green-600'} transition-colors`}
+                disabled={isLiked}
+              >
+                <Heart 
+                  className={`w-5 h-5 transition-all duration-300 ${isLiked ? 'fill-green-500 text-green-500 scale-110' : ''}`} 
+                />
+                <span className="text-lg font-medium">{likeCount.toLocaleString()} likes</span>
+              </motion.button>
+            </div>
+
+            {/* Comments Section */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <MessageCircle className="w-5 h-5" />
+                Comments ({comments.length})
+              </h3>
+
+              {/* Comment Form */}
+              <form onSubmit={handleCommentSubmit} className="mb-8 space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    value={newComment.name}
+                    onChange={(e) => setNewComment({ ...newComment, name: e.target.value })}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="comment" className="block text-sm font-medium text-gray-700 mb-1">
+                    Opinion *
+                  </label>
+                  <textarea
+                    id="comment"
+                    required
+                    value={newComment.comment}
+                    onChange={(e) => setNewComment({ ...newComment, comment: e.target.value })}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all min-h-[100px]"
+                    placeholder="Share your thoughts..."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors gap-2"
+                >
+                  <Send className="w-4 h-4" />
+                  Post Comment
+                </button>
+              </form>
+
+              {/* Comments List */}
+              <div className="space-y-6">
+                {comments.length > 0 ? (
+                  comments.map((comment) => (
+                    <motion.div
+                      key={comment.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-gray-50 rounded-lg p-4"
+                    >
+                      <div className="flex items-start justify-between mb-2">
+                        <h4 className="font-medium text-gray-900">{comment.name}</h4>
+                        <span className="text-sm text-gray-500">
+                          {new Date(comment.timestamp).toLocaleDateString()}
+                        </span>
+                      </div>
+                      <p className="text-gray-700">{comment.comment}</p>
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="text-center text-gray-500">
+                    No comments yet. Be the first to comment!
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
