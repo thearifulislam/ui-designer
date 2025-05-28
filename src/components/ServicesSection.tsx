@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Layers, Palette, Layout, Smartphone, Monitor, Box, Figma, Framer } from "lucide-react";
 import EmotionalButton from "./EmotionalButton";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -137,9 +138,17 @@ const ServicesSection = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div
+          {services.map((service, index) => (
+            <motion.div
               key={service.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: [0.43, 0.13, 0.23, 0.96]
+              }}
               className={`group bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
                 hoveredCard === service.id
                   ? "ring-2 ring-[var(--color-secondary)]"
@@ -151,11 +160,15 @@ const ServicesSection = () => {
               {/* Card Content */}
               <div className="p-8">
                 {/* Icon */}
-                <div
+                <motion.div
+                  initial={{ scale: 0.8 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.3, delay: (index * 0.1) + 0.2 }}
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${service.iconBg} transition-transform group-hover:scale-110`}
                 >
                   {service.icon}
-                </div>
+                </motion.div>
 
                 {/* Title & Description */}
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -169,10 +182,17 @@ const ServicesSection = () => {
                 <div className="space-y-4">
                   <div className="space-y-2">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center text-gray-700">
+                      <motion.div 
+                        key={idx} 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: false }}
+                        transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.1) + 0.3 }}
+                        className="flex items-center text-gray-700"
+                      >
                         <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)] mr-3" />
                         <span className="text-sm">{feature}</span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
 
@@ -180,12 +200,16 @@ const ServicesSection = () => {
                   <div className="pt-4 border-t border-gray-100">
                     <div className="flex flex-wrap gap-2">
                       {service.tools.map((tool, idx) => (
-                        <span
+                        <motion.span
                           key={idx}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: false }}
+                          transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.1) + 0.4 }}
                           className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-50 text-gray-600"
                         >
                           {tool}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>
@@ -202,7 +226,7 @@ const ServicesSection = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

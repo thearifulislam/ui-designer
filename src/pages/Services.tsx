@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   Layout,
@@ -16,6 +17,30 @@ import {
 } from "lucide-react";
 
 const Services = () => {
+  const location = useLocation();
+
+  // Animation variants with increased duration and delay
+  const fadeInUp = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const cardAnimation = {
+    initial: { opacity: 0, y: 50, scale: 0.9 },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
   const services = [
     {
       id: "logo-design",
@@ -234,93 +259,186 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f9f9f9]">
-      <Navbar />
-      <section className="pt-32 pb-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            My <span className="theme-color-secondary">Services</span>
-          </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-10">
-            With over 18 years of experience in design, I offer a comprehensive
-            range of services to help brands create meaningful digital
-            experiences.
-          </p>
-        </div>
-      </section>
-      <section className="py-20">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-250 border border-gray-100 card-hover service-card flex flex-col items-start hover:-translate-y-2"
-              >
-                <div className="mb-4">{service.icon}</div>
-                <Link to={`/services/${service.id}`} className="block mb-2">
-                  <h3 className="text-xl font-bold mb-1 hover:theme-color-secondary transition-colors">
-                    {service.title}
-                  </h3>
-                </Link>
-                <p className="text-black-soft/70 mb-4">{service.description}</p>
-                <div className="mb-5 w-full">
-                  <h4 className="text-xs font-semibold mb-1 text-black-soft/50">
-                    KEY FEATURES
-                  </h4>
-                  <ul className="space-y-1">
-                    {service.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center text-gray-700 text-[13px] sm:text-xs font-medium"
-                      >
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] mr-2"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-5 w-full">
-                  {service.subServices.map((subService, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-[var(--color-primary)] text-white px-3 py-1 rounded-[5px] text-xs m-1"
-                    >
-                      {subService}
-                    </span>
-                  ))}
-                </div>
-                <Link to={`/services/${service.id}`} className="mt-auto block">
-                  <button className="theme-color-primary hover:text-[var(--color-secondary)] flex items-center font-medium transition-transform duration-200 group hover:scale-105">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:scale-110" />
-                  </button>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Start Your{" "}
-            <span className="theme-color-secondary">Project</span>?
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Let's collaborate to create something amazing together. Contact me
-            today to discuss your next design project.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center theme-bg-primary text-white px-6 py-3 rounded-full font-medium hover:theme-bg-secondary transition-colors duration-300"
+    <AnimatePresence mode="wait">
+      <div className="min-h-screen bg-[#f9f9f9]" key={location.pathname}>
+        <Navbar />
+        <motion.section 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ margin: "-100px", once: true }}
+          variants={fadeInUp}
+          className="pt-32 pb-16 bg-white"
+        >
+          <motion.div 
+            variants={fadeInUp}
+            transition={{ delay: 0.2 }}
+            className="container mx-auto px-4 md:px-8 text-center"
           >
-            Get in Touch
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </section>
-      <Footer />
-    </div>
+            <motion.h1 
+              variants={fadeInUp}
+              transition={{ delay: 0.4 }}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              My <span className="theme-color-secondary">Services</span>
+            </motion.h1>
+            <motion.p 
+              variants={fadeInUp}
+              transition={{ delay: 0.6 }}
+              className="text-muted-foreground max-w-2xl mx-auto mb-10"
+            >
+              With over 18 years of experience in design, I offer a comprehensive
+              range of services to help brands create meaningful digital
+              experiences.
+            </motion.p>
+          </motion.div>
+        </motion.section>
+
+        <motion.section 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ margin: "-100px", once: true }}
+          className="py-20"
+        >
+          <div className="container mx-auto px-4 md:px-8">
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ margin: "-100px", once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  variants={cardAnimation}
+                  transition={{ duration: 0.8, delay: 0.2 * index }}
+                  className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-250 border border-gray-100 card-hover service-card flex flex-col items-start hover:-translate-y-2"
+                >
+                  <motion.div 
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ margin: "-100px", once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 + (0.1 * index) }}
+                    className="mb-4"
+                  >
+                    {service.icon}
+                  </motion.div>
+                  <Link to={`/services/${service.id}`} className="block mb-2">
+                    <h3 className="text-xl font-bold mb-1 hover:theme-color-secondary transition-colors">
+                      {service.title}
+                    </h3>
+                  </Link>
+                  <p className="text-black-soft/70 mb-4">{service.description}</p>
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ margin: "-100px", once: true }}
+                    transition={{ delay: 0.5 + (0.1 * index), duration: 0.8 }}
+                    className="mb-5 w-full"
+                  >
+                    <h4 className="text-xs font-semibold mb-1 text-black-soft/50">
+                      KEY FEATURES
+                    </h4>
+                    <ul className="space-y-1">
+                      {service.features.map((feature, idx) => (
+                        <motion.li
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ margin: "-100px", once: true }}
+                          transition={{ delay: 0.7 + (0.15 * idx), duration: 0.6 }}
+                          className="flex items-center text-gray-700 text-[13px] sm:text-xs font-medium"
+                        >
+                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] mr-2"></span>
+                          {feature}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ margin: "-100px", once: true }}
+                    transition={{ delay: 0.9 + (0.1 * index), duration: 0.8 }}
+                    className="flex flex-wrap gap-2 mb-5 w-full"
+                  >
+                    {service.subServices.map((subService, idx) => (
+                      <motion.span
+                        key={idx}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ margin: "-100px", once: true }}
+                        transition={{ delay: 1.1 + (0.15 * idx), duration: 0.6 }}
+                        className="bg-[var(--color-primary)] text-white px-3 py-1 rounded-[5px] text-xs m-1"
+                      >
+                        {subService}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                  <Link to={`/services/${service.id}`} className="mt-auto block">
+                    <motion.button
+                      whileHover={{ scale: 1.05, x: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.4 }}
+                      className="theme-color-primary hover:text-[var(--color-secondary)] flex items-center font-medium transition-transform duration-200 group"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:scale-110" />
+                    </motion.button>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.section>
+
+        <motion.section 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ margin: "-100px", once: true }}
+          variants={fadeInUp}
+          className="py-16 bg-white"
+        >
+          <motion.div 
+            variants={fadeInUp}
+            transition={{ delay: 0.3 }}
+            className="container mx-auto px-4 md:px-8 text-center"
+          >
+            <motion.h2 
+              variants={fadeInUp}
+              transition={{ delay: 0.5 }}
+              className="text-3xl font-bold mb-6"
+            >
+              Ready to Start Your{" "}
+              <span className="theme-color-secondary">Project</span>?
+            </motion.h2>
+            <motion.p 
+              variants={fadeInUp}
+              transition={{ delay: 0.7 }}
+              className="text-muted-foreground max-w-2xl mx-auto mb-8"
+            >
+              Let's collaborate to create something amazing together. Contact me
+              today to discuss your next design project.
+            </motion.p>
+            <motion.div
+              variants={fadeInUp}
+              transition={{ delay: 0.9 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/contact"
+                className="inline-flex items-center theme-bg-primary text-white px-6 py-3 rounded-full font-medium hover:theme-bg-secondary transition-colors duration-300"
+              >
+                Get in Touch
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </motion.div>
+          </motion.div>
+        </motion.section>
+        <Footer />
+      </div>
+    </AnimatePresence>
   );
 };
 

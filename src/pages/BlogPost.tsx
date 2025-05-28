@@ -1,5 +1,4 @@
-
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -7,11 +6,6 @@ import { Calendar, Clock, User, Tag, ArrowRight, Facebook, Twitter, Linkedin, Co
 
 const BlogPost = () => {
   const { blogId } = useParams<{ blogId: string }>();
-  
-  // Scroll to top on component mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [blogId]);
   
   // Blog data (in a real app, this would come from an API)
   const blogData = {

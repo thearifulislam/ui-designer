@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Download,
@@ -112,16 +113,47 @@ const About = () => {
   const projects = useCountUp(100, 1300, 0); // 0 -> 100+
   const industries = useCountUp(50, 1250, 0); // 0 -> 50+
 
+  // Animation variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const scaleIn = {
+    initial: { scale: 0.8, opacity: 0 },
+    animate: { scale: 1, opacity: 1 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="pt-32 pb-20 relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="relative z-10">
+            <motion.div 
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="relative z-10"
+            >
               <div className="inline-block px-4 py-2 bg-[var(--color-secondary)]/10 rounded-full mb-6">
                 <span className="text-[var(--color-secondary)] font-medium">Creative Designer</span>
               </div>
@@ -182,10 +214,14 @@ const About = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Profile Image with Decorative Elements */}
-            <div className="relative">
+            <motion.div 
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="relative"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)]/20 to-transparent rounded-3xl transform rotate-3"></div>
               <div className="relative z-10 bg-white rounded-3xl overflow-hidden shadow-2xl">
                 <img
@@ -197,26 +233,42 @@ const About = () => {
               {/* Decorative Elements */}
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-[var(--color-secondary)]/10 rounded-full blur-2xl"></div>
               <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-2xl"></div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Experience Section */}
-      <section className="py-20 bg-white">
+      <motion.section 
+        initial="initial"
+        whileInView="animate"
+        viewport={{ margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 bg-white"
+      >
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl font-bold mb-4">Professional Journey</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               My experience spans across various design disciplines, helping businesses
               achieve their goals through creative solutions.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-8">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ margin: "-100px" }}
+            className="space-y-8"
+          >
             {experiences.map((exp, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={fadeInUp}
                 className="group bg-gradient-to-r from-white to-gray-50 p-8 rounded-3xl transition-all duration-300"
               >
                 <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -234,25 +286,44 @@ const About = () => {
                     <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Skills Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <motion.section 
+        initial="initial"
+        whileInView="animate"
+        viewport={{ margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      >
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl font-bold mb-4">Skills & Expertise</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               A comprehensive set of skills that enable me to deliver exceptional design solutions
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             {skills.map((skillSet, index) => (
-              <div key={index} className="bg-white p-8 rounded-3xl transition-all duration-300">
+              <motion.div 
+                key={index}
+                variants={scaleIn}
+                className="bg-white p-8 rounded-3xl transition-all duration-300"
+              >
                 <h3 className="text-2xl font-semibold mb-6 theme-color-secondary">
                   {skillSet.category}
                 </h3>
@@ -264,26 +335,42 @@ const About = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Education Section */}
-      <section className="py-20 bg-white">
+      <motion.section 
+        initial="initial"
+        whileInView="animate"
+        viewport={{ margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 bg-white"
+      >
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl font-bold mb-4">Education</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               My academic journey that has shaped my professional growth
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-8">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ margin: "-100px" }}
+            className="space-y-8"
+          >
             {education.map((edu, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={fadeInUp}
                 className="group bg-gradient-to-r from-white to-gray-50 p-8 rounded-3xl transition-all duration-300"
               >
                 <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -301,24 +388,39 @@ const About = () => {
                     <p className="text-muted-foreground">{edu.location}</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <motion.section 
+        initial="initial"
+        whileInView="animate"
+        viewport={{ margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      >
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Let's discuss how we can work together to bring your vision to life
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            <motion.div variants={scaleIn} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
               <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4 group-hover:scale-110 transition-transform">
                 <Mail className="h-8 w-8 text-[var(--color-secondary)]" />
               </div>
@@ -329,9 +431,9 @@ const About = () => {
               >
                 acs.arifulislam@gmail.com
               </a>
-            </div>
+            </motion.div>
 
-            <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
+            <motion.div variants={scaleIn} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
               <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4 group-hover:scale-110 transition-transform">
                 <Phone className="h-8 w-8 text-[var(--color-secondary)]" />
               </div>
@@ -342,23 +444,32 @@ const About = () => {
               >
                 +88 01938-434733
               </a>
-            </div>
+            </motion.div>
 
-            <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
+            <motion.div variants={scaleIn} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 text-center group">
               <div className="bg-[var(--color-secondary)]/10 p-4 rounded-full inline-block mb-4 group-hover:scale-110 transition-transform">
                 <MapPin className="h-8 w-8 text-[var(--color-secondary)]" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Location</h3>
               <p className="text-muted-foreground text-lg">Khulna, Bangladesh</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[var(--color-secondary)] relative overflow-hidden">
+      <motion.section 
+        initial="initial"
+        whileInView="animate"
+        viewport={{ margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 bg-[var(--color-secondary)] relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div className="container mx-auto px-4 md:px-8 text-center relative z-10">
+        <motion.div 
+          variants={fadeInUp}
+          className="container mx-auto px-4 md:px-8 text-center relative z-10"
+        >
           <h2 className="text-4xl font-bold mb-6 text-white">
             Ready to Start Your Project?
           </h2>
@@ -366,15 +477,20 @@ const About = () => {
             Let's collaborate to create an amazing digital experience that
             achieves your business goals and delights your users.
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center bg-white text-[var(--color-primary)] px-8 py-4 rounded-full font-medium hover:bg-opacity-90 transition-all duration-300 text-lg"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Get in Touch
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </section>
+            <Link
+              to="/contact"
+              className="inline-flex items-center bg-white text-[var(--color-primary)] px-8 py-4 rounded-full font-medium hover:bg-opacity-90 transition-all duration-300 text-lg"
+            >
+              Get in Touch
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </motion.div>
+        </motion.div>
+      </motion.section>
 
       <Footer />
     </div>

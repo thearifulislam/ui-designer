@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // for landing page design
 import websiteui1 from "../assets/portfolios/ui/website ui/landing-page/1/Website UI Design.jpg"
 // for dashboard ui
-import dashboardui1 from "../assets/portfolios/dashboard/1/1.jpg"
+import dashboardui1 from "../assets/portfolios/dashboard/1/7.jpg"
 
 // Categories for main filter buttons
 const categories = [
